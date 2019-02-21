@@ -15,10 +15,7 @@ include 'Classes/User.php';
 </head>
 <body>
 <?php
-    $user = new User();
-    //echo $user->username;
-    //echo $user->password;
-    //echo $user->username;
+    $user = new User("test1","test1","test1");
     echo "<br>". $user-> getUsername();
     ?>
 
