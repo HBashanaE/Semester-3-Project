@@ -1,4 +1,4 @@
 <?php
-$db = mysqli_connect("localhost", "root", "legendary", "login") or die ("Failed to connect");
+$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
 
 ?>
