@@ -28,7 +28,7 @@
         //$query = mysqli_real_escape_string($query);
         // makes sure nobody uses SQL injection
          
-        $raw_results = mysqli_query("SELECT * FROM ads
+        $raw_results = mysqli_query($db,"SELECT * FROM ads
             WHERE (`title` LIKE '%".$query."%') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
              
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
@@ -40,10 +40,10 @@
          
         if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
              
-            while($results = mysql_fetch_array($raw_results)){
+            while($results = mysqli_fetch_array($raw_results)){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
              
-                echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
+                echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
                 // posts results gotten from database(title and text) you can also show id ($results['id'])
             }
              
