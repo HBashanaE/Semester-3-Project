@@ -5,27 +5,31 @@
     //mysql_select_db("login") or die(mysql_error());
      
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Search results</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <?php
-    $query = $_GET['query']; 
-    // gets value sent over search form
+    $query = $_GET['query']; // gets value sent over search form
      
-    $min_length = 3;
-    // you can set minimum length of the query if you want
+    $min_length = 3; // you can set minimum length of the query if you want
      
-    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
+    if(strlen($query) >= $min_length){
          
         $query = htmlspecialchars($query); 
         // changes characters used in html to their equivalents, for example: < to &gt;
          
-        //$query = mysqli_real_escape_string($query);
+        $query = mysqli_real_escape_string($db,$query);
         // makes sure nobody uses SQL injection
          
         $raw_results = mysqli_query($db,"SELECT * FROM ads
@@ -49,7 +53,7 @@
              
         }
         else{ // if there is no matching rows do following
-            echo "No results";
+            echo "No results found";
         }
          
     }
