@@ -340,7 +340,7 @@ if($_POST['submit']) {
 </head>
 
 <body>
-    <div class="login">
+    <div class="form-inline">
         <div class="heading">
             <h2>Sign in</h2>
             <form method="post" action="index.php">
@@ -360,7 +360,9 @@ if($_POST['submit']) {
             </form>
         </div>
     </div>
-    <a href="register.php">Register</a>
+    <div class="container" align="center">
+        <a href="register.php">Register</a>
+    </div>
 </body>
 
 </html>
