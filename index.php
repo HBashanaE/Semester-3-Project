@@ -127,7 +127,7 @@ if($_POST['submit']) {
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Kuliyata</title>
  <style>
 
  @import "bourbon";
@@ -147,15 +147,18 @@ $button-background-color: #27AE60;
 }
 
 html { 
+  background-image: url("Kuliyata Logo.png");
   background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: full;
 }
 
 body {
-background-color:white;
+  
+
+
 	
 }
 
