@@ -127,11 +127,6 @@ if($_POST['submit']) {
 <html>
 
 <head>
-<<<<<<< HEAD
-<meta charset="ISO-8859-1">
-<title>Kuliyata</title>
- <style>
-=======
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
     <style>
@@ -150,7 +145,6 @@ if($_POST['submit']) {
         margin: 100px;
         padding: 100px;
     }
->>>>>>> a514681ce15d7e81a3330edd4f9c9c7244b3c399
 
     html {
         background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;
@@ -163,33 +157,6 @@ if($_POST['submit']) {
     body {
         background-color: white;
 
-<<<<<<< HEAD
-$shadow-color: #23203b;
-$input-color: lighten(#AB9E95, 10%);
-$input-border-color: #5E5165;
-$button-background-color: #27AE60;
- 
-* {
-  margin: 100px;
-  padding:100px;
-}
-
-html { 
-  background-image: url("Kuliyata Logo.png");
-  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: full;
-}
-
-body {
-  
-
-
-	
-}
-=======
     }
 
     body,
@@ -197,7 +164,6 @@ body {
     button {
         font-family: 'Source Sans Pro', sans-serif;
     }
->>>>>>> a514681ce15d7e81a3330edd4f9c9c7244b3c399
 
     @mixin normalize-input {
         display: block;
