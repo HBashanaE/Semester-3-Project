@@ -38,6 +38,24 @@ if($_POST['submit']) {
 <meta charset="ISO-8859-1">
 <title>Kuliyata</title>
  <style>
+    <meta charset="ISO-8859-1">
+    <title>කුළියට</title>
+    <style>
+    @import "bourbon";
+
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
+    @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+    $shadow-color: #23203b;
+    $input-color: lighten(#AB9E95, 10%);
+    $input-border-color: #5E5165;
+    $button-background-color: #27AE60;
+
+    * {
+        margin: 100px;
+        padding: 100px;
+    }
 
     html {
         background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;
@@ -49,6 +67,7 @@ if($_POST['submit']) {
 
     body {
         background-color: white;
+
 
 $shadow-color: #23203b;
 $input-color: lighten(#AB9E95, 10%);
@@ -75,6 +94,13 @@ body {
 
 	
 }
+    }
+
+    body,
+    input,
+    button {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
 
     @mixin normalize-input {
         display: block;
