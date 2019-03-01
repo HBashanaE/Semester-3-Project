@@ -397,7 +397,7 @@ if($_POST['submit']) {
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-2 ">
                                 <!-- <button type="button" value="Search" class="btn btn-primary wrn-btn">Search</button> -->
-                                <input type="submit" class="btn btn-info active" value="Search">
+                                <input type="submit" class="btn btn-info active align-items-center" value="Search">
                             </div>
                         </div>
                     </div>
