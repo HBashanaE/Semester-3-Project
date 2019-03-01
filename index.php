@@ -340,7 +340,7 @@ if($_POST['submit']) {
 </head>
 
 <body>
-    <div class="form-inline">
+    <div class="form-inline" align="right">
         <div class="heading">
             <h2>Sign in</h2>
             <form method="post" action="index.php">
