@@ -289,41 +289,39 @@ body {
 </head>
 
 <body>
-    <div class="form-inline" align="right">
-        <div class="heading">
-            <h2>Sign in</h2>
-            <form method="post" action="index.php">
+    <div class="form-inline container align-items-right">
+        <div class=" heading">
+        <h2>Sign in</h2>
+        <form method="post" action="index.php">
 
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="username" class="form-control" placeholder="Username or email">
-                </div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" name="username" class="form-control" placeholder="Username or email">
+            </div>
 
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                </div>
-                <p></p>
-                <button type="submit" name="submit" class="float" value="login">Login</button>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <p></p>
+            <button type="submit" name="submit" class="float" value="login">Login</button>
 
-            </form>
-        </div>
+        </form>
+    </div>
     </div>
     <div class="container" align="center">
         <a href="register.php">Register</a>
     </div>
     <section class="search-sec" align="center">
         <div class="container">
-            <form action="search.php" method="GET" >
+            <form action="search.php" method="GET">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-2">
-                                <input type="text" name="query" class="form-control search-slt" placeholder="What do you want?">
+                                <input type="text" name="query" class="form-control search-slt"
+                                    placeholder="What do you want?">
                             </div>
-                            <!-- <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="Enter Drop City">
-                            </div> -->
                             <div class="col-lg-3 col-md-3 col-sm-12 p-2">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select Category</option>
