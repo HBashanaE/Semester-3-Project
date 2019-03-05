@@ -1,5 +1,6 @@
 <?php 
-	session_start();
+    session_start();
+    if (isset($_POST['submit'])) {
 	if($_POST['submit']){
 		$username = strip_tags($_POST['username']);
 		$password = strip_tags($_POST['password']);
@@ -13,7 +14,8 @@
 		else {
 			echo "Failed to register";
 		}
-	}
+    }
+    }
 ?>
 
 <!DOCTYPE html>
