@@ -256,6 +256,9 @@ if($_POST['submit']) {
 
 <body>
     <div class="form-inline container align-items-right">
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-5">
         <div class=" heading">
             <h2>Sign in</h2>
             <form method="post" action="index.php">
@@ -274,11 +277,12 @@ if($_POST['submit']) {
 
             </form>
         </div>
-    </div>
-    <div class="container" align="center">
+        </div>
+    
+    <div class="container">
         <a href="register.php">Register</a>
     </div>
-    <section class="search-sec" align="center">
+    <section class="search-sec">
         <div class="container">
             <form action="search.php" method="GET">
                 <div class="row align-items-center">
