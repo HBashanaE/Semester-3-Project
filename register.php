@@ -38,15 +38,16 @@
 	<input type="password" name="password" placeholder="Enter password here">
 	<input type="submit" name="submit" value="Register">
 </form>
+
 <a href = "index.php" >Login</a>-->
 
 
 
 
-    <div class="main">
-
+   <div class="main">
+   <!-- <img src="images/signup-bg.jpg" alt="">-->
         <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+             
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" action = "register.php" id="signup-form" class="signup-form">
@@ -69,7 +70,7 @@
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Register"/>
                         </div>
                     </form>
                     <p class="loginhere">
@@ -81,10 +82,9 @@
 
     </div>
 
-    <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="main.js"></script>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 
 </body>
 </html>
