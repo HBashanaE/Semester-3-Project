@@ -28,102 +28,6 @@ if($_POST['submit']) {
 }
 ?>
 
-
-
-<!--<html>
-<head>
-	<title>PHP-SQL Login</title>
-  <style>
-  body{
-    
-
-  }
-  .login{
-    
-    padding: 10px;
-    width: 400px;
-    min-height: 400px;
-    margin: 2% auto 0 auto;
-
-
-
-  } 
-  h1 {
-      font-size: 3em;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
-      display: inline-block;
-      padding-bottom: 5px;
-      text-shadow: 1px 1px 3px #23203b;
-    }
-  .input-group {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  input.form-control {
- 
-      padding: 10px;
-      font-size: 1.6em;
-      width: 100%;
-      background: transparent;
-      color: lighten(#AB9E95, 10%);
-
-  }
-  span {
-        background: transparent;
-        min-width: 53px;
-        border: none;
-
-        i {
-          font-size: 1.5em;
-          color: rgba(255, 255, 255, 0.2);
-        }
-  button {
-      margin-top: 100px;
-      background: linen;
-      border: none;
-      font-size: 1.6em;
-      font-weight: 300;
-      padding: 5px 10px;
-      width: 100%;
-      border-radius: 3px;
-      color: lighten(linen, 40%);
-      border-bottom: 4px solid darken($button-background-color, 10%);
-  }
- .float {
-  display: inline-block;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  }
-
-  </style>
-</head>
-<body>
-<div class = "login">
-<h1>Login</h1>
-<form method="post" action="index.php">
-
-<div class="input-group">
-	<input type="text" name = "username" class ="from-control" placeholder="Enter username">
-</div>
-<div class="input-group">
-<span class="input-group-addon"><i class="fa fa-user"></i></span>
-	<input type="password" name="password" class ="from-control" placeholder="Enter password here">
-</div>
-	<button type="submit" name="submit" class ="float" value="login">Login</button>
-</form>
-
-</div>
-<a href="register.php" >Register</a>
-
-</body>
-</html>-->
-
 <html>
 
 <head>
@@ -353,23 +257,23 @@ if($_POST['submit']) {
 <body>
     <div class="form-inline container align-items-right">
         <div class=" heading">
-        <h2>Sign in</h2>
-        <form method="post" action="index.php">
+            <h2>Sign in</h2>
+            <form method="post" action="index.php">
 
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" name="username" class="form-control" placeholder="Username or email">
-            </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="username" class="form-control" placeholder="Username or email">
+                </div>
 
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="password" name="password" class="form-control" placeholder="Password">
-            </div>
-            <p></p>
-            <button type="submit" name="submit" class="float" value="login">Login</button>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+                <p></p>
+                <button type="submit" name="submit" class="float" value="login">Login</button>
 
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
     <div class="container" align="center">
         <a href="register.php">Register</a>
