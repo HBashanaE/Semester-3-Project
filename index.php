@@ -255,29 +255,33 @@ if($_POST['submit']) {
 </head>
 
 <body>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+<a class="navbar-brand">
+<img classs="img-responsive" width="" height="50px" src="Kuliyata_logo_full.png">
+</a>
+<form method="post" action="index.php" class="form-inline " style="content-right">
+                <div class="row">
+                <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
+                <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
+                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0" value="login">Login</button>
+  </form>
+</nav>
     <div class="form-inline container align-items-right">
-    <div class="row">
-        <div class="col-7"></div>
-        <div class="col-5">
+    <!-- <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
         <div class=" heading">
-            <h2>Sign in</h2>
-            <form method="post" action="index.php">
-
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="username" class="form-control" placeholder="Username or email">
+            <div class="row" style="margin-top:20px">
+            <form method="post" action="index.php" class="form-inline hidden-xs hidden-s">
+                <div class="row">
+                <input type="text" name="username" class="form-control" placeholder="Username or email">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <button type="submit" name="submit" class="float " value="login">Login</button>
                 </div>
-
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                </div>
-                <p></p>
-                <button type="submit" name="submit" class="float" value="login">Login</button>
-
             </form>
+            </div>
         </div>
-        </div>
+        </div> -->
     
     <div class="container">
         <a href="register.php">Register</a>
