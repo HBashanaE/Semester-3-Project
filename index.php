@@ -255,48 +255,33 @@ if($_POST['submit']) {
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-dark justify-content-between">
-<a class="navbar-brand">
-<img classs="img-responsive" width="" height="50px" src="Kuliyata_logo_full.png">
-</a>
-<form method="post" action="index.php" class="form-inline " style="content-right">
-                <div class="row">
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand">
+            <img classs="img-responsive" width="" height="50px" src="Kuliyata_logo_full.png">
+        </a>
+        <form method="post" action="index.php" class="form-inline " style="content-right">
+            <div class="row">
                 <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                 <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
-                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0" value="login">Login</button>
-  </form>
-</nav>
-    <div class="form-inline container align-items-right">
-    <!-- <div class="row">
-        <div class="col-8"></div>
-        <div class="col-4">
-        <div class=" heading">
-            <div class="row" style="margin-top:20px">
-            <form method="post" action="index.php" class="form-inline hidden-xs hidden-s">
-                <div class="row">
-                <input type="text" name="username" class="form-control" placeholder="Username or email">
-                <input type="password" name="password" class="form-control" placeholder="Password">
-                <button type="submit" name="submit" class="float " value="login">Login</button>
-                </div>
-            </form>
-            </div>
-        </div>
-        </div> -->
-    
-    <div class="container">
-        <a href="register.php">Register</a>
-    </div>
+                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0"
+                    value="login">Login</button>
+        </form>
+        <form action="register.php">
+            <input type="submit" class="float btn btn-outline-success my-2 my-sm-0" value="Register" />
+        </form>
+    </nav>
+
     <section class="search-sec">
         <div class="container">
             <form action="search.php" method="GET">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2">
+                            <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <input type="text" name="query" class="form-control search-slt"
                                     placeholder="What do you want?">
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2">
+                            <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select Category</option>
                                     <option>Vehicles</option>
@@ -307,7 +292,7 @@ if($_POST['submit']) {
                                     <option>Other</option>
                                 </select>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2 ">
+                            <div class="col-lg-2 col-md-2 col-sm-12 p-2 ">
                                 <!-- <button type="button" value="Search" class="btn btn-primary wrn-btn">Search</button> -->
                                 <input type="submit" class="btn btn-info active align-items-center" value="Search">
                             </div>
