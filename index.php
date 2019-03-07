@@ -22,22 +22,14 @@ if($_POST['submit']) {
 	}
 	else {
 		echo "<b><i>Invalid password</i><b>";
-
 	}
 }
 }
 ?>
 
-
-
-
-
 <html>
 
 <head>
-<meta charset="ISO-8859-1">
-<title>Kuliyata</title>
- <style>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -51,44 +43,42 @@ if($_POST['submit']) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    
+
 </head>
 
 <body>
-    <div class="form-inline container align-items-right">
-        <div class=" heading">
-        <h2>Sign in</h2>
-        <form method="post" action="index.php">
-
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" name="username" class="form-control" placeholder="Username or email">
-            </div>
-
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="password" name="password" class="form-control" placeholder="Password">
-            </div>
-            <p></p>
-            <button type="submit" name="submit" class="float" value="login">Login</button>
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <!-- Logo -->
+        <a class="navbar-brand">
+            <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+        </a>
+        <!-- Login form -->
+        <form method="post" action="index.php" class="form-inline " style="content-right">
+            <div class="row">
+                <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
+                <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
+                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
+                    value="login">Login</button>
         </form>
-    </div>
-    </div>
-    <div class="container" align="center">
-        <a href="register.php">Register</a>
-    </div>
-    <section class="search-sec" align="center">
+        <!-- Register button -->
+        <form action="register.php">
+            <input type="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
+        </form>
+    </nav>
+
+    <!-- Search section -->
+    <section class="search-sec">
         <div class="container">
             <form action="search.php" method="GET">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2">
+                            <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <input type="text" name="query" class="form-control search-slt"
                                     placeholder="What do you want?">
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2">
+                            <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select Category</option>
                                     <option>Vehicles</option>
@@ -99,9 +89,9 @@ if($_POST['submit']) {
                                     <option>Other</option>
                                 </select>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-2 ">
+                            <div class="col-lg-2 col-md-2 col-sm-12 p-2 ">
                                 <!-- <button type="button" value="Search" class="btn btn-primary wrn-btn">Search</button> -->
-                                <input type="submit" class="btn btn-info active" value="Search">
+                                <input type="submit" class="btn btn-info active align-items-center" value="Search">
                             </div>
                         </div>
                     </div>
