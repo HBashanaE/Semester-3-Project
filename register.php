@@ -3,17 +3,23 @@
     if (isset($_POST['submit'])) {
 	if($_POST['submit']){
 		$username = strip_tags($_POST['username']);
-		$password = strip_tags($_POST['password']);
+        $password = strip_tags($_POST['password']);
+        $email = strip_tags($_POST['email']);
+        $cpassword = strip_tags($_POST['re_password']);
+        if ($password==$cpassword){
 		$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
-		$query = "INSERT INTO members(username,password,activated) VALUES('$username', '$password','1')";
+		$query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
 		$result = mysqli_query($db,$query);
 		if($result) {
 			echo "Succesfully registered";
 			header('Location: index.php');
-		}
-		else {
+        }else {
 			echo "Failed to register";
 		}
+        }else{
+            echo "password wrong";
+        }
+
     }
     }
 ?>
