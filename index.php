@@ -32,6 +32,7 @@ if($_POST['submit']) {
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
+    <link rel="shortcut icon" href="Resources/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -58,12 +59,12 @@ if($_POST['submit']) {
             <div class="row">
                 <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                 <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
-                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
+                <button type="submit" name="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
                     value="login">Login</button>
         </form>
         <!-- Register button -->
         <form action="register.php">
-            <input type="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
+            <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
         </form>
     </nav>
 

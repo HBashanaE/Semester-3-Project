@@ -54,7 +54,15 @@
             while($results = mysqli_fetch_array($raw_results)){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
              
-                echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
+                //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
+                echo "<div class=\"card my-5\" style=\"width: 18rem;\">";
+                echo "  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">";
+                echo "  <div class=\"card-body\">";
+                echo "      <h5 class=\"card-title\">".$results['title']."</h5>";
+                echo "      <p class=\"card-text\">".$results['description']."</p>";
+                echo "      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>";
+                echo "  </div>";
+                echo "</div>";
                 // posts results gotten from database(title and text) you can also show id ($results['id'])
             }
              
@@ -68,6 +76,7 @@
         echo "Minimum length is ".$min_length;
     }
 ?>
+</div>
 </div>
 
 </body>
