@@ -32,10 +32,10 @@
     <title>Sign Up</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!--<h1>Register</h1>
@@ -51,7 +51,7 @@
 
 
    <div class="main">
-   <!-- <img src="images/signup-bg.jpg" alt="">-->
+   <!--<img src="images/signup-bg.jpg" alt="">-->
         <section class="signup">
              
             <div class="container">
@@ -89,7 +89,7 @@
     </div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 
 
 </body>
