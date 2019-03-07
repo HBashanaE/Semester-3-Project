@@ -51,19 +51,19 @@ if($_POST['submit']) {
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <!-- Logo -->
         <a class="navbar-brand">
-            <img classs="img-responsive" width="" height="50px" src="Kuliyata_logo_full.png">
+            <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
         </a>
         <!-- Login form -->
         <form method="post" action="index.php" class="form-inline " style="content-right">
             <div class="row">
                 <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                 <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
-                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2"
+                <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
                     value="login">Login</button>
         </form>
         <!-- Register button -->
         <form action="register.php">
-            <input type="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2" value="Register" />
+            <input type="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
         </form>
     </nav>
 
