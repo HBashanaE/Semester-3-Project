@@ -22,7 +22,6 @@ if($_POST['submit']) {
 	}
 	else {
 		echo "<b><i>Invalid password</i><b>";
-
 	}
 }
 }
@@ -44,14 +43,17 @@ if($_POST['submit']) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    
+
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <!-- Logo -->
         <a class="navbar-brand">
             <img classs="img-responsive" width="" height="50px" src="Kuliyata_logo_full.png">
         </a>
+        <!-- Login form -->
         <form method="post" action="index.php" class="form-inline " style="content-right">
             <div class="row">
                 <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
@@ -59,11 +61,13 @@ if($_POST['submit']) {
                 <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2"
                     value="login">Login</button>
         </form>
+        <!-- Register button -->
         <form action="register.php">
             <input type="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2" value="Register" />
         </form>
     </nav>
 
+    <!-- Search section -->
     <section class="search-sec">
         <div class="container">
             <form action="search.php" method="GET">
