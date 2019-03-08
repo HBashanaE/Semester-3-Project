@@ -7,7 +7,7 @@ if($_POST['submit']) {
 	$username = strip_tags($_POST['username']);
 	$password = strip_tags($_POST['password']);
 
-	$sql = "SELECT activated,username ,password FROM members where username = '$username' LIMIT 1";
+	$sql = "SELECT activated, username, password FROM members where username = '$username' LIMIT 1";
 	$query = mysqli_query($db, $sql);
 	if($query) {
 		$row = mysqli_fetch_row($query);
@@ -33,6 +33,7 @@ if($_POST['submit']) {
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
     <link rel="shortcut icon" href="Resources/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

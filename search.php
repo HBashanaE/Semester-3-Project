@@ -55,7 +55,7 @@
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
              
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
-                echo "<div class=\"card my-5\" style=\"width: 18rem;\">";
+                echo "<div class=\"card my-5\" style=\"width: 75rem;\">";
                 echo "  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">".$results['title']."</h5>";
