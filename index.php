@@ -32,7 +32,7 @@ if($_POST['submit']) {
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
-    <link rel="shortcut icon" href="Resources/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="Resources/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,6 +45,56 @@ if($_POST['submit']) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- File uploader plugin -->
+
+    <script src="Resources/fileUploader/dropzone.js"></script>
+
+    <!-- <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script> -->
+
+
+    <script>
+    if (isAdvancedUpload) {
+
+        var droppedFiles = false;
+
+        $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            })
+            .on('dragover dragenter', function() {
+                $form.addClass('is-dragover');
+            })
+            .on('dragleave dragend drop', function() {
+                $form.removeClass('is-dragover');
+            })
+            .on('drop', function(e) {
+                droppedFiles = e.originalEvent.dataTransfer.files;
+            });
+
+    }
+    </script>
+    <style>
+    .box__dragndrop,
+    .box__uploading,
+    .box__success,
+    .box__error {
+        display: none;
+
+        .box.has-advanced-upload {
+            background-color: white;
+            outline: 2px dashed black;
+            outline-offset: -10px;
+        }
+
+        .box.has-advanced-upload .box__dragndrop {
+            display: inline;
+        }
+    }
+    </style>
 
 </head>
 
@@ -60,12 +110,13 @@ if($_POST['submit']) {
             <div class="row">
                 <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                 <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
-                <button type="submit" name="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
-                    value="login">Login</button>
+                <button type="submit" name="submit"
+                    class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">Login</button>
         </form>
         <!-- Register button -->
         <form action="register.php">
-            <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
+            <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
+                value="Register" />
         </form>
     </nav>
 
@@ -81,7 +132,7 @@ if($_POST['submit']) {
                                     placeholder="What do you want?">
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                <select class="form-control search-slt" name="category" id="selectCategory">
                                     <option>Select Category</option>
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
@@ -101,6 +152,9 @@ if($_POST['submit']) {
             </form>
         </div>
     </section>
+
+    <!-- Upload image -->
+    
 </body>
 
 </html>
