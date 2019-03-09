@@ -6,7 +6,7 @@ if($_POST['submit']) {
 	include_once('connection.php');
 	$username = strip_tags($_POST['username']);
 	$password = strip_tags($_POST['password']);
-
+    //SQL query
 	$sql = "SELECT activated,username ,password FROM members where username = '$username' LIMIT 1";
 	$query = mysqli_query($db, $sql);
 	if($query) {
@@ -56,7 +56,7 @@ if($_POST['submit']) {
         <!-- Login form -->
         <form method="post" action="index.php" class="form-inline " style="content-right">
             <div class="row">
-                <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
+                <input type="text" name="username" class="form-control mr-sm-2" placeholder="Email">
                 <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                 <button type="submit" name="submit" class="float btn btn-outline-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
                     value="login">Login</button>
