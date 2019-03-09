@@ -30,12 +30,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
-
+   
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 <!--<h1>Register</h1>
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </section>
-
+    
     </div>
 
     <script src="vendor/jquery/jquery.min.js"></script>

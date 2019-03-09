@@ -137,7 +137,7 @@ body {
   color: #222;
   font-weight: 400;
   font-family: 'Montserrat';
-  background-image: url("../Resources/Kuliyata_Logo.png");
+  background-image: url("Kuliyata_Logo.png");
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -188,7 +188,7 @@ body {
   -ms-transform: translate(-50%, -50%); }
 
 .signup-content {
-  background: #fff;
+  background: rgb(220, 225, 230);
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -267,7 +267,7 @@ body {
   color: #fff;
   text-transform: uppercase;
   border: none;
-  background-image: -moz-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: -moz-linear-gradient(to left, #4e75af, #9face6);
   background-image: -ms-linear-gradient(to left, #74ebd5, #9face6);
   background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
   background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
