@@ -6,7 +6,7 @@
         $password = strip_tags($_POST['password']);
         $email = strip_tags($_POST['email']);
         $cpassword = strip_tags($_POST['re_password']);
-        if ($password==$cpassword){
+    /*    if ($password==$cpassword){
 		$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
 		$query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
 		$result = mysqli_query($db,$query);
@@ -21,6 +21,11 @@
         }
 
     }
+    }*/
+    include 'test.php';
+    $users = new dbh();
+    $users->saveToDatabase($username,$password,$email,$cpassword);
+}
     }
 ?>
 
