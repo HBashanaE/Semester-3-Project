@@ -1,11 +1,11 @@
 <?php 
 	session_start();
 	if($_POST['submit']){
+		include_once('connection.php');
 		$username = strip_tags($_POST['username']);
 		$password = strip_tags($_POST['password']);
-		$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
 		$query = "INSERT INTO members(username,password,activated) VALUES('$username', '$password','1')";
-		$result = mysqli_query($db,$query);
+		$result = mysqli_query($db_login,$query);
 		if($result) {
 			echo "Succesfully registered";
 			header('Location: index.php');
