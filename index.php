@@ -26,14 +26,13 @@ if($_POST['submit']) {
 	}
 }
 }
+//only if session is created then user has logged in
 if (isset($_SESSION['id'])){
 	$userId = $_SESSION['id'];
   $username = $_SESSION['username'];
-  $logged=true;
-  echo "set"; 
+  $logged=true; 
 }else{
   $logged=false;
-  echo "not set";
   }
 ?>
 
