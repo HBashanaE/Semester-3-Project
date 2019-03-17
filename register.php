@@ -1,6 +1,5 @@
 <?php 
-    session_start();
-    if (isset($_POST['submit'])) {
+	session_start();
 	if($_POST['submit']){
 		$username = strip_tags($_POST['username']);
         $password = strip_tags($_POST['password']);
@@ -8,12 +7,13 @@
         $cpassword = strip_tags($_POST['re_password']);
     /*    if ($password==$cpassword){
 		$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
-		$query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
+		$query = "INSERT INTO members(username,password,activated) VALUES('$username', '$password','1')";
 		$result = mysqli_query($db,$query);
 		if($result) {
 			echo "Succesfully registered";
 			header('Location: index.php');
-        }else {
+		}
+		else {
 			echo "Failed to register";
 		}
         }else{
@@ -32,19 +32,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
-   
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="style.css">
-    
+	<title>Register</title>
 </head>
 <body>
-<!--<h1>Register</h1>
+<h1>Register</h1>
 <form method="post" action="register.php">
 	<input type="text" name = "username" placeholder="Enter username">
 	<input type="password" name="password" placeholder="Enter password here">

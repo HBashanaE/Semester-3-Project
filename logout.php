@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Logout page</title>
+	<title>Loging out</title>
 </head>
 <body>
-<form action = "index.php">
-<input type="submit" name="redirect" value = "Go back to home">
+<meta http-equiv = "refresh" content = "3; url = index.php" />
+
 </form>
 </body>
 </html>
