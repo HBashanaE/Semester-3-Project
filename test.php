@@ -23,7 +23,7 @@
             
             if ($password==$cpassword){
                 $c=new dbh();
-                $db = /*mysqli_connect("localhost", "root", "", "login")*/ $c->connect();
+                $db = /*mysqli_connect("localhost", "root", "", "login")*/ $c->connect(); 
                 $query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
                 $result = mysqli_query($db,$query);
                 if($result) {
