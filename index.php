@@ -37,7 +37,6 @@ if (isset($_SESSION['id'])){
 ?>
 
 <html>
-
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
@@ -101,10 +100,10 @@ if (isset($_SESSION['id'])){
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                     data-display="static" aria-haspopup="true" aria-expanded="false">
-                    User
+                    <?php echo htmlentities($username) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button">Action</a>
+                    <a class="dropdown-item" type="button">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
@@ -146,7 +145,6 @@ if (isset($_SESSION['id'])){
     </section>
 
     <!-- Upload image -->
-
     <div class="row">
         <div class="col-md-6 col-sm-12">
 
@@ -217,5 +215,4 @@ if (isset($_SESSION['id'])){
     </script>
 
 </body>
-
 </html>
