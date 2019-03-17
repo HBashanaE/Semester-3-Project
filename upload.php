@@ -28,7 +28,7 @@ $mgs="";
 <html>
 <head>
     <title>upload</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>	 	
@@ -47,13 +47,13 @@ $mgs="";
         </select>
     </div>
  <div>
- <textarea name ="text" cols="40" rows= "4" placeholder = "Discription"></textarea>
+ <textarea name ="text" cols="40" rows= "4" class="form-input" placeholder = "Discription"></textarea>
  </div>
- <div>
- <input type="file" name="myimage">
+ <div class= "form-group">
+ <input type="file" class= "form-submit" name="myimage">
  </div>
- <div>
- <input type="submit" name="submit_image" value="Upload">
+ <div class= "form-group">
+ <input type="submit" name="submit_image" class ="form-submit" value="Upload">
  </div>
  </div>
 </form>
