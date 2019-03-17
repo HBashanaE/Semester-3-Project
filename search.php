@@ -38,7 +38,7 @@
         //$query = mysqli_real_escape_string($query);
         // makes sure nobody uses SQL injection
          
-        $raw_results = mysqli_query($db,"SELECT * FROM ads
+        $raw_results = mysqli_query($db_login,"SELECT * FROM ads
             WHERE (`title` LIKE '%".$query."%') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
              
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
@@ -55,7 +55,7 @@
              
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
                 echo "<div class=\"card my-5\" style=\"width: 75rem;\">";
-                echo "  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">";
+                echo "  <img class=\"card-img-top\" src=\"...\" alt=".$results['title'].">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">".$results['title']."</h5>";
                 echo "      <p class=\"card-text\">".$results['description']."</p>";
