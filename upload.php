@@ -28,7 +28,7 @@ $mgs="";
 <html>
 <head>
     <title>upload</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>	 	
@@ -53,7 +53,7 @@ $mgs="";
  <input type="file" name="myimage">
  </div>
  <div>
- <input type="submit" name="submit_image" value="Upload">
+ <input type="submit" name="submit_image" id="submit" class="form-submit" value="Upload">
  </div>
  </div>
 </form>
