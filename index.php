@@ -15,15 +15,29 @@ if($_POST['submit']) {
 		$userId= $row[2];
 		$dbUserName = $row[1];
 		$dbPassword = $row[2];
-	}
-	if($username == $dbUserName && $password == $dbPassword) {
-		$_SESSION['username'] = $username;
-    $_SESSION['id'] = $userId;
-		header('Location: index.php');
-	}
-	else {
-		echo "<b><i>Invalid password</i><b>";
-	}
+    }
+    if(!empty($_POST['username'])){
+        if($username == $dbUserName && $password == $dbPassword) {
+            $_SESSION['username'] = $username;
+        $_SESSION['id'] = $userId;
+            header('Location: index.php');
+        }
+        else {
+            echo "<b><i>Invalid password</i><b>";
+        }
+    }else{
+         echo '<div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">';
+         echo '<div class="modal-dialog modal-sm">';
+         echo '  <div class="modal-content">';
+         echo '    ...';
+         echo '  </div>';
+         echo '</div>';
+         echo '</div>';
+
+       echo'<script> $(\'#myModal\').modal(\'show\');</script>';
+    //echo '<script> window.alert("Don\'t waste time")</script>';
+
+    }
 }
 }
 //only if session is created then user has logged in
@@ -37,11 +51,12 @@ if (isset($_SESSION['id'])){
 ?>
 
 <html>
+
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
     <link rel="shortcut icon" src="Resources/favicon.ico" type="image/x-icon" />
-    <!-- Bootstrap -->
+    <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -54,6 +69,10 @@ if (isset($_SESSION['id'])){
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Bootstrap Local -->
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
 
     <!-- File uploader plugin -->
 
@@ -78,7 +97,7 @@ if (isset($_SESSION['id'])){
         </a>
         <!-- Div for generel user items -->
         <div class="generel_user" id="div_generel_user" <?php if($logged===true ){?>style="display:none" <?php }?>>
-            
+
             <div class="row">
                 <!-- Login form -->
                 <form method="post" action="index.php" class="form-inline " style="content-right">
@@ -215,4 +234,5 @@ if (isset($_SESSION['id'])){
     </script>
 
 </body>
+
 </html>

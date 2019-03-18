@@ -8,7 +8,7 @@
 
 <head>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -22,9 +22,13 @@
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+    <!-- Bootstrap Local -->
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
+
     <title>Loging out</title>
     <style type="text/css">
-	/* body{
+    /* body{
 		background: #000000 !important;}
 	} */
     .lds-facebook {
@@ -73,20 +77,22 @@
     </style>
 </head>
 
-<body bgcolor="ffffff">
+<body>
     <meta http-equiv="refresh" content="3; url = index.php" />
-	<div class="row">
-	<div class="col-12">
-	
-	</div>
-	</div>
-    <div class="container lds-facebook mr-0">
-        <p>Loggin out</p>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col align-items-center">
+                <div class="lds-facebook p-2">
+                    <p>Loggin out</p>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
     </div>
-    </form>
+
+
 </body>
 
 </html>
