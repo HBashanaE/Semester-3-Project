@@ -11,82 +11,54 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<style>
-#content{
-		width:550px;
-		height:160px;
-		margin:20px auto;
-		border: 1px solid #cbcbcb;
-		display: -webkit-box;
-		-webkit-box-orient: horizontal;
-		
-}
-#main_section{
-		border: 1px solid blue;
-		-webkit-box-flex: 1;
-}
-img{
-	display:block;
-	float:left;
-	margin:10px;
-	width:300px;
-	height:140px;
-	border:1px solid black;
-}
 
-#footer{
-		border: 1px solid green;
-		text-align:left;
-		width:225px;
-		margin-left:315px;
-		margin-top:10px;
-}
-#head{
-		border: 1px solid green;
-		width:225px;
-		height:80px;
-		margin-top:10px;
-		margin-left:315px;
-}
-#mid{
-		border: 1px solid green;
-		margin-top:10px;
-		width:225px;
-		margin-left:315px;
-	
-}
-</style>
+<head>
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
 <body>
-<form method = "GET" action = "loadimage.php">
-<div id = "content">
-	<section id = "main_section">
-		<div id = "image">
-			<?php
+    <form method="GET" action="loadimage.php">
+        <div id="content">
+            <section id="main_section">
+                <div id="image">
+                    <?php
 				echo $image;
 			?>
-		</div>
-		<article>
-			<header id = "head">
-				<?php
+                </div>
+                <article>
+                    <header id="head">
+                        <?php
 					echo $text;
 				?>
-			</header>
-			<header id = "mid">
-				<?php
+                    </header>
+                    <header id="mid">
+                        <?php
 					echo "Price : RS.200/=";
 				?>
-			</header>
-			<footer id = "footer">
-				<?php
+                    </header>
+                    <footer id="footer">
+                        <?php
 					echo "Contact_Number :  ".$pnum;
 				?>
-			</footer>
-		</article>
-	</section>
-	
-</div>
-</form>
+                    </footer>
+                </article>
+            </section>
+
+        </div>
+    </form>
 </body>
+
 </html>
