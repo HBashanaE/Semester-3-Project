@@ -1,11 +1,12 @@
 <?php
-	$db = mysqli_connect("localhost","root","","login");
+	include_once('connection.php');
 	$sql = "SELECT * FROM alladds";
-	$result = mysqli_query($db,$sql);
+	$result = mysqli_query($db_login,$sql);
 	while ($row = mysqli_fetch_array($result)){
+			$title
 			$image ="<img src = '".$row['image']."'>";
-			$text = $row['text'];
-			$pnum = $row['pnum'];
+			$description = $row['description'];
+			$pnum = $row['category'];
 	}
 	
 ?>
