@@ -69,6 +69,7 @@ if (isset($_SESSION['id'])){
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Local -->
     <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
