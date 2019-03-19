@@ -79,7 +79,7 @@ s    </nav>
                                     placeholder="What do you want?">
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1" >
                                     <option>Select Category</option>
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
