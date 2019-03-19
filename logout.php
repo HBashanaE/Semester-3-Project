@@ -80,9 +80,9 @@
 <body>
     <meta http-equiv="refresh" content="3; url = index.php" />
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
             <div class="col align-items-center">
-                <div class="lds-facebook p-2">
+                <div class="lds-facebook p-2 align-middle">
                     <p>Loggin out</p>
                     <div></div>
                     <div></div>

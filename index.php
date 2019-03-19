@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$logged=false;
+//$logged=false;
 session_start();
 if (isset($_POST['submit'])) {
 if($_POST['submit']) {
@@ -19,7 +19,7 @@ if($_POST['submit']) {
     if(!empty($_POST['username'])){
         if($username == $dbUserName && $password == $dbPassword) {
             $_SESSION['username'] = $username;
-        $_SESSION['id'] = $userId;
+            $_SESSION['id'] = $userId;
             header('Location: index.php');
         }
         else {
@@ -43,11 +43,31 @@ if($_POST['submit']) {
 //only if session is created then user has logged in
 if (isset($_SESSION['id'])){
 	$userId = $_SESSION['id'];
-  $username = $_SESSION['username'];
-  $logged=true; 
+    $username = $_SESSION['username'];
+    $logged=true; 
 }else{
-  $logged=false;
+    $logged=false;
   }
+?>
+<!-- Image Upload -->
+<?php
+	$msg="";
+	if(isset($_POST['upload'])){
+		$target="alladds/".basename($_FILES['image']['name']);
+		$db = mysqli_connect("localhost","root","","login");
+		$image = $_FILES['image']['name'];
+		$text = $_POST['text'];
+		$TNum = $_POST['TNum'];
+		$Price = $_POST['Price'];
+		$sql = "INSERT INTO alladds(image, text,price,pnum) VALUES ('$image','$text','$TNum','$Price');";
+		mysqli_query($db,$sql);
+		if(move_uploaded_file($_FILES['image']['name'],$target)){
+				$msg = "image uploaded successfully";
+		}else{
+			$msg = "There was a problem uploading image";
+		}
+		
+	}
 ?>
 
 <html>
@@ -55,7 +75,7 @@ if (isset($_SESSION['id'])){
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
-    <link rel="shortcut icon" src="Resources/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="Resources/favicon.ico">
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -72,8 +92,10 @@ if (isset($_SESSION['id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Local -->
-    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
-    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script> -->
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
+    <script src="//Resources/jquery/jquery-3.3.1.min"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- File uploader plugin -->
 
@@ -143,8 +165,7 @@ if (isset($_SESSION['id'])){
                                     placeholder="What do you want?">
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <select class="form-control search-slt" name="category" id="selectCategory">
-                                    <option>Select Category</option>
+                                <select class="form-control search-slt" name="category" id="selectCategory" placeholder="Select Category">
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
                                     <option>Electrical/Electronic</option>
@@ -164,8 +185,248 @@ if (isset($_SESSION['id'])){
         </div>
     </section>
 
-    
 
+    <div id="sub_content">
+        <?php
+			include_once('connection.php');
+			$sql = "SELECT * FROM ads";
+			$result = mysqli_query($db_login,$sql);
+			while ($row = mysqli_fetch_array($result)){
+					echo "<div class='card mb-2'>";
+						echo "<img src='".$row['images']."' class='card-img-top' alt='image'>";
+							echo "<div class='card-body'>";
+								echo "<h5 class='card-title'>".$row['title']."</h5>";
+							echo "<p class='card-text'>".$row['description']."</p>";
+							echo "<p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>";
+							echo "</div>";
+					echo "</div>";
+			}
+			
+		?>
+
+        <!-- <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div> -->
+
+        <div class="tab-content clear">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                  <?php while ($row = mysqli_fetch_array($result)): ?>
+                    <div class="col-sm-4 col-xs-4 section1a">
+                        <div class="sectionstyle">
+                            <div class="textcenter">
+                                <h2> <?php echo $row['title'] ?></h2>
+                                <p>description goes here</p>
+                            </div>
+                            <div class="">
+                                <img class="img-responsive" src="images/image.jpg">
+                            </div>
+                            <div class="clear"></div>
+                            <p><small>bar A</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                    <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                            <p><small>bar B</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                    <span class="sr-only">20% Complete</span>
+                                </div>
+                            </div>
+                            <p><small>bar C</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                </div>
+                            </div>
+                            <p><a class="btn btn-success btn-primary btn-block buttoncenter" href="#" role="button">Submit</a>
+                            </p>
+                        </div>
+
+                    </div>
+                  <?php endwhile; ?>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4">
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">කුළියට.lk</h5>
+                        <p>Sri Lankas fastest growing renting service. Register now</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Useful Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Home</a>
+                            </li>
+                            <li>
+                                <a href="#!">Categories</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+            <hr>
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+
+            <hr>
+
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> -->
+                <a href="https://kuliyata.lk">Kuliyata.lk</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
 </body>
 
 </html>
