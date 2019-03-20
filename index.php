@@ -165,7 +165,8 @@ if (isset($_SESSION['id'])){
                                     placeholder="What do you want?">
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <select class="form-control search-slt" name="category" id="selectCategory" placeholder="Select Category">
+                                <select class="form-control search-slt" name="category" id="selectCategory"
+                                    placeholder="Select Category">
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
                                     <option>Electrical/Electronic</option>
@@ -193,7 +194,7 @@ if (isset($_SESSION['id'])){
 			$result = mysqli_query($db_login,$sql);
 			while ($row = mysqli_fetch_array($result)){
 					echo "<div class='card mb-2'>";
-						echo "<img src='".$row['images']."' class='card-img-top' alt='image'>";
+						echo "<img src='ads/".$row['images']."' class='card-img-top' alt='image'>";
 							echo "<div class='card-body'>";
 								echo "<h5 class='card-title'>".$row['title']."</h5>";
 							echo "<p class='card-text'>".$row['description']."</p>";
@@ -203,6 +204,15 @@ if (isset($_SESSION['id'])){
 			}
 			
 		?>
+        <div class="card mb-3" style="height: 18rem; width:50rem;">
+            <img src="Resources/kuliyata_logo_full.png" class="card-img-top" style="width:100%;
+  height:auto;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Test Ad</h5>
+                <p class="card-text">This is ad description.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
 
         <!-- <div class="card mb-3">
             <img src="..." class="card-img-top" alt="...">
@@ -213,50 +223,6 @@ if (isset($_SESSION['id'])){
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div> -->
-
-        <div class="tab-content clear">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                  <?php while ($row = mysqli_fetch_array($result)): ?>
-                    <div class="col-sm-4 col-xs-4 section1a">
-                        <div class="sectionstyle">
-                            <div class="textcenter">
-                                <h2> <?php echo $row['title'] ?></h2>
-                                <p>description goes here</p>
-                            </div>
-                            <div class="">
-                                <img class="img-responsive" src="images/image.jpg">
-                            </div>
-                            <div class="clear"></div>
-                            <p><small>bar A</small>
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                            <p><small>bar B</small>
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                            <p><small>bar C</small>
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                    <span class="sr-only">60% Complete (warning)</span>
-                                </div>
-                            </div>
-                            <p><a class="btn btn-success btn-primary btn-block buttoncenter" href="#" role="button">Submit</a>
-                            </p>
-                        </div>
-
-                    </div>
-                  <?php endwhile; ?>
-                </div>
-              </div>
-
 
 
 
