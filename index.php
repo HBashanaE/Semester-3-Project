@@ -89,13 +89,15 @@ if (isset($_SESSION['id'])){
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Local -->
-    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
     <script src="//Resources/jquery/jquery-3.3.1.min"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
     <!-- File uploader plugin -->
 
@@ -107,6 +109,7 @@ if (isset($_SESSION['id'])){
 
     <link href="Resources/dist/css/jquery.dm-uploader.min.css" rel="stylesheet">
     <link href="Resoures/styles.css" rel="stylesheet">
+
 
 
 </head>
@@ -189,32 +192,33 @@ if (isset($_SESSION['id'])){
 
     <div id="sub_content">
         <?php
-			include_once('connection.php');
-			$sql = "SELECT * FROM ads";
-			$result = mysqli_query($db_login,$sql);
-			while ($row = mysqli_fetch_array($result)){
-					echo "<div class='card mb-2'>";
-						echo "<img src='ads/".$row['images']."' class='card-img-top' alt='image'>";
-							echo "<div class='card-body'>";
-								echo "<h5 class='card-title'>".$row['title']."</h5>";
-							echo "<p class='card-text'>".$row['description']."</p>";
-							echo "<p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>";
-							echo "</div>";
-					echo "</div>";
-			}
+			// include_once('connection.php');
+			// $sql = "SELECT * FROM ads";
+			// $result = mysqli_query($db_login,$sql);
+			// while ($row = mysqli_fetch_array($result)){
+			// 		echo "<div class='card mb-2'>";
+			// 			echo "<img src='ads/".$row['images']."' class='card-img-top' alt='image'>";
+			// 				echo "<div class='card-body'>";
+			// 					echo "<h5 class='card-title'>".$row['title']."</h5>";
+			// 				echo "<p class='card-text'>".$row['description']."</p>";
+			// 				echo "<p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>";
+			// 				echo "</div>";
+			// 		echo "</div>";
+			//}
 			
 		?>
-        <div class="card mb-3" style="height: 18rem; width:50rem;">
-            <img src="Resources/kuliyata_logo_full.png" class="card-img-top" style="width:100%;
-  height:auto;" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Test Ad</h5>
-                <p class="card-text">This is ad description.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+    </div>
+    <div class="card mb-3" style="height: 18rem; width:50rem;">
+        <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
+  height:10rem;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Test Ad</h5>
+            <p class="card-text">This is ad description.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
+    </div>
 
-        <!-- <div class="card mb-3">
+    <!-- <div class="card mb-3">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -223,7 +227,22 @@ if (isset($_SESSION['id'])){
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div> -->
+    <!-- Floating button -->
 
+    <a href="#" class="float" style="position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;">
+        <i class="fa fa-plus my-float" style="margin-top:22px;"></i>
+    </a>
+
+    <!-- Floating button -->
 </body>
 
 </html>
