@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 //$logged=false;
+$show_modal = false;
 session_start();
 if (isset($_POST['submit'])) {
 if($_POST['submit']) {
@@ -26,17 +27,7 @@ if($_POST['submit']) {
             echo "<b><i>Invalid password</i><b>";
         }
     }else{
-         echo '<div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">';
-         echo '<div class="modal-dialog modal-sm">';
-         echo '  <div class="modal-content">';
-         echo '    ...';
-         echo '  </div>';
-         echo '</div>';
-         echo '</div>';
-
-       echo'<script> $(\'#myModal\').modal(\'show\');</script>';
-    //echo '<script> window.alert("Don\'t waste time")</script>';
-
+        $show_modal = true;
     }
 }
 }
@@ -115,6 +106,8 @@ if (isset($_SESSION['id'])){
 </head>
 
 <body>
+
+
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <!-- Logo -->
@@ -130,8 +123,9 @@ if (isset($_SESSION['id'])){
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
-                        value="login">Login</button>
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login"
+                        data-toggle="modal" data-target=".bd-example-modal-sm">
+                        Login</button>
                 </form>
                 <!-- Register button -->
                 <form action="register.php">
@@ -140,6 +134,22 @@ if (isset($_SESSION['id'])){
                 </form>
             </div>
         </div>
+        <?php if($show_modal):?>
+        <script>
+        $('#myModal').modal('show');
+        </script>
+        <?php endif;?>
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog"
+            aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    ...
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
         <!-- Div for logged user items -->
         <div class="logged_user" id="div_logged_user" <?php if($logged===false ){?>style="display:none" <?php }?>>
             <div class="btn-group">
@@ -230,7 +240,7 @@ if (isset($_SESSION['id'])){
         </div> -->
     <!-- Floating button -->
     <div <?php if($logged===false ){?>style="display:none" <?php }?>>
-    <a href="#" class="float" style="position:fixed;
+        <a href="#" class="float" style="position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
@@ -240,8 +250,8 @@ if (isset($_SESSION['id'])){
 	border-radius:10px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;" data-toggle="tooltip" data-placement="left" title="Post an ad">
-        <i class="fa fa-plus my-float" style="margin-top:22px;"></i>
-    </a>
+            <i class="fa fa-plus my-float" style="margin-top:22px;"></i>
+        </a>
     </div>
     <!-- Floating button -->
 </body>
