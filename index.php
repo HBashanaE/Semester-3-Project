@@ -28,6 +28,7 @@ if($_POST['submit']) {
         }
     }else{
         $show_modal = true;
+        echo "<script type='text/javascript'> $(window).load(function(){ $('#myModal').modal('show'); }); </script>";
     }
 }
 }
@@ -40,6 +41,7 @@ if (isset($_SESSION['id'])){
     $logged=false;
   }
 ?>
+<script type='text/javascript'> $(window).load(function(){ $('#myModal').modal('show'); }); </script>
 <!-- Image Upload -->
 <?php
 	$msg="";
@@ -85,10 +87,10 @@ if (isset($_SESSION['id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Local -->
-    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
     <script src="//Resources/jquery/jquery-3.3.1.min"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- File uploader plugin -->
 
@@ -100,14 +102,30 @@ if (isset($_SESSION['id'])){
 
     <link href="Resources/dist/css/jquery.dm-uploader.min.css" rel="stylesheet">
     <link href="Resoures/styles.css" rel="stylesheet">
-
+    <!-- Validate username and passwords are filled -->
+    <?php
+		if(isset($_POST["submit"])){
+			if(!empty($_POST['username'])){
+				echo "The form is empty";
+				return false;
+			}
+		}
+	?>
+    <script>
+		function validate(){
+			var username = document.forms["login"]["username"].value;
+            var password = document.forms["login"]["password"].value;
+				if(username== ""){
+					alert("Enter valid username and password");
+					return false;
+				}
+		}
+	</script>
 
 
 </head>
 
 <body>
-
-
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <!-- Logo -->
@@ -119,12 +137,11 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login"
-                        data-toggle="modal" data-target=".bd-example-modal-sm">
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
                         Login</button>
                 </form>
                 <!-- Register button -->
@@ -134,17 +151,13 @@ if (isset($_SESSION['id'])){
                 </form>
             </div>
         </div>
-        <?php if($show_modal):?>
-        <script>
-        $('#myModal').modal('show');
-        </script>
-        <?php endif;?>
+        
         <!-- Modal -->
         <div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog"
             aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    ...
+                    HI
                 </div>
             </div>
         </div>
