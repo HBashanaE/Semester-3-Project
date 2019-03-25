@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+//Access-Control-Allow-Origin header with wildcard.
+header('Access-Control-Allow-Origin: *');
 //$logged=false;
 $show_modal = false;
 session_start();
@@ -28,7 +30,6 @@ if($_POST['submit']) {
         }
     }else{
         $show_modal = true;
-        echo "<script type='text/javascript'> $(window).load(function(){ $('#myModal').modal('show'); }); </script>";
     }
 }
 }
@@ -41,7 +42,6 @@ if (isset($_SESSION['id'])){
     $logged=false;
   }
 ?>
-<script type='text/javascript'> $(window).load(function(){ $('#myModal').modal('show'); }); </script>
 <!-- Image Upload -->
 <?php
 	$msg="";
@@ -81,16 +81,14 @@ if (isset($_SESSION['id'])){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap Local -->
-    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
     <script src="//Resources/jquery/jquery-3.3.1.min"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
     <!-- File uploader plugin -->
 
@@ -106,7 +104,7 @@ if (isset($_SESSION['id'])){
     <?php
 		if(isset($_POST["submit"])){
 			if(!empty($_POST['username'])){
-				echo "The form is empty";
+                echo "The form is empty";
 				return false;
 			}
 		}
@@ -116,7 +114,9 @@ if (isset($_SESSION['id'])){
 			var username = document.forms["login"]["username"].value;
             var password = document.forms["login"]["password"].value;
 				if(username== ""){
-					alert("Enter valid username and password");
+                    //alert("Enter valid username and password");
+                    swal("Error", "Enter username and password", "error");
+                    //$(window).load(function(){ $('#myModal').modal('show'); });
 					return false;
 				}
 		}
@@ -267,6 +267,9 @@ if (isset($_SESSION['id'])){
         </a>
     </div>
     <!-- Floating button -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
