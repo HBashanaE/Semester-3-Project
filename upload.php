@@ -20,7 +20,7 @@ $mgs="";
         include 'ad.php';
         $ad= new Ad();
         $ad->addPost($imagename,$text, $title,$target);
-        $username=session["$username"];
+        
     }
 }
 
@@ -71,11 +71,11 @@ $mgs="";
         </select>
     </div>
 
- <div >
- <input type="file" class= "form-submit" name="myimage">
+ <div class="file-upload">
+ <input type="file" class= "form-submit" name="myimage" >
  </div>
- <div>
- <textarea name ="text" cols="40" rows= "4"  placeholder = "Discription"></textarea>
+ <div class="textarea">
+ <textarea name ="text" cols="82" rows= "5"  placeholder = "Discription" ></textarea>
  </div>
  <div>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
