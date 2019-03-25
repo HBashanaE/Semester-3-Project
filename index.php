@@ -162,7 +162,7 @@ if (isset($_SESSION['id'])){
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
-                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
         </div>
     </nav>
@@ -240,7 +240,7 @@ if (isset($_SESSION['id'])){
         </div> -->
     <!-- Floating button -->
     <div <?php if($logged===false ){?>style="display:none" <?php }?>>
-        <a href="#" class="float" style="position:fixed;
+        <a href="upload.php" class="float" style="position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])){
 	border-radius:10px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;" data-toggle="tooltip" data-placement="left" title="Post an ad">
-            <i class="fa fa-plus my-float" style="margin-top:22px;"></i>
+            <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
         </a>
     </div>
     <!-- Floating button -->
