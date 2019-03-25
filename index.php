@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+//Access-Control-Allow-Origin header with wildcard.
+header('Access-Control-Allow-Origin: *');
 //$logged=false;
 $show_modal = false;
 session_start();
@@ -79,11 +81,9 @@ if (isset($_SESSION['id'])){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap Local -->
     <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
@@ -100,14 +100,32 @@ if (isset($_SESSION['id'])){
 
     <link href="Resources/dist/css/jquery.dm-uploader.min.css" rel="stylesheet">
     <link href="Resoures/styles.css" rel="stylesheet">
-
+    <!-- Validate username and passwords are filled -->
+    <?php
+		if(isset($_POST["submit"])){
+			if(!empty($_POST['username'])){
+                echo "The form is empty";
+				return false;
+			}
+		}
+	?>
+    <script>
+		function validate(){
+			var username = document.forms["login"]["username"].value;
+            var password = document.forms["login"]["password"].value;
+				if(username== ""){
+                    //alert("Enter valid username and password");
+                    swal("Error", "Enter username and password", "error");
+                    //$(window).load(function(){ $('#myModal').modal('show'); });
+					return false;
+				}
+		}
+	</script>
 
 
 </head>
 
 <body>
-
-
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <!-- Logo -->
@@ -119,12 +137,11 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login"
-                        data-toggle="modal" data-target=".bd-example-modal-sm">
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
                         Login</button>
                 </form>
                 <!-- Register button -->
@@ -134,17 +151,13 @@ if (isset($_SESSION['id'])){
                 </form>
             </div>
         </div>
-        <?php if($show_modal):?>
-        <script>
-        $('#myModal').modal('show');
-        </script>
-        <?php endif;?>
+        
         <!-- Modal -->
         <div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog"
             aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    ...
+                    HI
                 </div>
             </div>
         </div>
@@ -254,6 +267,9 @@ if (isset($_SESSION['id'])){
         </a>
     </div>
     <!-- Floating button -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
