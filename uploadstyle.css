@@ -1,5 +1,5 @@
 .button {
-    background-color: rgb(28, 47, 59); 
+    background-color: rgb(73, 148, 197); 
     border: none;
     color: rgb(255, 255, 255);
     padding: 15px 32px;
@@ -32,6 +32,7 @@
     resize: none;
     margin-top:20px;
     margin-left:10px;
+    
     
   }
   .file-upload{
