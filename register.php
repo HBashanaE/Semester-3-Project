@@ -86,7 +86,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Have already an account ? <a href="index.php" class="loginhere-link">Login here</a>
+                        Have already an account ? <a href="index.php" class="loginhere-link"> Login here</a>
                     </p>
                 </div>
             </div>

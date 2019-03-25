@@ -328,7 +328,8 @@ input[type=checkbox]:not(old):checked + label > span:before {
   color: #555; }
 
 .term-service {
-  color: #555; }
+  color: #555; 
+  cursor: help}
 
 .loginhere {
   color: #555;
@@ -339,7 +340,8 @@ input[type=checkbox]:not(old):checked + label > span:before {
 
 .loginhere-link {
   font-weight: 700;
-  color: #222; }
+  color: #222;
+  cursor: pointer; }
 
 .field-icon {
   float: right;
