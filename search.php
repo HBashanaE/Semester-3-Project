@@ -31,9 +31,29 @@ if (isset($_SESSION['id'])){
     </script>
 
     <!-- Bootstrap Local -->
-    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
-    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-
+    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script> -->
+  <!-- Validate username and passwords are filled -->
+  <?php
+		if(isset($_POST["submit"])){
+			if(!empty($_POST['username'])){
+                echo "The form is empty";
+				return false;
+			}
+		}
+	?>
+    <script>
+		function validate(){
+			var username = document.forms["login"]["username"].value;
+            var password = document.forms["login"]["password"].value;
+				if(username== ""){
+                    //alert("Enter valid username and password");
+                    swal("Error", "Enter username and password", "error");
+                    //$(window).load(function(){ $('#myModal').modal('show'); });
+					return false;
+				}
+		}
+	</script>
 </head>
 
 <body>
@@ -138,7 +158,8 @@ if (isset($_SESSION['id'])){
 ?>
     </div>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
