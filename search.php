@@ -68,12 +68,12 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
-                        value="login">Login</button>
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
+                        Login</button>
                 </form>
                 <!-- Register button -->
                 <form action="register.php">
@@ -94,6 +94,7 @@ if (isset($_SESSION['id'])){
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
+                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
         </div>
     </nav>
