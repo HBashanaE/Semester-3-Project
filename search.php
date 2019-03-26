@@ -31,9 +31,29 @@ if (isset($_SESSION['id'])){
     </script>
 
     <!-- Bootstrap Local -->
-    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
-    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-
+    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script> -->
+  <!-- Validate username and passwords are filled -->
+  <?php
+		if(isset($_POST["submit"])){
+			if(!empty($_POST['username'])){
+                echo "The form is empty";
+				return false;
+			}
+		}
+	?>
+    <script>
+		function validate(){
+			var username = document.forms["login"]["username"].value;
+            var password = document.forms["login"]["password"].value;
+				if(username== ""){
+                    //alert("Enter valid username and password");
+                    swal("Error", "Enter username and password", "error");
+                    //$(window).load(function(){ $('#myModal').modal('show'); });
+					return false;
+				}
+		}
+	</script>
 </head>
 
 <body>
@@ -48,12 +68,12 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
-                        value="login">Login</button>
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
+                        Login</button>
                 </form>
                 <!-- Register button -->
                 <form action="register.php">
@@ -74,6 +94,7 @@ if (isset($_SESSION['id'])){
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
+                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
         </div>
     </nav>
@@ -138,7 +159,8 @@ if (isset($_SESSION['id'])){
 ?>
     </div>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
