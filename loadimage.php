@@ -1,12 +1,11 @@
 <?php
 	include_once('connection.php');
-	$sql = "SELECT * FROM alladds";
+	$sql = "SELECT * FROM ads";
 	$result = mysqli_query($db_login,$sql);
 	while ($row = mysqli_fetch_array($result)){
-			$title
 			$image ="<img src = '".$row['image']."'>";
 			$description = $row['description'];
-			$pnum = $row['category'];
+			$title = $row['title'];
 	}
 	
 ?>
@@ -42,7 +41,7 @@
                 <article>
                     <header id="head">
                         <?php
-					echo $text;
+					echo $description;
 				?>
                     </header>
                     <header id="mid">
@@ -52,7 +51,7 @@
                     </header>
                     <footer id="footer">
                         <?php
-					echo "Contact_Number :  ".$pnum;
+					echo "Category :  ".$title;
 				?>
                     </footer>
                 </article>
