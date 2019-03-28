@@ -71,7 +71,7 @@
 <body>
 <nav class="navbar navbar-dark bg-dark justify-content-between">
     <a class="navbar-brand">
-        <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+    <img classs="img-responsive" width="" height="75px"  src="Resources/Kuliyata_logo_full.png" >
     </a>
 </nav>
 
@@ -88,37 +88,45 @@
                         <h2 class="form-title">Create account</h2>
 
                         <!--<div class="form-group">-->
-                        <div class="col-md-4 mb-3">
-                        <label for="validationTooltipUsername">Username</label>
+                        <div class="col-md-5 mb-3">
+                        <label for="validationDefaultUsername">Username</label>
                         <div class="input-group">
                            <!-- <div class="input-group-prepend">
                                 <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                             </div>-->
-                            <input type="text" class="form-control" id="validationTooltipUsername" name="username"  placeholder="User Name" aria-describedby="validationTooltipUsernamePrepend" required>
+                            <input type="text" class="form-control" id="validationDefaultUsername" name="username"  placeholder="User Name" aria-describedby="inputGroupPrepend2" required>
                             <div class="valid-tooltip">
                                 Please choose a unique and valid username.
                             </div>
                         </div>
                         </div>
                         
-                        <div class="col-md-4 mb-3">
-                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Your Email"/>
+                        <div class="col-md-5 mb-3">
+                        <label for="validationDefault03">E-Mail Address</label>
+                            <input type="email" class="form-control" name="email" id="validationDefault03" placeholder="Your Email" required>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
+                        <div class="col-md-5 mb-3">
+                        <label for="validationDefault04">Password</label>
+                            <input type="password" class="form-control" name="password" id="validationDefault04" placeholder="Password" required>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            <small id="passwordHelpInline" class="text-muted">
+                                Must be 8-20 characters long.
+                            </small>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="password" class="form-control" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                        <div class="col-md-5 mb-3">
+                        <label for="validationDefault05">Re-Enter Password</label>
+                            <input type="password" class="form-control" name="re_password" id="validationDefault05" placeholder="Repeat your password" required>
                         </div>
-                        <div class="col-md-4 mb-3">
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" name="agree-term"  class="custom-control-input" id="customControlValidation1" required >
-                            <label for="customControlValidation1" class="custom-control-label"><span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+                        <div class="form-group">
+                    
+                        <div class="form-check">
+                            <input type="checkbox" name="agree-term"  class="form-check-input" id="invalidCheck2" required >
+                            <label class="form-check-label" for="invalidCheck2">I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             <div class="invalid-feedback">Example invalid feedback text</div>
                         </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-5 mb-3">
                             <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Register"/>
                         </div>
                     </form>
@@ -152,7 +160,7 @@
     <a class="nav-link disabled" href="#">Disabled</a>
   </li>
 </ul>
-<img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+<a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
 </nav>
 </body>
 </html>
