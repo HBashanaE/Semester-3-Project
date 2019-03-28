@@ -29,6 +29,7 @@ $mgs="";
 <html>
 <head>
     <title>upload</title>
+    <link rel="shortcut icon" href="Resources/favicon.ico">
     <link href="uploadstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -74,14 +75,30 @@ $mgs="";
  <div class="file-upload">
  <input type="file" class= "form-submit" name="myimage" >
  </div>
- <div class="textarea">
- <textarea name ="text" cols="82" rows= "5"  placeholder = "Discription" ></textarea>
+ <div class="textarea" class="form-group">
+ <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name ="text"  placeholder = "Discription" ></textarea>
  </div>
- <div>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>
  </div>
 </form>
 
+<nav class="navbar navbar-dark bg-dark ">
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+<img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+</nav>
 </body>
 </html>
