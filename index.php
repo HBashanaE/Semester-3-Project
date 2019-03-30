@@ -109,8 +109,8 @@ if (isset($_SESSION['id'])){
 			}
 		}
 	?>
-    <!-- <script>
-		function validate(){
+    <script>
+		function validateUsername(){
 			var username = document.forms["login"]["username"].value;
             var password = document.forms["login"]["password"].value;
 				if(username== ""){
@@ -120,7 +120,12 @@ if (isset($_SESSION['id'])){
 					return false;
 				}
 		}
-	</script> -->
+
+        function validateSearchfield(){
+            var searchText = document.forms["searchForm"]["Searchfield"].value;
+
+        }
+	</script>
 
 
 </head>
@@ -137,7 +142,7 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right" >
+                <form method="post" name="login" onsubmit="return validateUsername();" action="index.php" class="form-inline " style="content-right" >
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email" required>
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password" required>
                     <button type="submit" name="submit"
@@ -183,23 +188,24 @@ if (isset($_SESSION['id'])){
     <!-- Search section -->
     <section class="search-sec">
         <div class="container">
-            <form action="search.php" method="GET">
+            <form id="searchForm" action="search.php" method="GET">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <input type="text" name="query" class="form-control search-slt"
-                                    placeholder="What do you want?">
+                                <input id = "searchField" type="text" name="query" class="form-control search-slt"
+                                    placeholder="What do you want?" required>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <select class="form-control search-slt" name="category" id="selectCategory"
                                     placeholder="Select Category">
-                                    <option>Vehicles</option>
-                                    <option>Cleaning appliences</option>
-                                    <option>Electrical/Electronic</option>
-                                    <option>Catering</option>
-                                    <option>Building and construction</option>
-                                    <option>Other</option>
+                                    <option >All</option>
+                                    <option>Vehicles</option> <!-- 00 -->
+                                    <option>Cleaning appliences</option> <!-- 01 -->
+                                    <option>Electrical/Electronic</option> <!-- 02 -->
+                                    <option>Catering</option> <!-- 03 -->
+                                    <option>Building and construction</option> <!-- 04 -->
+                                    <option>Other</option> <!-- 99 -->
                                 </select>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 p-2 ">
