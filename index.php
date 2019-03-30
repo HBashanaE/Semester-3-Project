@@ -101,8 +101,8 @@ if (isset($_SESSION['id'])){
             <div class="row">
                 <!-- Login form -->
                 <form method="post" action="index.php" class="form-inline " style="content-right">
-                    <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
-                    <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
+                    <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email" required>
+                    <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password" required>
                     <button type="submit" name="submit"
                         class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
                         value="login">Login</button>
