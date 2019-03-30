@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-$logged=false;
+//Access-Control-Allow-Origin header with wildcard.
+header('Access-Control-Allow-Origin: *');
+//$logged=false;
+$show_modal = false;
 session_start();
 if (isset($_POST['submit'])) {
 if($_POST['submit']) {
@@ -19,35 +22,45 @@ if($_POST['submit']) {
     if(!empty($_POST['username'])){
         if($username == $dbUserName && $password == $dbPassword) {
             $_SESSION['username'] = $username;
-        $_SESSION['id'] = $userId;
+            $_SESSION['id'] = $userId;
             header('Location: index.php');
         }
         else {
             echo "<b><i>Invalid password</i><b>";
         }
     }else{
-         echo '<div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">';
-         echo '<div class="modal-dialog modal-sm">';
-         echo '  <div class="modal-content">';
-         echo '    ...';
-         echo '  </div>';
-         echo '</div>';
-         echo '</div>';
-
-       echo'<script> $(\'#myModal\').modal(\'show\');</script>';
-    //echo '<script> window.alert("Don\'t waste time")</script>';
-
+        $show_modal = true;
     }
 }
 }
 //only if session is created then user has logged in
 if (isset($_SESSION['id'])){
 	$userId = $_SESSION['id'];
-  $username = $_SESSION['username'];
-  $logged=true; 
+    $username = $_SESSION['username'];
+    $logged=true; 
 }else{
-  $logged=false;
+    $logged=false;
   }
+?>
+<!-- Image Upload -->
+<?php
+	$msg="";
+	if(isset($_POST['upload'])){
+		$target="alladds/".basename($_FILES['image']['name']);
+		$db = mysqli_connect("localhost","root","","login");
+		$image = $_FILES['image']['name'];
+		$text = $_POST['text'];
+		$TNum = $_POST['TNum'];
+		$Price = $_POST['Price'];
+		$sql = "INSERT INTO alladds(image, text,price,pnum) VALUES ('$image','$text','$TNum','$Price');";
+		mysqli_query($db,$sql);
+		if(move_uploaded_file($_FILES['image']['name'],$target)){
+				$msg = "image uploaded successfully";
+		}else{
+			$msg = "There was a problem uploading image";
+		}
+		
+	}
 ?>
 
 <html>
@@ -55,7 +68,7 @@ if (isset($_SESSION['id'])){
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
-    <link rel="shortcut icon" src="Resources/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="Resources/favicon.ico">
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -68,11 +81,14 @@ if (isset($_SESSION['id'])){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap Local -->
-    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
+    <script src="//Resources/jquery/jquery-3.3.1.min"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
     <!-- File uploader plugin -->
 
@@ -84,6 +100,27 @@ if (isset($_SESSION['id'])){
 
     <link href="Resources/dist/css/jquery.dm-uploader.min.css" rel="stylesheet">
     <link href="Resoures/styles.css" rel="stylesheet">
+    <!-- Validate username and passwords are filled -->
+    <?php
+		if(isset($_POST["submit"])){
+			if(!empty($_POST['username'])){
+                echo "The form is empty";
+				return false;
+			}
+		}
+	?>
+    <!-- <script>
+		function validate(){
+			var username = document.forms["login"]["username"].value;
+            var password = document.forms["login"]["password"].value;
+				if(username== ""){
+                    //alert("Enter valid username and password");
+                    swal("Error", "Enter username and password", "error");
+                    //$(window).load(function(){ $('#myModal').modal('show'); });
+					return false;
+				}
+		}
+	</script> -->
 
 
 </head>
@@ -100,12 +137,12 @@ if (isset($_SESSION['id'])){
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right" >
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email" required>
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password" required>
                     <button type="submit" name="submit"
-                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
-                        value="login">Login</button>
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
+                        Login</button>
                 </form>
                 <!-- Register button -->
                 <form action="register.php">
@@ -114,6 +151,18 @@ if (isset($_SESSION['id'])){
                 </form>
             </div>
         </div>
+        
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog"
+            aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    HI
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
         <!-- Div for logged user items -->
         <div class="logged_user" id="div_logged_user" <?php if($logged===false ){?>style="display:none" <?php }?>>
             <div class="btn-group">
@@ -126,6 +175,7 @@ if (isset($_SESSION['id'])){
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
+                <button type="button" class="btn btn-warning">Warning</button>
             </div>
         </div>
     </nav>
@@ -142,8 +192,8 @@ if (isset($_SESSION['id'])){
                                     placeholder="What do you want?">
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
-                                <select class="form-control search-slt" name="category" id="selectCategory">
-                                    <option>Select Category</option>
+                                <select class="form-control search-slt" name="category" id="selectCategory"
+                                    placeholder="Select Category">
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
                                     <option>Electrical/Electronic</option>
@@ -163,76 +213,63 @@ if (isset($_SESSION['id'])){
         </div>
     </section>
 
-    <!-- Upload image -->
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
 
-            <!-- Our markup, the important part here! -->
-            <div id="drag-and-drop-zone" class="dm-uploader p-5">
-                <h3 class="mb-5 mt-5 text-muted">Drag &amp; drop files here</h3>
-
-                <div class="btn btn-primary btn-block mb-5">
-                    <span>Open the file Browser</span>
-                    <input type="file" title='Click to add Files' />
-                </div>
-            </div><!-- /uploader -->
-
+    <div id="sub_content">
+        <?php
+			// include_once('connection.php');
+			// $sql = "SELECT * FROM ads";
+			// $result = mysqli_query($db_login,$sql);
+			// while ($row = mysqli_fetch_array($result)){
+			// 		echo "<div class='card mb-2'>";
+			// 			echo "<img src='ads/".$row['images']."' class='card-img-top' alt='image'>";
+			// 				echo "<div class='card-body'>";
+			// 					echo "<h5 class='card-title'>".$row['title']."</h5>";
+			// 				echo "<p class='card-text'>".$row['description']."</p>";
+			// 				echo "<p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>";
+			// 				echo "</div>";
+			// 		echo "</div>";
+			//}
+			
+		?>
+    </div>
+    <div class="card mb-3" style="height: 18rem; width:50rem;">
+        <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
+  height:10rem;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Test Ad</h5>
+            <p class="card-text">This is ad description.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-        <div class="col-md-6 col-sm-12">
-            <div class="card h-100">
-                <div class="card-header">
-                    File List
-                </div>
+    </div>
 
-                <ul class="list-unstyled p-2 d-flex flex-column col" id="files">
-                    <li class="text-muted text-center empty">No files uploaded.</li>
-                </ul>
+    <!-- <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
-        </div>
-    </div><!-- /file list -->
+        </div> -->
+    <!-- Floating button -->
+    <div <?php if($logged===false ){?>style="display:none" <?php }?>>
+        <a href="#" class="float" style="position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0275d8 ;
+	color:#FFF;
+	border-radius:10px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;" data-toggle="tooltip" data-placement="left" title="Post an ad">
+            <i class="fa fa-plus my-float" style="margin-top:22px;"></i>
+        </a>
+    </div>
+    <!-- Floating button -->
 
-
-    <div class="row">
-        <div class="col-12">
-            <div class="card h-100">
-                <div class="card-header">
-                    Debug Messages
-                </div>
-
-                <ul class="list-group list-group-flush" id="debug">
-                    <li class="list-group-item text-muted empty">Loading plugin....</li>
-                </ul>
-            </div>
-        </div>
-    </div> <!-- /debug -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="Resources/dist/js/jquery.dm-uploader.min.js"></script>
-    <script src="demo-ui.js"></script>
-    <script src="demo-config.js"></script>
-
-    <!-- File item template -->
-    <script type="text/html" id="files-template">
-    <li class="media">
-        <div class="media-body mb-1">
-            <p class="mb-2">
-                <strong>%%filename%%</strong> - Status: <span class="text-muted">Waiting</span>
-            </p>
-            <div class="progress mb-2">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
-                    style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                </div>
-            </div>
-            <hr class="mt-1 mb-1" />
-        </div>
-    </li>
-    </script>
-
-    <!-- Debug item template -->
-    <script type="text/html" id="debug-template">
-    <li class="list-group-item text-%%color%%"><strong>%%date%%</strong>: %%message%%</li>
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

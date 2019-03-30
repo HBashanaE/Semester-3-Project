@@ -1,5 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+session_start();
+//only if session is created then user has logged in
+if (isset($_SESSION['id'])){
+	$userId = $_SESSION['id'];
+    $username = $_SESSION['username'];
+    $logged=true; 
+}else{
+    $logged=false;
+  }
+?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Search results</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,11 +33,52 @@
     <!-- Bootstrap Local -->
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-    
+
 </head>
+
 <body>
-<div class="container">
-<?php
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <!-- Logo -->
+        <a class="navbar-brand">
+            <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+        </a>
+        <!-- Div for generel user items -->
+        <div class="generel_user" id="div_generel_user" <?php if($logged===true ){?>style="display:none" <?php }?>>
+
+            <div class="row">
+                <!-- Login form -->
+                <form method="post" action="index.php" class="form-inline " style="content-right">
+                    <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
+                    <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
+                    <button type="submit" name="submit"
+                        class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
+                        value="login">Login</button>
+                </form>
+                <!-- Register button -->
+                <form action="register.php">
+                    <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0"
+                        value="Register" />
+                </form>
+            </div>
+        </div>
+        <!-- Div for logged user items -->
+        <div class="logged_user" id="div_logged_user" <?php if($logged===false ){?>style="display:none" <?php }?>>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <?php echo htmlentities($username) ?>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" type="button">Account</a>
+                    <a class="dropdown-item" type="button">Another action</a>
+                    <a class="dropdown-item" type="button" href="logout.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <?php
     include_once('connection.php');
     $query = $_GET['query'];
     if($_GET['category']){
@@ -82,8 +136,9 @@
         echo "Minimum length is ".$min_length;
     }
 ?>
-</div>
-</div>
+    </div>
+    </div>
 
 </body>
+
 </html>
