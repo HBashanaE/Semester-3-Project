@@ -17,13 +17,13 @@ if (isset($_SESSION['id'])) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <!-- Bootstrap Local -->
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
@@ -77,50 +77,50 @@ if (isset($_SESSION['id'])) {
         if ($_GET['category']) {
             $category = $_GET['category'];
         }
-        $category = null;
 
         // gets value sent over search form
 
         $categoryDigit = null;
         switch ($category) {
             case "Vehicles":
-                $categoryDigit = 00;
+                $categoryDigit = '00';
                 break;
             case "Cleaning appliences":
-                $categoryDigit = 01;
+                $categoryDigit = '01';
                 break;
             case "Electrical/Electronic":
-                $categoryDigit = 02;
+                $categoryDigit = '02';
                 break;
             case "Catering":
-                $categoryDigit = 03;
+                $categoryDigit = '03';
                 break;
             case "Building and construction":
-                $categoryDigit = 04;
+                $categoryDigit = '04';
                 break;
             case "Other":
-                $categoryDigit = 99;
+                $categoryDigit = '99';
                 break;
             default:
-                $categoryDigit = null;
+                $categoryDigit = '100';
         }
+
 
         $query = htmlspecialchars($query);
         // changes characters used in html to their equivalents, for example: < to &gt;
 
         //$query = mysqli_real_escape_string($query);
         // makes sure nobody uses SQL injection
-
-
-
-
-        if ($category != null) {
-            $raw_results = mysqli_query($db_login, "SELECT * FROM ads
-            (WHERE (`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%')) AND category=" . $categoryDigit . " ") or die(mysql_error());
-        } else {
-            $raw_results = mysqli_query($db_login, "SELECT * FROM ads
-            WHERE (`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%')") or die(mysql_error());
+        if($categoryDigit==='100'){
+            $sqlQuery = "SELECT * FROM ads WHERE (`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%')";
+        }else{
+            $sqlQuery = "SELECT * FROM ads WHERE ((`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%')) AND (category='$categoryDigit')";
         }
+        
+
+        //$sqlQuery = "SELECT * FROM ads WHERE category= 01";
+        
+        $raw_results = mysqli_query($db_login, $sqlQuery) or die(mysql_error());
+        
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
         // articles is the name of our table
 
@@ -134,12 +134,12 @@ if (isset($_SESSION['id'])) {
                 // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
-                echo "<div class=\"card my-5\" style=\"width: 75rem;\">";
-                echo "  <img class=\"card-img-top\" src=\"...\" alt=" . $results['title'] . ">";
+                echo "<div class=\"card my-5\" style=\"width: 80%; height: auto\">";
+                echo "  <img class=\"card-img-top\" src='ads/". $results['images']."' alt='". $results['images']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
                 echo "      <p class=\"card-text\">" . $results['description'] . "</p>";
-                echo "      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>";
+                echo "      <a href= class=\"btn btn-primary\">View</a>";
                 echo "  </div>";
                 echo "</div>";
 

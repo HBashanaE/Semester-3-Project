@@ -28,9 +28,6 @@
 
     <title>Loging out</title>
     <style type="text/css">
-    /* body{
-		background: #000000 !important;}
-	} */
     .lds-facebook {
         display: inline-block;
         position: relative;
@@ -78,19 +75,35 @@
 </head>
 
 <body>
-    <meta http-equiv="refresh" content="3; url = index.php" />
-    <div class="container">
-        <div class="row">
-            <div class="col align-items-center">
-                <div class="lds-facebook p-2 align-middle">
+<div style="display: flex;
+    justify-content: center;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<meta http-equiv="refresh" content="3; url = index.php" />
+    <div class="container" style="display: flex;
+    justify-content: center;">
+        <div class="row" style="display: flex;
+    justify-content: center;">
+            <div class="col" style="display: flex;
+    justify-content: center;">
+                <div class="lds-facebook p-2" style="display: flex;
+    justify-content: center;">
                     <p>Loggin out</p>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <div style="display: flex;
+    justify-content: center;"></div>
+                    <div style="display: flex;
+    justify-content: center;"></div>
+                    <div style="display: flex;
+    justify-content: center;"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+    
 
 
 </body>
