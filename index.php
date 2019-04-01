@@ -194,6 +194,8 @@ if (isset($_SESSION['id'])){
                             <div class="col-lg-5 col-md-5 col-sm-12 p-2">
                                 <select class="form-control search-slt" name="category" id="selectCategory"
                                     placeholder="Select Category">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1" >
+                                    <option>Select Category</option>
                                     <option>Vehicles</option>
                                     <option>Cleaning appliences</option>
                                     <option>Electrical/Electronic</option>
