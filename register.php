@@ -37,7 +37,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <title>Create Your කුළියට Account</title>
    
     <!-- Main css -->
     
@@ -84,7 +84,7 @@
              
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" action = "register.php" class="needs-validation" novalidate>
+                    <form method="POST" >
                         <h2 class="form-title">Create account</h2>
 
                         <!--<div class="form-group">-->
@@ -95,19 +95,19 @@
                                 <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                             </div>-->
                             <input type="text" class="form-control" id="validationDefaultUsername" name="username"  placeholder="User Name" aria-describedby="inputGroupPrepend2" required>
-                            <div class="valid-tooltip">
+                            <!--<div class="valid-tooltip">
                                 Please choose a unique and valid username.
-                            </div>
+                            </div>-->
                         </div>
                         </div>
                         
                         <div class="col-md-5 mb-3">
                         <label for="validationDefault03">E-Mail Address</label>
-                            <input type="email" class="form-control" name="email" id="validationDefault03" placeholder="Your Email" required>
+                            <input type="email" class="form-control" name="email" id="validationDefault01" placeholder="Your Email" required>
                         </div>
                         <div class="col-md-5 mb-3">
                         <label for="validationDefault04">Password</label>
-                            <input type="password" class="form-control" name="password" id="validationDefault04" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="validationDefault02" placeholder="Password" required>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                             <small id="passwordHelpInline" class="text-muted">
                                 Must be 8-20 characters long.
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-md-5 mb-3">
                         <label for="validationDefault05">Re-Enter Password</label>
-                            <input type="password" class="form-control" name="re_password" id="validationDefault05" placeholder="Repeat your password" required>
+                            <input type="password" class="form-control" name="re_password" id="validationDefault03" placeholder="Repeat your password" required>
                         </div>
                         </div>
                         <div class="form-group">
@@ -143,24 +143,25 @@
   
     
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-<nav class="navbar navbar-dark bg-dark justify-content-between">
-<ul class="nav">
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Help & Support</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Learn More</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
+    <a class="nav-link disabled" href="#">About Us</a>
   </li>
 </ul>
 <a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
+
 </nav>
 </body>
 </html>
