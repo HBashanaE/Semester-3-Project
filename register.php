@@ -139,6 +139,7 @@
             </div>
         </section>
         </div>
+
         
  
 
@@ -147,7 +148,7 @@
 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="js/main.js"></script>
-<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
