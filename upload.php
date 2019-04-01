@@ -28,7 +28,7 @@ $mgs="";
 
 <html>
 <head>
-    <title>upload</title>
+    <title>Upload Your කුළියට.lk Avertisement</title>
     <link rel="shortcut icon" href="Resources/favicon.ico">
     <link href="uploadstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -82,23 +82,38 @@ $mgs="";
  </div>
  </div>
 </form>
+<div class="container">
+    <h2>Quick rules</h2>
+    <div class="row">
+        <p>* Make sure you post in the correct category. </p>
+    </div>
+    <div class="row">
+        <p>* Do not post ads containing multiple items.</p>
+    </div>
+    <div class="row">
+        <p>* Do not post more than one picture.</p>
+    </div>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+</div>
 
-<nav class="navbar navbar-dark bg-dark ">
-<ul class="nav">
+
+<nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Help & Support</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Learn More</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
+    <a class="nav-link disabled" href="#">About Us</a>
   </li>
 </ul>
-<img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+<a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
+
 </nav>
 </body>
 </html>
