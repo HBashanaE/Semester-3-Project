@@ -117,7 +117,7 @@
                         <label for="validationDefault05">Re-Enter Password</label>
                             <input type="password" class="form-control" name="re_password" id="validationDefault03" placeholder="Repeat your password" required>
                         </div>
-                        </div>
+                        
                         <div class="form-group">
                     
                         <div class="form-check">
@@ -129,7 +129,9 @@
                         <div class="col-md-5 mb-3">
                             <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Register"/>
                         </div>
+                        
                     </form>
+                        
                     <p class="loginhere">
                         Have already an account ? <a href="index.php" class="loginhere-link">Login here</a>
                     </p>

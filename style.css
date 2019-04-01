@@ -329,8 +329,8 @@ input[type=checkbox]:not(old):checked + label > span:before {
 
 .term-service {
   color: #555;
-  cursor: help; }
-  color: #555; 
+  cursor: help; 
+  color : #555; 
   cursor: help}
 
 .loginhere {
