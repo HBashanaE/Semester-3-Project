@@ -9,7 +9,7 @@ class Router {
         array_shift($url);
 
         //action
-        $action = (isset($url[0]) && $url[0] !='') ? $url[0] :'IndexAction';
+        $action = (isset($url[0]) && $url[0] !='') ? $url[0].'Action' :'indexAction';
         $action_name=$controller;
         array_shift($url);
         
@@ -18,6 +18,8 @@ class Router {
 
         $dispatch = new $controller($controller_name,$action);
         
+        // dnd($controller);
+        // dnd($action);
         if(method_exists($controller,$action)){
             call_user_func_array([$dispatch,$action], $queryParams);
         }else{

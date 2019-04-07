@@ -1,7 +1,7 @@
 <?php
 
 class View{
-    protected $_head,$_body,$_siteTitle,$_outputBuffer,$_layout = DEFAULT_LAYOUT;
+    protected $_head,$_body,$_siteTitle = SITE_TITLE,$_outputBuffer,$_layout = DEFAULT_LAYOUT;
 
     public function __construct()
     {
@@ -10,8 +10,8 @@ class View{
     public function render($viewName){
         $viewAry = explode('/',$viewName);
         $viewString = implode(DS,$viewAry);
-        if(file_exists(ROOT.DS.'app'.DS/'views'.DS.$viewString.'.php')){
-            include(ROOT.DS.'app'.DS/'views'.DS.$viewString.'.php');
+        if(file_exists(ROOT.DS.'app'.DS.'views'.DS.$viewString.'.php')){
+            include(ROOT.DS.'app'.DS.'views'.DS.$viewString.'.php');
             include(ROOT.DS.'app'.DS.'views'.DS.'layouts'.DS.$this->_layout.'.php');
 
         }else{
@@ -28,4 +28,31 @@ class View{
         }
         return false;
     }
+    public function start($type){
+        $this->_outputBuffer =$type;
+        ob_start();    
+    }
+
+    public function end(){
+        if($this->_outputBuffer == 'head'){
+            $this->_head = ob_get_clean();
+        }elseif($this->_outputBuffer == 'body'){
+            $this->_head = ob_get_clean();
+        }else{
+            die('You must first run the start method.');
+        }
+    }
+
+    public function siteTile(){
+        return $this->_siteTitle;
+    }
+
+    public function setSiteTitle($title){
+        $this->_siteTitle =$title;
+    }
+
+    public function setLayout($path){
+        $this->_layout = $path;
+    }
+
 }
