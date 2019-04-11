@@ -37,13 +37,13 @@ class View{
         if($this->_outputBuffer == 'head'){
             $this->_head = ob_get_clean();
         }elseif($this->_outputBuffer == 'body'){
-            $this->_head = ob_get_clean();
+            $this->_body = ob_get_clean();
         }else{
             die('You must first run the start method.');
         }
     }
 
-    public function siteTile(){
+    public function siteTitle(){
         return $this->_siteTitle;
     }
 

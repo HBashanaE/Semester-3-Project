@@ -7,6 +7,13 @@ class Home extends Controller{
     }
 
     public function indexAction(){
+        $db = DB::getInstance();
+        $fields =[
+            'fname' => 'HBashana',
+            'lname' => 'Elikewela',
+            'email' => 'hbashanae@gmail.com'
+        ];
+       $contactsQ = $db->insert('contacts', $fields);
         $this->view->render('home/Index');
     }
 
