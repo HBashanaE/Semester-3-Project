@@ -9,11 +9,16 @@ class Home extends Controller{
     public function indexAction(){
         $db = DB::getInstance();
         $fields =[
-            'fname' => 'HBashana',
-            'lname' => 'Elikewela',
-            'email' => 'hbashanae@gmail.com'
+            'fname' => 'Bashana',
+            'email' => 'hbashanae@yahoo.com'
         ];
-       $contactsQ = $db->insert('contacts', $fields);
+        $contactsQ = $db->find('contacts', [
+            'conditions' => ['fname = ?', 'lname = ?'],
+            'bind' => ['Bashana', 'Elikewela'],
+            'order' => "lname, fname",
+            'limit' => 5
+        ]);
+        dnd($contactsQ);
         $this->view->render('home/Index');
     }
 

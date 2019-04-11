@@ -42,6 +42,68 @@ class DB{
         return $this;
     }
 
+    protected function _read($table, $params = []){
+        $conditionString ='';
+        $bind = [];
+        $order = '';
+        $limit = '';
+
+        // conditions
+        if(isset($params['conditions'])){
+            if(is_array($params['conditions'])){
+                foreach($params['conditions'] as $condition){
+                    $conditionString .= ' '.$condition . ' AND';
+                }
+                $conditionString = trim($conditionString);
+                $conditionString = rtrim($conditionString, ' AND');
+            }else{
+                $conditionString = $params['conditions'];
+            }
+            if($conditionString != ''){
+                $conditionString = ' WHERE '. $conditionString;
+            }
+        }
+        // bind
+        if(array_key_exists('bind', $params)){
+            $bind = $params['bind'];
+            //dnd($bind);
+
+        }
+        // order
+        if(array_key_exists('order', $params)){
+            $order = ' ORDER BY '. $params['order'];
+            //dnd($order);
+        }
+        // limit 
+        if(array_key_exists('limit', $params)){
+            $limit = ' LIMIT '. $params["limit"];
+            //dnd($limit);
+        }
+
+        $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
+        // dnd($sql);
+        if($this->query($sql, $bind)){
+            if(!count($this->_result )) return false;
+            return true;
+        }
+        return false;
+    
+    }
+
+    public function find($table, $params = []){
+        if($this->_read($table, $params)){
+            return $this->getResult();
+        }
+        return false;
+    }
+
+    public function findFirst($table, $params = []){
+        if($this->_read($table, $params)){
+            return $this->first();
+        }
+        return false;
+    }
+
     public function insert($table, $fields = []){
         $fieldString = '';
         $valueString = '';
@@ -60,6 +122,52 @@ class DB{
             return true;
         }
         return false;
+    }
+
+    public function update($table, $id, $fields= []){
+        $fieldString = '';
+        $values = [];
+        foreach($fields as $field => $value){
+            $fieldString .=' '.$field.' = ?,';
+            $values[] = $value;
+        }
+        $fieldString = trim($fieldString);
+        $fieldString = rtrim($fieldString, ',');
+        $sql = "UPDATE {$table} SET {$fieldString} WHERE id = {$id}";
+
+        if(!$this->query($sql, $values)->getError()){
+            return true;
+        }
+        return false;
+    }
+
+    public function delete($table,$id){
+        $sql = "DELETE FROM {$table} WHERE id  = {$id}";
+        if(!$this->query($sql)->getError()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getResult(){
+        return $this->_result;
+    }
+
+    public function first(){
+        return (!empty($this->_result))? $this->_result[0] : [];
+    }
+
+    public function count(){
+        return $this->_count;
+    }
+
+    public function lastID(){
+        return $this->_lastInsterID;
+    }
+
+    public function get_columns($table){
+        return $this->query("SHOW COLUMNS FROM {$table}")->getResult();
     }
 
     public function getError(){
