@@ -41,25 +41,7 @@ if (isset($_SESSION['id'])) {
     $logged = false;
 }
 ?>
-<!-- Image Upload -->
-<?php
-$msg = "";
-if (isset($_POST['upload'])) {
-    $target = "alladds/" . basename($_FILES['image']['name']);
-    $db = mysqli_connect("localhost", "root", "", "login");
-    $image = $_FILES['image']['name'];
-    $text = $_POST['text'];
-    $TNum = $_POST['TNum'];
-    $Price = $_POST['Price'];
-    $sql = "INSERT INTO alladds(image, text,price,pnum) VALUES ('$image','$text','$TNum','$Price');";
-    mysqli_query($db, $sql);
-    if (move_uploaded_file($_FILES['image']['name'], $target)) {
-        $msg = "image uploaded successfully";
-    } else {
-        $msg = "There was a problem uploading image";
-    }
-}
-?>
+
 
 <html>
 

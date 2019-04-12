@@ -28,84 +28,49 @@
 
     <title>Loging out</title>
     <style type="text/css">
-    .lds-facebook {
+        .lds-ripple {
         display: inline-block;
         position: relative;
-        width: 400px;
-        height: 400px;
-    }
-
-    .lds-facebook div {
-        display: inline-block;
+        width: 100px;
+        height: 100px;
+      }
+      .lds-ripple div {
         position: absolute;
-        left: 8px;
-        width: 16px;
-        background: #000000;
-        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-    }
-
-    .lds-facebook div:nth-child(1) {
-        left: 8px;
-        animation-delay: -0.24s;
-    }
-
-    .lds-facebook div:nth-child(2) {
-        left: 32px;
-        animation-delay: -0.12s;
-    }
-
-    .lds-facebook div:nth-child(3) {
-        left: 56px;
-        animation-delay: 0;
-    }
-
-    @keyframes lds-facebook {
+        border: 10px solid #17a2b8;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 2s cubic-bezier(0, 0.4, 0.8, 1) infinite;
+      }
+      .lds-ripple div:nth-child(2) {
+        animation-delay: -1s;
+      }
+      @keyframes lds-ripple {
         0% {
-            top: 8px;
-            height: 64px;
+          top: 100px;
+          left: 100px;
+          width: 0;
+          height: 0;
+          opacity: 1;
         }
-
-        50%,
         100% {
-            top: 24px;
-            height: 32px;
+          top: 0px;
+          left: 0px;
+          width: 200px;
+          height: 200px;
+          opacity: 0;
         }
-    }
+      }
     </style>
 </head>
 
 <body>
 <div style="display: flex;
     justify-content: center;">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-<meta http-equiv="refresh" content="3; url = index.php" />
-    <div class="container" style="display: flex;
-    justify-content: center;">
-        <div class="row" style="display: flex;
-    justify-content: center;">
-            <div class="col" style="display: flex;
-    justify-content: center;">
-                <div class="lds-facebook p-2" style="display: flex;
-    justify-content: center;">
-                    <p>Loggin out</p>
-                    <div style="display: flex;
-    justify-content: center;"></div>
-                    <div style="display: flex;
-    justify-content: center;"></div>
-                    <div style="display: flex;
-    justify-content: center;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     
-
-
+    <meta http-equiv="refresh" content="3; url = index.php" />
+    <div style="position:absolute; left:46%; top:40%;">
+            <div class="lds-ripple"><div></div><div></div></div>
+    </div>
 </body>
 
 </html>

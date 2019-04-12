@@ -134,18 +134,17 @@ if (isset($_SESSION['id'])) {
                 // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
-                echo "<div class=\"card my-5\" style=\"width: 80%; height: auto\">";
+                echo "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
                 echo "  <img class=\"card-img-top\" src='ads/". $results['images']."' alt='". $results['images']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
                 echo "      <p class=\"card-text\">" . $results['description'] . "</p>";
-                echo "      <a href= class=\"btn btn-primary\">View</a>";
+                echo "      <a href='' class='btn btn-primary'>View</a>";
                 echo "  </div>";
                 echo "</div>";
 
-                // posts results gotten from database(title and text) you can also show id ($results['id'])
             }
-        } else { // if there is no matching rows do following
+        } else { 
             echo "No results found";
         }
 
