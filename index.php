@@ -205,7 +205,7 @@ if (isset($_SESSION['id'])) {
     <!-- Floating button -->
     <div <?php if ($logged === false) { ?>style="display:none" <?php 
                                                         } ?>>
-        <a href="#"class="float"style="position:fixed;
+        <a href="upload.php"class="float"style="position:fixed;
         width:60px;
         height:60px;
         bottom:40px;

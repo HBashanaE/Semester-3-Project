@@ -26,8 +26,8 @@ if (isset($_SESSION['id'])) {
     </script> -->
 
     <!-- Bootstrap Local -->
-    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
-    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script> -->
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
   <!-- Validate username and passwords are filled -->
   <?php
 		if(isset($_POST["submit"])){
