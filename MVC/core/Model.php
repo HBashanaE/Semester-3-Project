@@ -7,20 +7,21 @@ class Model{
     public function __construct($_table){
         $this->_db = DB::getInstance();
         $this->_table = $_table;
-        $this->_setTbleColumns();
+        $this->setTableColumns();
         $this->_modelName = str_replace(' ','', ucwords(str_replace('_',' ', $this->_table)));
     }
     
     public function setTableColumns(){
-        $columns = $this->get_columns();
-        foreach($columns as$column){
+        $columns = $this->getColumns();
+        foreach($columns as $column){
             $columnName = $column->Field;
+            $this->_columnName = $column->Field;
             $this->{$columnName} = null;
         }
     }
 
     public function getColumns(){
-        return $this->_db->getColumns($this->_table);
+        return $this->_db->get_columns($this->_table);
     }
 
     public function find($params){
@@ -74,7 +75,7 @@ class Model{
     }
 
     public function delete($id){
-        if($id == '' && this->id == '') return false;
+        if($id == '' && $this->id == '') return false;
         $id = ($id == '' )? $this->id : $id;
         if($this->_softDelete){
             return $this->update($id, ['delete' => 1]);
