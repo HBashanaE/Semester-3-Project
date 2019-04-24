@@ -7,6 +7,7 @@ $mgs="";
         $imagename=$_FILES["myimage"]["name"];
         $text=$_POST["text"];
         $title=$_POST["category"];
+        //$dbtable=ads;
         /*$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
         $query = "INSERT INTO ads(title,description,image) VALUES('$title','$text','$imagename')";
         mysqli_query($db,$query);

@@ -234,6 +234,22 @@ if (isset($_SESSION['id'])){
 			
 		?>
     </div>
+    <div>
+    <?php
+        $db=mysqli_connect("localhost" , "root", "", "login");
+        $sql= "SELECT * FROM ads";
+        $result= mysqli_query($db,$sql);
+        while ($row=mysqli_fetch_array($result)){
+            if ($row['approve']=='approve'){
+            echo "<div class = 'container'>";
+                echo "<img src='myimage/".$row['image']."'class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+                echo "<p>".$row['description']. "</p>";
+            echo "</div>";
+        }
+    }
+
+    ?>
+    </div>
     <div class="card mb-3" style="height: 18rem; width:50rem;">
         <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
   height:10rem;" alt="...">
