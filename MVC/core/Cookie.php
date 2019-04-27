@@ -3,7 +3,7 @@
 class Cookie{
 
     public static function set($name, $value, $expiry){
-        if(setcookie($name, $value, $time()+$expiry, '/')){
+        if(setcookie($name, $value, time()+$expiry, '/')){
             return true;
         }
         return false;
@@ -18,6 +18,6 @@ class Cookie{
     }
 
     public static function exist($name){
-          return isset($_COOKIE[$name]);
+        return isset($_COOKIE[$name]);
     }
 }

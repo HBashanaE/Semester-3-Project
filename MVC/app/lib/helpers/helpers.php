@@ -9,3 +9,7 @@ function dnd($data){
 function sanitize($dirty){
     return htmlentities($dirty, ENT_QUOTES, 'UTF-8');
 }
+
+function currentUsers(){
+    return Users::$currentLoggedInUser;
+}

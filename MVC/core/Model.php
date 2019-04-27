@@ -7,11 +7,11 @@ class Model{
     public function __construct($_table){
         $this->_db = DB::getInstance();
         $this->_table = $_table;
-        $this->setTableColumns();
+        $this->_setTableColumns();
         $this->_modelName = str_replace(' ','', ucwords(str_replace('_',' ', $this->_table)));
     }
     
-    public function setTableColumns(){
+    public function _setTableColumns(){
         $columns = $this->getColumns();
         foreach($columns as $column){
             $columnName = $column->Field;
@@ -41,7 +41,9 @@ class Model{
     public function findFirst($params = []){
         $resultQuery = $this->_db->findFirst($this->_table, $params);
         $result = new $this->_modelName($this->_table);
-        $result->populateObjData($resultQuery);
+        if($resultQuery){
+            $result->populateObjData($resultQuery);
+        }
         return $result;
     }
 
@@ -95,7 +97,7 @@ class Model{
         return $data;
     }
 
-    public function assign ($params)
+    public function assign($params)
     {
         if(!empty($params)){
             foreach($params as $key => $val){
