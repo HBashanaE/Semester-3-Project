@@ -11,5 +11,5 @@ function sanitize($dirty){
 }
 
 function currentUsers(){
-    return Users::$currentLoggedInUser;
+    return Users::currentLoggedInUser();
 }

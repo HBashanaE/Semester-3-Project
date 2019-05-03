@@ -23,5 +23,8 @@ $url = isset($_SERVER['PATH_INFO']) ? explode('/',ltrim($_SERVER['PATH_INFO'],'/
 $db = DB::getInstance();
 //require_once(ROOT.DS.'core'.DS.'bootstrap.php');
 
+if(!Session::exist(CURRENT_USER_SESSION_NAME) && Cookie::exist((REMEMBER_ME_COOKIE_NAME))){
+    Users::loginUserFromCookie();
+}
 //Route the request
 Router::route($url);

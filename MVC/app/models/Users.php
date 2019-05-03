@@ -8,7 +8,7 @@ class Users extends Model{
         $table = 'users';
         parent::__construct($table);
         $this->_sessionName = CURRENT_USER_SESSION_NAME;
-        $this->_coookieName = REMEMBER_ME_COOKIE_NAME;
+        $this->_cookieName = REMEMBER_ME_COOKIE_NAME;
         $this->_softDelete = true;
         if($user != ''){
             if(is_int($user)){
@@ -29,7 +29,7 @@ class Users extends Model{
     }
 
     public static function currentLoggedInUser(){
-        if(isset(self::$currentLoggedInUser) && Session::exist(CURRENT_USER_SESSION_NAME)){
+        if(!isset(self::$currentLoggedInUser) && Session::exist(CURRENT_USER_SESSION_NAME)){
             $U = new Users((int)Session::get(CURRENT_USER_SESSION_NAME));
             self::$currentLoggedInUser = $U;
         } 
@@ -48,8 +48,21 @@ class Users extends Model{
         }
     }
 
+    public static function loginUserFromCookie(){
+        $user_session_model = new UserSessions();
+        $user_session = $user_session_model->findFirst([
+            'conditions' => "user_agent = ? AND session = ?",
+            'bind' => [Session::uagent_no_version(), Cookie::get(REMEMBER_ME_COOKIE_NAME)]
+        ]);
+        if($user_session->user_id != ''){
+            $user = new self($user_session->user_id); 
+        }
+        $user->login();
+        return $user;
+    }
+
     public function logout(){
-        $user_agent = Session::agent_no_version();
+        $user_agent = Session::uagent_no_version();
         $this->_db->query("DELETE FROM user_sessions WHERE user_id = ? AND user_agent = ?", [$this->id, $user_agent]);
         Session::delete(CURRENT_USER_SESSION_NAME);
         if(Cookie::exist(REMEMBER_ME_COOKIE_NAME)){

@@ -16,4 +16,4 @@ define('SITE_TITLE','Kuliyata.lk'); //this will be used if no site title iss see
 
 define('CURRENT_USER_SESSION_NAME', 'JHfjkhweIufbJKNf');
 define('REMEMBER_ME_COOKIE_NAME', 'lsdjfLjkfdshjKJFHoid');
-define('REMEMBER_ME_COOKIE_EXPIRY',604800);
+define('REMEMBER_ME_COOKIE_EXPIRY',259200);
