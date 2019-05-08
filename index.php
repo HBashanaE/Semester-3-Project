@@ -127,7 +127,7 @@ if (isset($_SESSION['id'])) {
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
-                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
         </div>
     </nav>
@@ -183,6 +183,22 @@ if (isset($_SESSION['id'])) {
 
         ?>
     </div>
+    <div>
+    <?php
+        $db=mysqli_connect("localhost" , "root", "", "login");
+        $sql= "SELECT * FROM ads";
+        $result= mysqli_query($db,$sql);
+        while ($row=mysqli_fetch_array($result)){
+            if ($row['approve']=='approve'){
+            echo "<div class = 'container'>";
+                echo "<img src='myimage/".$row['image']."'class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+                echo "<p>".$row['description']. "</p>";
+            echo "</div>";
+        }
+    }
+
+    ?>
+    </div>
     <div class="card mb-3" style="height: 18rem; width:50rem;">
         <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
   height:10rem;" alt="...">
@@ -203,20 +219,19 @@ if (isset($_SESSION['id'])) {
             </div>
         </div> -->
     <!-- Floating button -->
-    <div <?php if ($logged === false) { ?>style="display:none" <?php 
-                                                        } ?>>
-        <a href="#"class="float"style="position:fixed;
-        width:60px;
-        height:60px;
-        bottom:40px;
-        right:40px;
-        background-color:#0275d8;
-        color:#FFF;
-        border-radius:10px;
-        text-align:center;
-        box-shadow: 2px 2px 3px #999;"
-         data-toggle="tooltip" data-placement="left" title="Post an ad">
-        <i class="fa fa-plus my-float"style="margin-top:22px;"></i></a>
+    <div <?php if($logged===false ){?>style="display:none" <?php }?>>
+        <a href="upload.php" class="float" style="position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0275d8 ;
+	color:#FFF;
+	border-radius:10px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;" data-toggle="tooltip" data-placement="left" title="Post an ad">
+            <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
+        </a>
     </div>
     <!-- Floating button -->
 

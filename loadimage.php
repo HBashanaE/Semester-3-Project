@@ -1,19 +1,15 @@
 <?php
-	include_once('connection.php');
-	$sql = "SELECT * FROM alladds";
-	$result = mysqli_query($db_login,$sql);
-	while ($row = mysqli_fetch_array($result)){
-			$title
-			$image ="<img src = '".$row['image']."'>";
-			$description = $row['description'];
-			$pnum = $row['category'];
-	}
-	
+$mgs="";
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
+<title>Reviwe images</title>
+<link rel="shortcut icon" href="Resources/favicon.ico">
+<link href="uploadstyle.css" rel="stylesheet">
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,35 +27,46 @@
 </head>
 
 <body>
-    <form method="GET" action="loadimage.php">
-        <div id="content">
-            <section id="main_section">
-                <div id="image">
-                    <?php
-				echo $image;
-			?>
-                </div>
-                <article>
-                    <header id="head">
-                        <?php
-					echo $text;
-				?>
-                    </header>
-                    <header id="mid">
-                        <?php
-					echo "Price : RS.200/=";
-				?>
-                    </header>
-                    <footer id="footer">
-                        <?php
-					echo "Contact_Number :  ".$pnum;
-				?>
-                    </footer>
-                </article>
-            </section>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand">
+        <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
+    </a>
+    </nav>
+<div>
+    <?php
+        
+        //session_start();
+        $db=mysqli_connect("localhost" , "root", "", "login");
+        $sql= "SELECT * FROM ads";
+        $result= mysqli_query($db,$sql);
+        while ($row=mysqli_fetch_array($result)){
+            if ($row['approve']!='approve'){
+            echo "<div class = 'container'>";
+             echo "<form method='POST' action='loadimage.php' enctype ='multipart/form-data'>";
+                echo "<img src='myimage/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+                echo "<p>".$row['description']. "</p>";
+                echo "<input type='submit' name='submit_image' class = 'button' : hover value='Approve'>";
+            echo "</form>";
+            echo "</div>";
+            $id=$row['id'];
+            if (isset($_POST['submit_image'])) {
+                if($_POST['submit_image']){
+                    $approve="approve";
+                    include 'ad.php';
+                    $ad= new Ad();
+                    $ad->addOne($id);
+             
+                }
+        
+            }
 
-        </div>
-    </form>
+        }
+    }
+
+    ?>
+</div>
+
+                
 </body>
 
 </html>

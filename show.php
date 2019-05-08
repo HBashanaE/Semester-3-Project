@@ -25,7 +25,7 @@
         <div id="sub_content">
             <?php
 			include_once('connection.php');
-			$sql = "SELECT * FROM alladds";
+			$sql = "SELECT * FROM ads";
 			$result = mysqli_query($db_login,$sql);
 			while ($row = mysqli_fetch_array($result)){
 					echo "<div id='img_div'>";
@@ -34,14 +34,14 @@
 								echo "<img src = '".$row['image']."'>";
 							echo "</div>";
 							echo "<div id = 'head'>";
-								echo "<p>".$row['text']."</p>";
+								echo "<p>".$row['description']."</p>";
 							echo "</div>";
 							echo "<div id = 'footer'>";
-								echo "<p>".'Contact Number '.$row['pnum']."</p>";
+								echo "<p>".'Contact Number '.$row['title']."</p>";
 							echo "</div>";
-							echo "<div id = 'mid'>";
-								echo "<p>".'RS  '.$row['price']."</p>";
-							echo "</div>";
+							// echo "<div id = 'mid'>";
+							// 	echo "<p>".'RS  '.$row['']."</p>";
+							// echo "</div>";
 						echo "</section>";
 					echo "</div>";
 				
