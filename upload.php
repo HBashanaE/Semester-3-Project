@@ -3,8 +3,8 @@ $mgs="";
     session_start();
     if (isset($_POST['submit_image'])) {
 	if($_POST['submit_image']){
-        $target = "myimage/".basename($_FILES['myimage']['name']);
-        $imagename=$_FILES["myimage"]["name"];
+        $target = "ads/".basename($_FILES['image']['name']);
+        $imagename=$_FILES["image"]["name"];
         $text=$_POST["text"];
         $title=$_POST["category"];
         //$dbtable=ads;
@@ -74,7 +74,7 @@ $mgs="";
     </div>
 
  <div class="file-upload">
- <input type="file" class= "form-submit" name="myimage" >
+ <input type="file" class= "form-submit" name="image" >
  </div>
  <div class="textarea" class="form-group">
  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name ="text"  placeholder = "Discription" ></textarea>

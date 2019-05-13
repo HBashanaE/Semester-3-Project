@@ -26,8 +26,8 @@ if (isset($_SESSION['id'])) {
     </script> -->
 
     <!-- Bootstrap Local -->
-    <!-- <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
-    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script> -->
+    <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
+    <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
   <!-- Validate username and passwords are filled -->
   <?php
 		if(isset($_POST["submit"])){
@@ -152,11 +152,12 @@ if (isset($_SESSION['id'])) {
         if (mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
 
             while ($results = mysqli_fetch_array($raw_results)) {
+                //print_r($results);
                 // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
                 echo "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
-                echo "  <img class=\"card-img-top\" src='ads/". $results['images']."' alt='". $results['images']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
+                echo "  <img class=\"card-img-top\" src='ads/". $results['image']."' alt='". $results['image']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
                 echo "      <p class=\"card-text\">" . $results['description'] . "</p>";

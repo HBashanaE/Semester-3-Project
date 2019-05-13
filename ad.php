@@ -1,11 +1,11 @@
 
 <?php
-    include 'test.php';
+    //include 'test.php';
     class Ad{
         
         public function addPost($imagename, $text, $title,$target){
-            $c=new dbh();
-            $db= $c->connect();
+            //$c=new dbh();
+            $db= mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
             $query = "INSERT INTO ads(title,description,image,approve) VALUES('$title','$text','$imagename','disapprove')";
             mysqli_query($db,$query);
             
