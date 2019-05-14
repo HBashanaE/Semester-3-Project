@@ -157,7 +157,7 @@ if (isset($_SESSION['id'])) {
 
                 //echo "<p><h3>".$results['title']."</h3>".$results['description']."</p>";
                 echo "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
-                echo "  <img class=\"card-img-top\" src='ads/". $results['image']."' alt='". $results['image']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
+                echo "  <img class=\"card-img-top\" src='myimage/". $results['image']."' alt='". $results['image']."' style=\"width: 40%; height: auto\">";
                 echo "  <div class=\"card-body\">";
                 echo "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
                 echo "      <p class=\"card-text\">" . $results['description'] . "</p>";

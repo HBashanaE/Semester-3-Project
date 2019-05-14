@@ -190,18 +190,25 @@ if (isset($_SESSION['id'])) {
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
-            echo "<div class = 'container'>";
-                echo "<img src='myimage/".$row['image']."'class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
-                echo "<p>".$row['description']. "</p>";
-            echo "</div>";
+                echo "<div class= 'container'>"; 
+            echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
+                echo "<img src='myimage/".$row['image']."'class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
+                echo "<div class='card-body'>";
+                echo '<h5 class="card-title">Test Ad</h5>';
+                echo '<p class="card-text">This is ad description.</p>';
+                echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
+
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                echo"</br>";
         }
     }
 
     ?>
     </div>
-    <div class="card mb-3" style="height: 18rem; width:50rem;">
-        <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
-  height:10rem;" alt="...">
+    <div class="card mb-3" style="height: 500px; width:90%;">
+        <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width: auto; height: 100%"; alt="...">
         <div class="card-body">
             <h5 class="card-title">Test Ad</h5>
             <p class="card-text">This is ad description.</p>
@@ -236,7 +243,7 @@ if (isset($_SESSION['id'])) {
     <!-- Floating button -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 </body>
 
 </html> 
