@@ -5,7 +5,7 @@ class Search{
     private $query;
 
     public function search($query, $category=null){
-        include_once('connection.php');
+        include_once('dbh.php');
         //$query = $_GET['query'];
         // if ($_GET['category']) {
         //     $category = $_GET['category'];
