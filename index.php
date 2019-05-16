@@ -135,7 +135,7 @@ if (isset($_SESSION['id'])) {
     <!-- Search section -->
     <section class="search-sec">
         <div class="container">
-            <form id="searchForm" action="search.php" method="GET" onsubmit="return validateSearchfield();">
+            <form id="searchForm" action="searchResult.php" method="GET" onsubmit="return validateSearchfield();">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">

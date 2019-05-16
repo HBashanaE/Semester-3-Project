@@ -3,7 +3,7 @@ $mgs="";
     session_start();
     if (isset($_POST['submit_image'])) {
 	if($_POST['submit_image']){
-        $target = "myimage/".basename($_FILES['myimage']['name']);
+        $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
         $text=$_POST["text"];
         $title=$_POST["category"];

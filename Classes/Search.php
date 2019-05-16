@@ -4,7 +4,11 @@ class Search{
 
     private $query;
 
-    public function search($query, $category=null){
+    public function __construct(){
+
+    }
+
+    public function searchQ($query, $category=null){
         include_once('dbh.php');
         //$query = $_GET['query'];
         // if ($_GET['category']) {
@@ -50,30 +54,33 @@ class Search{
 
         //$sqlQuery = "SELECT * FROM ads WHERE category= 01";
         
-        $raw_results = mysqli_query($db_login, $sqlQuery) or die(mysql_error());
+        return $sqlQuery;
 
     }
 
-    private function renderHTML($results){
+    public function renderHTML($sqlQuery){
+        $dbh = new dbh();
+        $db_login = $dbh->connect();
+        $raw_results = mysqli_query($db_login, $sqlQuery) or die(mysql_error());
         $htmlString = '';
-        if (mysqli_num_rows($results) > 0) { // if one or more rows are returned do following
+        if (mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
 
-            while ($results = mysqli_fetch_array($results)) {
-                $htmlString += "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
-                $htmlString += "  <img class=\"card-img-top\" src='ads/". $results['images']."' alt='". $results['images']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
-                $htmlString += "  <div class=\"card-body\">";
-                $htmlString += "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
-                $htmlString += "      <p class=\"card-text\">" . $results['description'] . "</p>";
-                $htmlString += "      <a href='' class='btn btn-primary'>View</a>";
-                $htmlString += "  </div>";
-                $htmlString += "</div>";
+            while ($results = mysqli_fetch_array($raw_results)) {
+                $htmlString .= "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
+                $htmlString .= "  <img class=\"card-img-top\" src='ads/". $results['image']."' alt='". $results['image']."'style=\"width: 40%; height: auto\"" . $results['title'] . ">";
+                $htmlString .= "  <div class=\"card-body\">";
+                $htmlString .= "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
+                $htmlString .= "      <p class=\"card-text\">" . $results['description'] . "</p>";
+                $htmlString .= "      <a href='' class='btn btn-primary'>View</a>";
+                $htmlString .= "  </div>";
+                $htmlString .= "</div>";
 
             }
         } else { 
-            $htmlString += "No results found";
+            $htmlString .= "No results found";
         }
 
-        return htmlString;
+        return $htmlString;
 
     }
     

@@ -1,6 +1,6 @@
 
 <?php
-    include 'test.php';
+    include 'dbh.php';
     class Ad{
         
         public function addPost($imagename, $text, $title,$target){
