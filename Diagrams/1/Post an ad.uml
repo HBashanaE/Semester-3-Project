@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XsNIwCeuEemIHsxSwv6GJA" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_YD0XgCeuEemIHsxSwv6GJA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_XyORMCeuEemIHsxSwv6GJA" name="post an ad" node="_ZZYcQCeuEemIHsxSwv6GJA _aojlICeuEemIHsxSwv6GJA _CBYTsCexEemIHsxSwv6GJA _JPoqICexEemIHsxSwv6GJA _UJmdUCexEemIHsxSwv6GJA _ZC3SUCexEemIHsxSwv6GJA _iabeoCexEemIHsxSwv6GJA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_mD1OQCexEemIHsxSwv6GJA" target="_aojlICeuEemIHsxSwv6GJA" source="_ZZYcQCeuEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_nrnEYCexEemIHsxSwv6GJA" target="_CBYTsCexEemIHsxSwv6GJA" source="_aojlICeuEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_o4kmwCexEemIHsxSwv6GJA" target="_JPoqICexEemIHsxSwv6GJA" source="_CBYTsCexEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qGqKgCexEemIHsxSwv6GJA" target="_UJmdUCexEemIHsxSwv6GJA" source="_JPoqICexEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_tMTFwCexEemIHsxSwv6GJA" target="_CBYTsCexEemIHsxSwv6GJA" source="_UJmdUCexEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_70sSgCexEemIHsxSwv6GJA" target="_iabeoCexEemIHsxSwv6GJA" source="_ZC3SUCexEemIHsxSwv6GJA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_-DS4ECexEemIHsxSwv6GJA" target="_ZC3SUCexEemIHsxSwv6GJA" source="_UJmdUCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ZZYcQCeuEemIHsxSwv6GJA" name="" outgoing="_mD1OQCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_aojlICeuEemIHsxSwv6GJA" name="Sign on user requests to post an ad" incoming="_mD1OQCexEemIHsxSwv6GJA" outgoing="_nrnEYCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_CBYTsCexEemIHsxSwv6GJA" name="System prompts for ad details" incoming="_nrnEYCexEemIHsxSwv6GJA _tMTFwCexEemIHsxSwv6GJA" outgoing="_o4kmwCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_JPoqICexEemIHsxSwv6GJA" name="System directs ad for manual review" incoming="_o4kmwCexEemIHsxSwv6GJA" outgoing="_qGqKgCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_UJmdUCexEemIHsxSwv6GJA" name="Manual review passed?" incoming="_qGqKgCexEemIHsxSwv6GJA" outgoing="_tMTFwCexEemIHsxSwv6GJA _-DS4ECexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ZC3SUCexEemIHsxSwv6GJA" name="System starts display ad on system" incoming="_-DS4ECexEemIHsxSwv6GJA" outgoing="_70sSgCexEemIHsxSwv6GJA"/>
+    <node xmi:type="uml:FlowFinalNode" xmi:id="_iabeoCexEemIHsxSwv6GJA" name="" incoming="_70sSgCexEemIHsxSwv6GJA"/>
+  </packagedElement>
+</uml:Model>

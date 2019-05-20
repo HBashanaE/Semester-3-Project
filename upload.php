@@ -7,16 +7,6 @@ $mgs="";
         $imagename=$_FILES["myimage"]["name"];
         $text=$_POST["text"];
         $title=$_POST["category"];
-        /*$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
-        $query = "INSERT INTO ads(title,description,image) VALUES('$title','$text','$imagename')";
-        mysqli_query($db,$query);
-        
-        if (move_uploaded_file($_FILES['myimage']['tmp_name'],$target)){
-            $mgs= "image uploaded successfully";
-
-        }else{
-            $mgs = "image uploaded unssuccessfully";
-        }*/
         include 'ad.php';
         $ad= new Ad();
         $ad->addPost($imagename,$text, $title,$target);
