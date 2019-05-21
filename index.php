@@ -243,6 +243,7 @@ if (isset($_SESSION['id'])){
             if ($row['approve']=='approve'){
             echo "<div class = 'container'>";
                 echo "<img src='myimage/".$row['image']."'class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+                echo "<p>".$row['username']. "</p>";
                 echo "<p>".$row['description']. "</p>";
             echo "</div>";
         }

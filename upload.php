@@ -7,6 +7,7 @@ $mgs="";
         $imagename=$_FILES["myimage"]["name"];
         $text=$_POST["text"];
         $title=$_POST["category"];
+        $username=$_SESSION['username'];
         //$dbtable=ads;
         /*$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
         $query = "INSERT INTO ads(title,description,image) VALUES('$title','$text','$imagename')";
@@ -20,7 +21,7 @@ $mgs="";
         }*/
         include 'ad.php';
         $ad= new Ad();
-        $ad->addPost($imagename,$text, $title,$target);
+        $ad->addPost($username, $imagename,$text, $title,$target);
         
     }
 }
@@ -55,6 +56,19 @@ $mgs="";
     <a class="navbar-brand">
         <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
     </a>
+    <div class="logged_user" id="div_logged_user" >
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <?php echo htmlentities($_SESSION['username']) ?>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" type="button">Account</a>
+                    <a class="dropdown-item" type="button">Another action</a>
+                    <a class="dropdown-item" type="button" href="logout.php">Logout</a>
+                </div>
+            </div>
+        </div>
     </nav>
         
 <div>	 	
@@ -96,6 +110,7 @@ $mgs="";
     </div>
         <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 </div>
+
 
 
 <nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
