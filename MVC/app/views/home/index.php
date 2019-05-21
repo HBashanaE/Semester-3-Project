@@ -8,6 +8,7 @@
             <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
         </a>
         <!-- Div for generel user items -->
+        <?php if(!currentUsers()): ?>
         <div class="generel_user" id="div_generel_user">
 
             <div class="row">
@@ -24,8 +25,9 @@
                 </form>
             </div>
         </div>
-
+        <?php endif; ?>
         <!-- Div for logged user items -->
+        <?php if(currentUsers()): ?>
         <div class="logged_user" id="div_logged_user">
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
@@ -39,6 +41,7 @@
                 <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
         </div>
+        <?php endif; ?>
     </nav>
 
     <!-- Search section -->
