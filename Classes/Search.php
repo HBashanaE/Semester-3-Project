@@ -10,10 +10,6 @@ class Search{
 
     public function searchQ($query, $category=null){
         include_once('dbh.php');
-        //$query = $_GET['query'];
-        // if ($_GET['category']) {
-        //     $category = $_GET['category'];
-        // }
 
         $categoryDigit = null;
         switch ($category) {
