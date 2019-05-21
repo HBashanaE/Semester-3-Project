@@ -2,7 +2,7 @@
 
 define('DEBUG', true);
 
-define('DB_NAME','kuliyataDB'); //database name
+define('DB_NAME','login'); //database name
 define('DB_USER','root');
 define('DB_PASSWORD','');
 define('DB_HOST','127.0.0.1');
