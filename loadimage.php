@@ -70,7 +70,7 @@ img{
 		<article>
 			<header id = "head">
 				<?php
-					echo $text;
+					echo "For each patient, the OPD maintains a patient file. The file is opened on the first day that the patient visits the OPD. The patient class should have the functionality to return the information in the file as a string, to any external application that requests these details. Moreover, the system should maintain the number of files that have been created. At each visit, a clinical record is created and is added to the patient's file. Each clinical record has a section to record the medical history, where the medical history consists of the set of symptoms reported by the patient during the visit. In addition to the medical history, the clinical record may also contain a drug details section, if the patient is prescribed any medicine. The drug details section records the list of drugs prescribed for the patient during a visit. Patients are categorised as adults and children. Children are further categorised as baby, toddler, pre-schooler and grade-schooler. A child's file also contains a section for vaccine details, where details of each vaccine given to the child are recorded. However, currently there are no vaccines for grade-schoolers. Moreover, the method of vaccination for a baby is different from the method of vaccination for a toddler and a pre-schooler";
 				?>
 			</header>
 			<header id = "mid">
@@ -90,3 +90,4 @@ img{
 </form>
 </body>
 </html>
+"<p>".$row['text']."</p>"
