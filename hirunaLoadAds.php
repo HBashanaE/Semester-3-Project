@@ -1,6 +1,8 @@
 <?php
 $name = $_GET['username'];
 echo $name;
+mysql_connect('localhost','root','');
+mysql_select_db('demo');
 
 
 
