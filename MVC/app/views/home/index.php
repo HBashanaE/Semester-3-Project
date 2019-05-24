@@ -31,7 +31,7 @@
         <div class="logged_user" id="div_logged_user">
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    DummyUser
+                    <?php echo "DummyUser" ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" type="button">Account</a>
@@ -110,6 +110,7 @@
     </div>
 
     <!-- Floating button -->
+    <?php if(currentUsers()): ?>
     <div>
         <a href="upload.php" class="float" style="position:fixed;
 	width:60px;
@@ -124,6 +125,7 @@
             <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
         </a>
     </div>
+<?php endif; ?>
     <!-- Floating button -->
 
 <?php $this->end(); ?>
