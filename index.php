@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
             $dbPassword = $row[2];
         }
         if (!empty($_POST['username'])) {
-            if ($username == $dbUserName && $password == $dbPassword) {
+            if ($username == $dbUserName && password_verify($password,$dbPassword)) {
                 $_SESSION['username'] = $username;
                 $_SESSION['id'] = $userId;
                 header('Location: index.php');

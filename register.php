@@ -5,6 +5,7 @@
 		include_once('connection.php');
 		$username = strip_tags($_POST['username']);
         $password = strip_tags($_POST['password']);
+        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
         $email = strip_tags($_POST['email']);
         $cpassword = strip_tags($_POST['re_password']);
     /*    if ($password==$cpassword){
@@ -26,7 +27,7 @@
     }*/
     include 'test.php';
     $users = new dbh();
-    $users->saveToDatabase($username,$password,$email,$cpassword);
+    $users->saveToDatabase($username,$hashedpassword,$email,$cpassword);
 }
     }
 ?>

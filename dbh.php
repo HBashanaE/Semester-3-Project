@@ -21,7 +21,7 @@
 
         public function saveToDatabase($username,$password,$email,$cpassword){
             
-            if ($password==$cpassword){
+            if (password_verify($cpassword,$password)){
                 $c=new dbh();
                 $db = /*mysqli_connect("localhost", "root", "", "login")*/ $c->connect(); 
                 $query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
