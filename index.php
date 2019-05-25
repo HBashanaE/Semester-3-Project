@@ -103,7 +103,7 @@ if (isset($_SESSION['id'])) {
                     <?php echo htmlentities($username) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button">Account</a>
+                    <a class="dropdown-item" type="button" href="account.php?username=<?php echo $_SESSION['username']; ?>">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
