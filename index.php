@@ -124,9 +124,8 @@ if (isset($_SESSION['id'])) {
                     <?php echo htmlentities($username) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button">Account</a>
+                    <a class="dropdown-item" type="button" href="account.php?username=<?php echo $_SESSION['username']; ?>">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
-                    <a class="dropdown-item" type="button" href="hirunaLoadAds.php?username=<?php echo $_SESSION['username']; ?>">View My Adds</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
                 <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
