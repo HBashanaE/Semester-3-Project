@@ -27,27 +27,10 @@ if (isset($_SESSION['id'])) {
     <!-- Bootstrap Local -->
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-    <!-- Validate username and passwords are filled -->
-  <?php
-		if(isset($_POST["submit"])){
-			if(!empty($_POST['username'])){
-                echo "The form is empty";
-				return false;
-			}
-		}
-	?>
-    <script>
-		function validate(){
-			var username = document.forms["login"]["username"].value;
-            var password = document.forms["login"]["password"].value;
-				if(username== ""){
-                    //alert("Enter valid username and password");
-                    swal("Error", "Enter username and password", "error");
-                    //$(window).load(function(){ $('#myModal').modal('show'); });
-					return false;
-				}
-		}
-	</script>
+    <script src="//Resources/jquery/jquery-3.3.1.min"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 </head>
 
 <body>
@@ -62,7 +45,7 @@ if (isset($_SESSION['id'])) {
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" name="login" onsubmit="return validate();" action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login" action="index.php" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email">
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password">
                     <button type="submit" name="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">Login</button>
@@ -74,8 +57,7 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
         <!-- Div for logged user items -->
-        <div class="logged_user" id="div_logged_user" <?php if ($logged === false) { ?>style="display:none" <?php 
-                                                                                                        } ?>>
+        <div class="logged_user" id="div_logged_user" <?php if ($logged === false) { ?>style="display:none" <?php } ?>>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     <?php echo htmlentities($username) ?>
@@ -106,6 +88,8 @@ if (isset($_SESSION['id'])) {
     </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    
 </body>
 
 </html> 
