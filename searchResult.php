@@ -101,13 +101,11 @@ if (isset($_SESSION['id'])) {
     
 
         $SQLQuery = $search->searchQ($query);
-        print_r($SQLQuery);
         echo $search->renderHTML($SQLQuery);
         ?>
     </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html> 

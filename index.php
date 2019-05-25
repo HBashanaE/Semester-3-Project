@@ -194,8 +194,8 @@ if (isset($_SESSION['id'])) {
             echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
                 echo "<img src='myimage/".$row['image']."'class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
                 echo "<div class='card-body'>";
-                echo '<h5 class="card-title">Test Ad</h5>';
-                echo '<p class="card-text">This is ad description.</p>';
+                echo '<h5 class="card-title">'.$row['title'].'</h5>';
+                echo '<p class="card-text">'.$row['title'].'</p>';
                 echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
 
                 echo "</div>";
@@ -207,14 +207,14 @@ if (isset($_SESSION['id'])) {
 
     ?>
     </div>
-    <div class="card mb-3" style="height: 500px; width:90%;">
+    <!-- <div class="card mb-3" style="height: 500px; width:90%;">
         <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width: auto; height: 100%"; alt="...">
         <div class="card-body">
             <h5 class="card-title">Test Ad</h5>
             <p class="card-text">This is ad description.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-    </div>
+    </div> -->
 
     <!-- <div class="card mb-3">
             <img src="..." class="card-img-top" alt="...">

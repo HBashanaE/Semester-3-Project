@@ -5,7 +5,7 @@ $mgs="";
 	if($_POST['submit_image']){
         $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
-        $text=$_POST["text"];
+        $discription=$_POST["discription"];
         $title=$_POST["category"];
         /*$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
         $query = "INSERT INTO ads(title,description,image) VALUES('$title','$text','$imagename')";
@@ -19,7 +19,7 @@ $mgs="";
         }*/
         include 'ad.php';
         $ad= new Ad();
-        $ad->addPost($imagename,$text, $title,$target);
+        $ad->addPost($imagename,$discription, $title,$target);
     }
 }
 
@@ -47,7 +47,7 @@ $mgs="";
         </select>
     </div>
  <div>
- <textarea name ="text" cols="40" rows= "4" class="form-input" placeholder = "Discription"></textarea>
+ <textarea name ="discription" cols="40" rows= "4" class="form-input" placeholder = "Discription"></textarea>
  </div>
  <div class= "form-group">
  <input type="file" class= "form-submit" name="myimage">
