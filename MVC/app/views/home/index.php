@@ -24,6 +24,9 @@
                     <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
                 </form>
             </div>
+            <div class="row">
+                <label for="remember_me">Remember Me <input type="checkbox" name="remember_me" value="on"></label>
+            </div>
         </div>
         <?php endif; ?>
         <!-- Div for logged user items -->
@@ -38,7 +41,7 @@
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
-                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
+                <button type="button" class="btn btn-warning"><a href="<?=PROOT?>advertisement/post">Post AD</a></button>
             </div>
         </div>
         <?php endif; ?>
@@ -110,8 +113,9 @@
     </div>
 
     <!-- Floating button -->
+    <?php if(currentUsers()): ?>
     <div>
-        <a href="upload.php" class="float" style="position:fixed;
+        <a href="<?=PROOT?>advertisement/post" class="float" style="position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
@@ -124,5 +128,7 @@
             <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
         </a>
     </div>
+    <?php endif; ?>
+
     <!-- Floating button -->
 <?php $this->end(); ?>

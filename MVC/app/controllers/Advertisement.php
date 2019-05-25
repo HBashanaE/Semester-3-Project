@@ -1,19 +1,15 @@
 <?php
 
-class Home extends Controller{
-    public function __construct($controller,$action)
+class Advertisement extends Controller{
+    public function __construct($controller, $action)
     {
-        parent::__construct($controller,$action);
-        $this->load_model('Users');
+        parent::__construct($controller, $action);
+        $this->load_model('Post');
         $this->view->setLayout('default');
     }
 
-    public function indexAction(){
-        // dnd($_SESSION);
-        $this->view->render('home/Index');
-    }
-
-    public function loginAction(){
+    public function postAction(){
+        
         $validation = new Validate();
         if($_POST){
             // form validation
@@ -41,13 +37,8 @@ class Home extends Controller{
         }
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('register/login');
+        
     }
 
-    public function logoutAction(){  
-        if(currentUsers()){
-            currentUsers()->logout();
-        }
-        Router::redirect('home/index');
-    }
-
+    
 }
