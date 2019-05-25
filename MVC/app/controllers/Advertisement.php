@@ -36,7 +36,7 @@ class Advertisement extends Controller{
             }
         }
         $this->view->displayErrors = $validation->displayErrors();
-        $this->view->render('register/login');
+        $this->view->render('advertisement/post');
         
     }
 

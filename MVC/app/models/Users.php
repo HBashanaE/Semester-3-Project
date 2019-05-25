@@ -61,11 +61,8 @@ class Users extends Model{
     }
 
     public function logout(){
-        $user_agent = Session::uagent_no_version();
-        // $userSession = new UserSessions();
-        // $userSession = $userSession::getFromCookie();
-
-        $this->_db->query("DELETE FROM user_sessions WHERE user_id = ? AND user_agent = ?", [$this->id, $user_agent]);
+        $userSession = UserSessions::getFromCookie();
+        if($userSession) $userSession->delete();
         Session::delete(CURRENT_USER_SESSION_NAME);
         if(Cookie::exist(REMEMBER_ME_COOKIE_NAME)){
             Cookie::delete(REMEMBER_ME_COOKIE_NAME);
