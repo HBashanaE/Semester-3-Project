@@ -1,6 +1,16 @@
 <?php
 $mgs="";
     session_start();
+    //only if session is created then user has logged in
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
+    $username = $_SESSION['username'];
+    $logged = true;
+} else {
+    $logged = false;
+}
+
+
     if (isset($_POST['submit_image'])) {
 	if($_POST['submit_image']){
         $target = "ads/".basename($_FILES['myimage']['name']);
@@ -9,18 +19,11 @@ $mgs="";
         $title=$_POST["category"];
         include 'ad.php';
         $ad= new Ad();
-        $ad->addPost($imagename,$discription, $title,$target);
+        $ad->addPost($username,$imagename,$discription, $title,$target);
     }
 }
 
-//only if session is created then user has logged in
-if (isset($_SESSION['id'])) {
-    $userId = $_SESSION['id'];
-    $username = $_SESSION['username'];
-    $logged = true;
-} else {
-    $logged = false;
-}
+
 ?>
 
 <html>
@@ -81,7 +84,7 @@ if (isset($_SESSION['id'])) {
  <input type="file" class= "form-submit" name="myimage" >
  </div>
  <div class="textarea" class="form-group">
- <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name ="text"  placeholder = "Discription" ></textarea>
+ <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name ="discription"  placeholder = "Discription" ></textarea>
  </div>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>
