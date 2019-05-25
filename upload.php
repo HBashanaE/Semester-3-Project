@@ -1,6 +1,16 @@
 <?php
 $mgs="";
     session_start();
+    //only if session is created then user has logged in
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
+    $username = $_SESSION['username'];
+    $logged = true;
+} else {
+    $logged = false;
+}
+
+
     if (isset($_POST['submit_image'])) {
 	if($_POST['submit_image']){
         $target = "ads/".basename($_FILES['myimage']['name']);
@@ -9,18 +19,11 @@ $mgs="";
         $title=$_POST["category"];
         include 'ad.php';
         $ad= new Ad();
-        $ad->addPost($imagename,$description, $title,$target);
+        $ad->addPost($username,$imagename,$discription, $title,$target);
     }
 }
 
-//only if session is created then user has logged in
-if (isset($_SESSION['id'])) {
-    $userId = $_SESSION['id'];
-    $username = $_SESSION['username'];
-    $logged = true;
-} else {
-    $logged = false;
-}
+
 ?>
 
 <html>
