@@ -91,7 +91,7 @@ if (isset($_SESSION['id'])) {
                 </form>
                 <!-- Register button -->
                 <form action="register.php">
-                    <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
+                    <input type="submit" class="float btn btn-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
                 </form>
             </div>
         </div>
