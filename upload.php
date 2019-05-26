@@ -15,7 +15,7 @@ if (isset($_SESSION['id'])) {
 	if($_POST['submit_image']){
         $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
-        $description=$_POST["description"];
+        $discription=$_POST["description"];
         $title=$_POST["category"];
         include 'ad.php';
         $ad= new Ad();
