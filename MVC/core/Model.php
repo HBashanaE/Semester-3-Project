@@ -51,6 +51,15 @@ class Model{
         return $this->findFirst(['conditions'=>"id = ?", 'bind' => [$id]]);
     }
 
+    public function getSearchResult($params = []){
+        $resultQuery = $this->_db->getSearchResult($this->_table, $params);
+        $result = new $this->_modelName($this->_table);
+        if($resultQuery){
+            $result->populateObjData($resultQuery);
+        }
+        return $result;
+    }
+
     public function save()
     {
         $fields = [];
@@ -76,7 +85,7 @@ class Model{
         return $this->_db->update($this->_table, $id, $fields);
     }
 
-    public function delete($id){
+    public function delete(){
         if($id == '' && $this->id == '') return false;
         $id = ($id == '' )? $this->id : $id;
         if($this->_softDelete){

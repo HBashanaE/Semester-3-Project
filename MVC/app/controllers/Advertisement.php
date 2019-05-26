@@ -8,8 +8,12 @@ class Advertisement extends Controller{
         $this->view->setLayout('default');
     }
 
-    public function postAction(){
+    public function indexAction(){
         
+        $this->view->render('advertisement/index');
+    }
+
+    public function postAction(){
         $validation = new Validate();
         if($_POST){
             // form validation
@@ -37,7 +41,6 @@ class Advertisement extends Controller{
         }
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('advertisement/post');
-        
     }
 
     

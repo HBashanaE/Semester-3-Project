@@ -103,6 +103,12 @@ class DB{
         }
         return false;
     }
+    public function getSearchResult($table,$params = []){
+        if($this->_read($table, $params)){
+            return $this->first();
+        }
+        return false;
+    }
 
     public function insert($table, $fields = []){
         $fieldString = '';

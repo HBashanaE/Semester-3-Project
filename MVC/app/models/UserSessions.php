@@ -15,6 +15,7 @@ class UserSessions extends Model{
             ]);
         }
         if(!$userSession) return false;
+        // dnd($userSession);
         return $userSession;
     }
 }
