@@ -1,6 +1,8 @@
 
 
-<?php $this->start('body'); ?>
+<?php 
+    //require_once(PROOT.'core/'.'Input.php');
+    $this->start('body'); ?>
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <!-- Logo -->
@@ -13,16 +15,19 @@
 
             <div class="row">
                 <!-- Login form -->
-                <form method="post" name="login"  action="index.php" class="form-inline " style="content-right">
+                <form method="post" name="login"  action="<?=PROOT?>register/login" class="form-inline " style="content-right">
                     <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email" required>
                     <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password" required>
                     <button type="submit" name="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
                         Login</button>
                 </form>
                 <!-- Register button -->
-                <form action="register.php">
+                <form action="<?=PROOT?>register/login">
                     <input type="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
                 </form>
+            </div>
+            <div class="row">
+                <label for="remember_me">Remember Me <input type="checkbox" name="remember_me" value="on"></label>
             </div>
         </div>
         <?php endif; ?>
@@ -31,14 +36,14 @@
         <div class="logged_user" id="div_logged_user">
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    <?php echo "DummyUser" ?>
+                    <?php currentUsers();?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" type="button">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
-                <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
+                <button type="button" class="btn btn-warning"><a href="<?=PROOT?>advertisement/index">Post AD</a></button>
             </div>
         </div>
         <?php endif; ?>
@@ -47,7 +52,7 @@
     <!-- Search section -->
     <section class="search-sec">
         <div class="container">
-            <form id="searchForm" action="searchResult.php" method="GET">
+            <form id="searchForm" action="<?=PROOT?>home/search/" method="GET">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">
@@ -112,7 +117,7 @@
     <!-- Floating button -->
     <?php if(currentUsers()): ?>
     <div>
-        <a href="upload.php" class="float" style="position:fixed;
+        <a href="<?=PROOT?>advertisement/post" class="float" style="position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
@@ -125,7 +130,7 @@
             <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
         </a>
     </div>
-<?php endif; ?>
-    <!-- Floating button -->
+    <?php endif; ?>
 
+    <!-- Floating button -->
 <?php $this->end(); ?>

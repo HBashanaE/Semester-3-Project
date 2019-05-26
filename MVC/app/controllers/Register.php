@@ -42,6 +42,6 @@ class Register extends Controller{
         if(currentUsers()){
             currentUsers()->logout();
         }
-        Router::redirect('register/login');
+        Router::redirect('home/index');
     }
 }
