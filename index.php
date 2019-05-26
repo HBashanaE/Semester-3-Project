@@ -153,13 +153,13 @@ if (isset($_SESSION['id'])) {
             if ($row['approve']=='approve'){
                 echo "<div class= 'container'>"; 
             echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
-                echo "<img src='myimage/".$row['image']."' class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
                 echo "<div class='card-body'>";
                 echo '<h5 class="card-title">'.$row['title'].'</h5>';
                 echo '<p class="card-text">'.$row['title'].'</p>';
                 echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
 
                 echo "</div>";
+                echo "<img src='myimage/".$row['image']."' class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
                 echo "</div>";
                 echo "</div>";
                 echo"</br>";
