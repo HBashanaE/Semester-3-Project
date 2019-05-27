@@ -165,7 +165,7 @@ if (isset($_SESSION['id'])) {
                 echo "<div class='card-body'>";
                 //echo '<h5 class="card-title">'.$row['title'].'</h5>';
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
-
+                echo '<h3 class="card-text">Posted By: '.$row['username'].'</h3>';
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
@@ -200,10 +200,29 @@ if (isset($_SESSION['id'])) {
             <i class="fa fa-plus my-float" style="margin-top:22px;" ></i>  
         </a>
     </div>
-    <!-- Floating button -->
+    <!-- Floating button fixed-bottom-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     
+    <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Help & Support</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Learn More</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">About Us</a>
+  </li>
+</ul>
+<a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
+
+</nav>
 </body>
 
 </html> 

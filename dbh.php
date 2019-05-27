@@ -33,7 +33,7 @@
                     echo "Failed to register";
                 }
             }else{
-                echo "password wrong";
+                echo "passwords do not match";
             }
 
 

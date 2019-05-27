@@ -25,7 +25,7 @@
 
     }
     }*/
-    include 'test.php';
+    include 'dbh.php';
     $users = new dbh();
     $users->saveToDatabase($username,$hashedpassword,$email,$cpassword);
 }
@@ -148,8 +148,31 @@
     
 
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js"></script>  
+
+<!--
 <nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Help & Support</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Learn More</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">About Us</a>
+  </li>
+</ul>
+<a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
+
+</nav>
+-->
+
+    <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
