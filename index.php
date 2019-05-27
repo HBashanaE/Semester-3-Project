@@ -165,6 +165,8 @@ if (isset($_SESSION['id'])){
 
         <!-- Div for logged user items -->
         <div class="logged_user" id="div_logged_user" <?php if($logged===false ){?>style="display:none" <?php }?>>
+
+            
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                     data-display="static" aria-haspopup="true" aria-expanded="false">
@@ -174,9 +176,11 @@ if (isset($_SESSION['id'])){
                     <a class="dropdown-item" type="button">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
+                    <a <?php if($username=="kashyapaniyarepola" ){?> class="dropdown-item" type="button" href="loadimage.php">Review AD<?php }?></a>
                 </div>
                 <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
+
         </div>
     </nav>
 
@@ -250,7 +254,7 @@ if (isset($_SESSION['id'])){
     }
 
     ?>
-    </div>
+   <!-- </div>
     <div class="card mb-3" style="height: 18rem; width:50rem;">
         <img src="Resources/kuliyata_logo_full.png" class="card-img-top img-responsive" style="width:auto;
   height:10rem;" alt="...">
@@ -259,7 +263,7 @@ if (isset($_SESSION['id'])){
             <p class="card-text">This is ad description.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-    </div>
+    </div>-->
 
     <!-- <div class="card mb-3">
             <img src="..." class="card-img-top" alt="...">
@@ -289,6 +293,23 @@ if (isset($_SESSION['id'])){
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Help & Support</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Learn More</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">About Us</a>
+  </li>
+</ul>
+<a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
 </body>
 
 </html>

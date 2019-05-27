@@ -7,23 +7,7 @@
         $password = strip_tags($_POST['password']);
         $email = strip_tags($_POST['email']);
         $cpassword = strip_tags($_POST['re_password']);
-    /*    if ($password==$cpassword){
-		$db = mysqli_connect("localhost", "root", "", "login") or die ("Failed to connect");
-		$query = "INSERT INTO members(username,password,activated) VALUES('$username', '$password','1')";
-		$result = mysqli_query($db_login,$query);
-		if($result) {
-			echo "Succesfully registered";
-			header('Location: index.php');
-		}
-		else {
-			echo "Failed to register";
-		}
-        }else{
-            echo "password wrong";
-        }
-
-    }
-    }*/
+        
     include 'test.php';
     $users = new dbh();
     $users->saveToDatabase($username,$password,$email,$cpassword);

@@ -1,5 +1,21 @@
 <?php
-session_start();
+
+class User{
+
+	private static $ins;
+
+	private function __construct(){
+
+	}
+
+	public static function getInstance(){
+		if (!isset(self::$ins)){
+			self::$ins = new __CLASS__;
+		}
+		return self::$ins;
+	}
+}
+/*session_start();
 if (isset($_SESSION['id'])){
 	$userId = $_SESSION['id'];
 	$username = $_SESSION['username'];
@@ -22,4 +38,6 @@ else {
 </form>
 
 </body>
-</html>
+</html>*/
+
+?>
