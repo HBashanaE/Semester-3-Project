@@ -52,7 +52,7 @@
     <!-- Search section -->
     <section class="search-sec">
         <div class="container">
-            <form id="searchForm" action="<?=PROOT?>home/search/" method="GET">
+            <form id="searchForm" action="<?=PROOT?>home/search/" method="POST">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="row align-items-center">

@@ -1,6 +1,10 @@
 <?php
-
+if(isset($_POST['query']) && isset($_POST['category'])){
+    header('Location: ' .PROOT. 'home/search/'.$_POST['category'].'/'.$_POST['query']);  
+}
 class Home extends Controller{
+
+    
     public function __construct($controller,$action)
     {
         parent::__construct($controller,$action);
@@ -50,11 +54,13 @@ class Home extends Controller{
         Router::redirect('home/index');
     }
 
-    public function searchAction($query){
+    public function searchAction($category,$keyword){
     
-        $searchResult = $this->SearchModel->getSearchResultz($_GET['query'],$_GET['category']);
-    
-    
+        // "SELECT * FROM ads WHERE ((`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%')) AND (category='$categoryDigit')";
+        // $searchResult = $this->SearchModel->getSearchResult(['conditions' => "((title LIKE ?) OR (description LIKE ?) AND (category = ?)", 'bind' =>[$keyword,$category]]);
+        $searchResult = $this->SearchModel->getSearchResult($keyword,$category);
+        dnd($searchResult);
+
     }
 
 }

@@ -51,8 +51,8 @@ class Model{
         return $this->findFirst(['conditions'=>"id = ?", 'bind' => [$id]]);
     }
 
-    public function getSearchResult($params = []){
-        $resultQuery = $this->_db->getSearchResult($this->_table, $params);
+    public function getSearchResultz($params){
+        $resultQuery = $this->_db->search($this->_table,$params);
         $result = new $this->_modelName($this->_table);
         if($resultQuery){
             $result->populateObjData($resultQuery);

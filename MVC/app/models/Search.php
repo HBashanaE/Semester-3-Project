@@ -7,8 +7,14 @@ class Search extends Model{
         parent::__construct($table);
     }
 
-    public function getSearchResultz($query,$category){
-        // dnd(['conditions' => "advertisement = ?", 'bind' =>[$query." LIKE '%" . $query . "%' OR `description` LIKE '%" . $category . "%'"]]);
-        return $this->find(['conditions' => "advertisement = ?", 'bind' =>[$query."LIKE '%" . $query . "%' OR `description` LIKE '%" . $query . "%'"]]);
+    public function getSearchResult($keyword,$category=''){
+        // dnd(['conditions' => "((title LIKE ?) OR (description LIKE ?) ", 'bind' =>[$keyword]]);
+        if($category == 'All'){
+            return $this->getSearchResultz(['conditions' => "((title LIKE ?) OR (description LIKE ?) ", 'bind' =>[$keyword]]);
+        }else{
+            return $this->getSearchResultz(['conditions' => "(title ? OR description ?) AND (category = ?)", 'bind' =>[$keyword,$keyword,$category]]);
+        }
+        
+        // return $this->getSearchResult(['conditions' => "((title LIKE ?) OR (description LIKE ?) AND (category = ?)", 'bind' =>[$keyword,$category]]);
     }
 }

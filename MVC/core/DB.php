@@ -1,7 +1,7 @@
 <?php
 
 class DB{
-    private static $_indtance = null;
+    private static $_instance = null;
     private $_pdo,$_query,$_error = false,$_result,$_count = 0, $_lastInsterID = null;
 
     private function __construct(){
@@ -13,13 +13,16 @@ class DB{
     }
 
     public static function getInstance(){
-        if(!isset(self::$_indtance)){
-            self::$_indtance = new DB();
+        if(!isset(self::$_instance)){
+            self::$_instance = new DB();
         }
-        return self::$_indtance;
+        return self::$_instance;
     }
 
     public function query($sql,$params = []){
+        if($sql != 'SHOW COLUMNS FROM users' && $sql != 'SELECT * FROM user WHERE username = ?' && $sql != 'SHOW COLUMNS FROM advertisement'){
+            // dnd($sql);
+        }
         $this->_error = false;
         if($this->_query =$this->_pdo->prepare($sql)){
             $x =1;
@@ -29,6 +32,10 @@ class DB{
                     $x++;
                 }
             }
+        }
+
+        if($sql != 'SHOW COLUMNS FROM users' && $sql != 'SELECT * FROM user WHERE username = ?' && $sql != 'SHOW COLUMNS FROM advertisement'){
+             dnd($this->_query->execute($params));
         }
 
         if($this->_query->execute()){
@@ -90,6 +97,40 @@ class DB{
     
     }
 
+    public function search($table,$params){
+        // dnd($params);
+        $conditionString ='';
+        $bind = [];
+        //conditions
+        if(isset($params['conditions'])){
+            if(is_array($params['conditions'])){
+                foreach($params['conditions'] as $condition){
+                    $conditionString .= ' '.$condition . ' AND';
+                }
+                $conditionString = trim($conditionString);
+                $conditionString = rtrim($conditionString, ' AND');
+            }else{
+                $conditionString = $params['conditions'];
+            }
+            if($conditionString != ''){
+                $conditionString = ' WHERE '. $conditionString;
+            }
+        }
+        // bind
+        if(array_key_exists('bind', $params)){
+            $bind = $params['bind'];
+            // dnd($bind);
+
+        }
+        $sql = "SELECT * FROM {$table}{$conditionString}";
+        // dnd($sql);
+        if($this->query($sql, $bind)){
+            if(!count($this->_result )) return false;
+            return true;
+        }
+        return false;
+    }
+
     public function find($table, $params = []){
         if($this->_read($table, $params)){
             return $this->getResult();
@@ -98,12 +139,6 @@ class DB{
     }
 
     public function findFirst($table, $params = []){
-        if($this->_read($table, $params)){
-            return $this->first();
-        }
-        return false;
-    }
-    public function getSearchResult($table,$params = []){
         if($this->_read($table, $params)){
             return $this->first();
         }
