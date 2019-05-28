@@ -82,7 +82,7 @@ if (isset($_SESSION['id'])) {
                     <?php echo htmlentities($_SESSION['username']) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button">Account</a>
+                    <a class="dropdown-item" type="button" href="account.php">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                 </div>
@@ -91,6 +91,7 @@ if (isset($_SESSION['id'])) {
     </nav>
 <div <?php if ($logged === false) { ?>style="display:none" <?php } ?>>	 	
     <form method="POST" action="upload.php" enctype ="multipart/form-data">
+    <div class="container">
     <input type="hidden" name ="size" value="1000000" >
     <div class ="col-lg-5 col-md-5 col-sm-12 p-2">
         
@@ -106,10 +107,16 @@ if (isset($_SESSION['id'])) {
     </div>
     <div class="file-upload">
  <input type="file" class= "form-submit" name="myimage" required>
- </div>
+ </div><pre></pre>
+ <form name="form_title">
+  Title : <input type="text" name="form_title_val"><br>
+  <pre></pre>
+  Telephone: <input type="text" name="form_tel_value">
+</form>
+<pre></pre>
  <div class="textarea" class="form-group" >
  <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Discription" maxlength="749" required></textarea>
- </div>
+ </div><pre></pre>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>
  </div>
@@ -121,7 +128,7 @@ if (isset($_SESSION['id'])) {
     Access Denied
 </h1>
 </div>
-
+</div>
 
 
 <div class="container">
