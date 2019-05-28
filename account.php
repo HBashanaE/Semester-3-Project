@@ -46,13 +46,23 @@
 
 
 <?php
+include_once('dbh.php');
+$db = dbh::getDataBase();
+session_start();
+//only if session is created then user has logged in
+if (isset($_SESSION['id'])) {
+$userId = $_SESSION['id'];
+$username = $_SESSION['username'];
+$logged = true;
+} else {
+$logged = false;
+}
 
-$name = $_GET['username'];
 //echo "<div> ";
-echo "<font color='blue' size='+100'><center>Welcome $name ! </center></font>.\"<br>\"";
+echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font>.\"<br>\"";
 
     $db = dbh::getDataBase();
-        $sql= "SELECT * FROM ads WHERE username='$name'";
+        $sql= "SELECT * FROM ads WHERE username='$username'";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
