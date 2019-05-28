@@ -9,12 +9,12 @@ header('Access-Control-Allow-Origin: *');
 session_start();
 if (isset($_POST['submit'])) {
     if ($_POST['submit']) {
-        include_once('connection.php');
+        //include_once('connection.php');
         $username = strip_tags($_POST['username']);
         $password = strip_tags($_POST['password']);
 
         $sql = "SELECT activated, username, password FROM members where username = '$username' LIMIT 1";
-        $query = mysqli_query($db_login, $sql);
+        $query = mysqli_query($db, $sql);
         if ($query) {
             $row = mysqli_fetch_row($query);
             $userId = $row[2];
@@ -208,7 +208,7 @@ if (isset($_SESSION['id'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     
     <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
-<nav class="navbar  navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
