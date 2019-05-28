@@ -74,7 +74,7 @@ class Search{
                 $htmlString .= "</div>";
                 $htmlString .= "</div>";
                 $htmlString .= "</div>";
-                $htmlString .= "</div>";
+                //$htmlString .= "</div>";
 
 
 

@@ -27,7 +27,7 @@ if (isset($_SESSION['id'])) {
             case 'cleaning':
                 $list = '01';
             break;
-            case 'Electrical':
+            case 'electrical':
                 $list = '02';
             break;
             case 'catering':
@@ -43,7 +43,7 @@ if (isset($_SESSION['id'])) {
         }
 
         $ad= new Ad();
-        $ad->addPost($username,$imagename,$discription, $title,$target);
+        $ad->addPost($username,$imagename,$discription,$list, $title,$target);
     }
 }
 
@@ -98,7 +98,7 @@ if (isset($_SESSION['id'])) {
             <option value = ''>Select Category</option> 
 			<option value = 'vehicle'>Vehicles</option>
             <option value = 'cleaning'>Cleaning appliences</option>
-			<option value = 'Electrical'>Electrical/Electronic</option>
+			<option value = 'electrical'>Electrical/Electronic</option>
             <option value = 'catering'>Catering</option>
             <option value = 'building'>Building and construction</option>
             <option value = 'other'>Other</option>
