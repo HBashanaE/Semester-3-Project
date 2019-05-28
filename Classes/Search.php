@@ -62,14 +62,26 @@ class Search{
         if (mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
 
             while ($results = mysqli_fetch_array($raw_results)) {
-                $htmlString .= "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
-                $htmlString .= "<img src='ads/".$results['image']."'class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
-                $htmlString .= "  <div class=\"card-body\">";
-                $htmlString .= "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
-                $htmlString .= "      <p class=\"card-text\">" . $results['description'] . "</p>";
-                //$htmlString .= "      <a href='' class='btn btn-primary'>View</a>";
-                $htmlString .= "  </div>";
+                $htmlString .= "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
+                $htmlString .= "<div class='card-body'>";
+                $htmlString .= '<h2 class="card-head">'.$results['title'].'</h2>';
+                $htmlString .= "</br>";
+                $htmlString .= "<img src='ads/".$results['image']."'class ='card-img-top img-thumbnail' alt = 'Image' style ='width : auto ; height:400px;'>";
+                $htmlString .= "<div class='card-body'>";
+                // $htmlString .= '<h5 class="card-title">'. $results['title'] .'</h5>';
+                $htmlString .= '<pre class="card-text">'. $results['description'] .'</pre>';
+                $htmlString .= '<h3 class="card-text">Posted By: '.$results['username'].'</h3>';
                 $htmlString .= "</div>";
+                $htmlString .= "</div>";
+                $htmlString .= "</div>";
+                $htmlString .= "</div>";
+
+
+
+                // $htmlString .= "  <div class=\"card-body\">";
+                // //$htmlString .= "      <a href='' class='btn btn-primary'>View</a>";
+                // $htmlString .= "  </div>";
+                // $htmlString .= "</div>";
 
             }
         } else { 
