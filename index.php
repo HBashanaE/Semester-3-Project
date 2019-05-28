@@ -152,17 +152,14 @@ if (isset($_SESSION['id'])) {
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
                 echo "<div class= 'container'>"; 
-            echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
+                echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
                 echo "<div class='card-body'>";
                 echo '<h2 class="card-head">'.$row['title'].'</h2>';
                 
                 echo"</br>";
-                //echo "</div>";
-                //echo "<img src='ads/".$row['image']."' class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
-                //echo "<div style='"
-                echo "<img src='ads/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
+                // echo "<img src='ads/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Image' style ='width : auto ; height:400px;'>";
                 echo "<div class='card-body'>";
-                //echo '<h5 class="card-title">'.$row['title'].'</h5>';
+                echo '<h5 class="card-title">'.$row['title'].'</h5>';
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
                 echo '<h3 class="card-text">Posted By: '.$row['username'].'</h3>';
                 echo "</div>";
