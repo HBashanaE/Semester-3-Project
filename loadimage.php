@@ -43,7 +43,7 @@ session_start();
             if ($row['approve']!='approve'){
             echo "<div class = 'container'>";
              echo "<form method='POST' action='loadimage.php' enctype ='multipart/form-data'>";
-                echo "<img src='myimage/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+                echo "<img src='ads/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
                 echo "<p>".$row['description']. "</p>";
                 echo "<input type='submit' name='submit_image' class = 'button' : hover value='Approve'>";
             echo "</form>";

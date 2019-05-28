@@ -16,7 +16,7 @@ if (isset($_SESSION['id'])) {
         $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
         $discription=$_POST["description"];
-        $title=$_POST["category"];
+        //$title=$_POST["category"];
         $list = $_POST['category'];
         include 'ad.php';
 
@@ -64,6 +64,9 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
     
     <!-- Bootstrap Local -->
+    <link href="uploadstyle.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="Resources/favicon.ico">
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
     <script src="//Resources/jquery/jquery-3.3.1.min"></script>
@@ -109,13 +112,13 @@ if (isset($_SESSION['id'])) {
  <input type="file" class= "form-submit" name="myimage" required>
  </div><pre></pre>
  <form name="form_title">
-  Title : <input type="text" name="form_title_val"><br>
+  Title : <input style='width:400' placeholder = "max length 25" maxlength="25" type="text" name="form_title_val" required><br>
   <pre></pre>
-  Telephone: <input type="text" name="form_tel_value">
+  Telephone: <input type="text" placeholder = "0XXXXXXXXX" maxlength="10" name="form_tel_value" required>
 </form>
-<pre></pre>
+<pre></pre> 
  <div class="textarea" class="form-group" >
- <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Discription" maxlength="749" required></textarea>
+ <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Description" maxlength="749" required></textarea>
  </div><pre></pre>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>
@@ -146,7 +149,7 @@ if (isset($_SESSION['id'])) {
 </div>
 
 
-<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>

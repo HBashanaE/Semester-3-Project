@@ -9,6 +9,7 @@ header('Access-Control-Allow-Origin: *');
 session_start();
 if (isset($_POST['submit'])) {
     if ($_POST['submit']) {
+        //include_once('connection.php');
         $username = strip_tags($_POST['username']);
         $password = strip_tags($_POST['password']);
 
@@ -79,6 +80,23 @@ if (isset($_SESSION['id'])) {
         <a class="navbar-brand">
             <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png">
         </a>
+        <!-- Div for generel user items -->
+        <div class="generel_user" id="div_generel_user" <?php if ($logged === true) { ?>style="display:none" <?php } ?>>
+
+            <div class="row">
+                <!-- Login form -->
+                <form method="post" name="login" action="index.php" class="form-inline " style="content-right">
+                    <input type="text" name="username" class="form-control mr-sm-2" placeholder="Username or email" required>
+                    <input type="password" name="password" class="form-control mr-sm-2" placeholder="Password" required>
+                    <button type="submit" name="submit" class="float btn btn-outline-info my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="login">
+                    Login</button>
+                </form>
+                <!-- Register button -->
+                <form action="register.php">
+                    <input type="submit" class="float btn btn-success my-2 my-sm-0 mr-sm-2 mr-xs-1 my-xs-0" value="Register" />
+                </form>
+            </div>
+        </div>
 
         <!-- Div for logged user items -->
         <div class="logged_user" id="div_logged_user" <?php if ($logged === false) { ?>style="display:none" <?php } ?>>
@@ -87,9 +105,10 @@ if (isset($_SESSION['id'])) {
                     <?php echo htmlentities($username) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button" href="account.php">Account</a>
+                    <a class="dropdown-item" type="button" href="account.php?username=<?php echo $_SESSION['username']; ?>">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
+                    <a <?php if($username=="kashyapaniyarepola" ){?> class="dropdown-item" type="button" href="loadimage.php">Review AD<?php }?></a>
                 </div>
                 <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
             </div>
@@ -189,7 +208,7 @@ if (isset($_SESSION['id'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     
     <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
-<nav class="navbar  navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>

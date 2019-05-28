@@ -94,6 +94,57 @@ echo "<br>";
             }
         }
 ?>
+
+<?php
+//   ***************************code for deleting account***************************************
+/*
+echo "<div class='container'>";
+	echo "<form method = 'GET'>";
+    //echo "<button>".'del Accnt'."</button>";
+    echo '<button type="submit" class="btn btn-danger" name="btn_delete">Delete My Account</button>';
+
+    echo "<input type = 'text' name = 'delete_name' placeholder = 'password'>";
+  echo "</form>";
+  //echo"done -3"; die;
+  if (isset($_POST['btn_delete'])) {
+    echo"done -2"; die;
+      if ($_POST['btn_delete']) {
+        echo"done -1"; die;
+  $db = mysqli_connect("localhost","root","","login");
+  $sqlp = "SELECT * FROM members";
+  $result = mysqli_query($db,$sqlp);
+  $USER = $_GET['delete_name'];
+	$username = $row['username'];
+	while ($row = mysqli_fetch_array($result)){
+        echo"done0"; die;
+    if($USER==$username ){
+        echo"done1"; die;
+                  $username = $row['username'];
+
+									$password = $row['password'];
+									$email= $row['mail'];
+									$sqli = "INSERT INTO delmembers(username,password,email) VALUES ('$username','	$password','$email');";
+                                    mysqli_query($db,$sqli);
+                                    echo"done2";die;
+									$sql = "DELETE FROM members WHERE username = $username";
+									mysqli_query($db,$sql);
+									if ($conn->query($sql) == TRUE){
+										echo "<div id = 'valid'>";
+											echo "record deleted".$row['id'];
+										echo "</div>";
+									}else {
+										echo "error deleting rexcord".$conn->error;
+									}
+                  $conn->close();
+                }
+            }
+        }
+      }
+  echo "</div>";
+  */
+  //   ***************************code for deleting account  ***** ends***************************************
+?>
+<br/><br/>
 <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
 
 <!-- Modal -->
