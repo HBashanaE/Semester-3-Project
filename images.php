@@ -31,7 +31,7 @@
 		$msg = "There was a problem uploading image";
 		}
 		
-		$db = mysqli_connect("localhost","root","","login");
+		$db = dbh::getDataBase();
 		$images = $_FILES['image']['name'];
 		$title = $_POST['title'];
 		$description = $_POST['description'];

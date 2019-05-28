@@ -146,7 +146,7 @@ if (isset($_SESSION['id'])) {
 
     <div>
     <?php
-        $db=mysqli_connect("localhost" , "root", "", "login");
+        $db = dbh::getDataBase();
         $sql= "SELECT * FROM ads LIMIT 10";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
