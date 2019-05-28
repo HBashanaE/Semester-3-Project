@@ -109,13 +109,13 @@ if (isset($_SESSION['id'])) {
  <input type="file" class= "form-submit" name="myimage" required>
  </div><pre></pre>
  <form name="form_title">
-  Title : <input type="text" name="form_title_val"><br>
+  Title : <input style='width:400' placeholder = "max length 25" maxlength="25" type="text" name="form_title_val" required><br>
   <pre></pre>
-  Telephone: <input type="text" name="form_tel_value">
+  Telephone: <input type="text" placeholder = "0XXXXXXXXX" maxlength="10" name="form_tel_value" required>
 </form>
-<pre></pre>
+<pre></pre> 
  <div class="textarea" class="form-group" >
- <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Discription" maxlength="749" required></textarea>
+ <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Description" maxlength="749" required></textarea>
  </div><pre></pre>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>

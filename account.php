@@ -104,3 +104,4 @@ echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font
 
 </nav>
 </body>
+</html>

@@ -4,8 +4,7 @@
     class Ad{
         
         public function addPost($username,$imagename, $text,$category, $title,$target){
-            $c=new dbh();
-            $db= $c->connect();
+            $db= dbh::getDataBase();
             $query = "INSERT INTO ads(username,title,description,category,image,approve) VALUES('$username','$title','$text','$category','$imagename','disapprove')";
             mysqli_query($db,$query);
             
@@ -20,8 +19,7 @@
         }
 
         public function addOne($id){
-            $c=new dbh();
-            $db= $c->connect();
+            $db= dbh::getDataBase();
             $sql = "UPDATE ads SET approve= 'approve'  WHERE id='$id'";
             mysqli_query($db,$sql);
            if (mysqli_query($db,$sql)){
