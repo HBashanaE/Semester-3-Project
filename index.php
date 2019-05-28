@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+include_once("dbh.php");
+$db = dbh::getDataBase();
  //Access-Control-Allow-Origin header with wildcard.
 header('Access-Control-Allow-Origin: *');
 //$logged=false;
@@ -146,7 +148,7 @@ if (isset($_SESSION['id'])) {
 
     <div>
     <?php
-        $db = dbh::getDataBase();
+        
         $sql= "SELECT * FROM ads LIMIT 10";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
