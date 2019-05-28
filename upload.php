@@ -15,7 +15,7 @@ if (isset($_SESSION['id'])) {
 	if($_POST['submit_image']){
         $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
-        $description=$_POST["description"];
+        $discription=$_POST["description"];
         $title=$_POST["category"];
         include 'ad.php';
         $ad= new Ad();
@@ -67,11 +67,11 @@ if (isset($_SESSION['id'])) {
     </nav>
 <div <?php if ($logged === false) { ?>style="display:none" <?php } ?>>	 	
     <form method="POST" action="upload.php" enctype ="multipart/form-data">
-    <input type="hidden" name ="size" value="1000000">
+    <input type="hidden" name ="size" value="1000000" >
     <div class ="col-lg-5 col-md-5 col-sm-12 p-2">
         
-        <select class="form-control search-slt" type = "text" name= "category" id="selectCategory">
-            <option>Select Category</option>
+        <select class="form-control search-slt" type = "text" name= "category" id="selectCategory" required>
+            <option value="">Select Category</option>
             <option>Vehicles</option>
             <option>Cleaning appliences</option>
             <option>Electrical/Electronic</option>
@@ -81,10 +81,10 @@ if (isset($_SESSION['id'])) {
         </select>
     </div>
     <div class="file-upload">
- <input type="file" class= "form-submit" name="myimage" >
+ <input type="file" class= "form-submit" name="myimage" required>
  </div>
- <div class="textarea" class="form-group">
- <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Discription" ></textarea>
+ <div class="textarea" class="form-group" >
+ <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Discription" maxlength="749" required></textarea>
  </div>
  <input type="submit" name="submit_image" class = "button" : hover value="Upload">
  </div>
