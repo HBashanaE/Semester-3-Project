@@ -6,6 +6,7 @@
         private $username;
         private $password;
         private $dbname;
+        private static $instance;
 
         public function connect(){
             $this->servername = "localhost";
@@ -17,6 +18,13 @@
 
             return $conn;
             
+        }
+
+        public static function getDataBase(){
+            if(!isset($this->instance)){
+                $this->instance = mysqli_connect("localhost","root","","login") or die ("Failed to connect");
+            }
+            return $this->instance;
         }
 
         public function saveToDatabase($username,$password,$email,$cpassword){
