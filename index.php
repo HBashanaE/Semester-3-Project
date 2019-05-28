@@ -152,7 +152,8 @@ if (isset($_SESSION['id'])) {
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
                 echo "<div class= 'container'>"; 
-            echo "<div class = 'card mb-3' style='height: 500px; width:90%;'>";
+                
+                echo "<div class = 'card mb-3' style='height: auto; width:90%;'>";
                 echo "<div class='card-body'>";
                 echo '<h2 class="card-head">'.$row['title'].'</h2>';
                 
@@ -166,7 +167,6 @@ if (isset($_SESSION['id'])) {
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
                 echo '<h3 class="card-text">Posted By: '.$row['username'].'</h3>';
                 echo "</div>";
-                echo "<img src='myimage/".$row['image']."' class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";

@@ -63,7 +63,7 @@ class Search{
 
             while ($results = mysqli_fetch_array($raw_results)) {
                 $htmlString .= "<div class=\"card my-5\" style=\"width: 80%; height: auto;\">";
-                $htmlString .= "<img src='myimage/".$results['image']."'class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
+                $htmlString .= "<img src='ads/".$results['image']."'class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
                 $htmlString .= "  <div class=\"card-body\">";
                 $htmlString .= "      <h5 class=\"card-title\">" . $results['title'] . "</h5>";
                 $htmlString .= "      <p class=\"card-text\">" . $results['description'] . "</p>";

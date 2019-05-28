@@ -17,7 +17,31 @@ if (isset($_SESSION['id'])) {
         $imagename=$_FILES["myimage"]["name"];
         $discription=$_POST["description"];
         $title=$_POST["category"];
+        $list = $_POST['category'];
         include 'ad.php';
+
+        switch($list){
+            case 'vehicle':
+                $list = '00';
+            break;
+            case 'cleaning':
+                $list = '01';
+            break;
+            case 'Electrical':
+                $list = '02';
+            break;
+            case 'catering':
+                $list = '03';
+            break;
+            case 'building':
+                $list = '04';
+            break;
+            case 'other':
+                $list = '99';
+            break;
+                            
+        }
+
         $ad= new Ad();
         $ad->addPost($username,$imagename,$discription, $title,$target);
     }
@@ -71,13 +95,13 @@ if (isset($_SESSION['id'])) {
     <div class ="col-lg-5 col-md-5 col-sm-12 p-2">
         
         <select class="form-control search-slt" type = "text" name= "category" id="selectCategory" required>
-            <option value="">Select Category</option>
-            <option>Vehicles</option>
-            <option>Cleaning appliences</option>
-            <option>Electrical/Electronic</option>
-            <option>Catering</option>
-            <option>Building and construction</option>
-            <option>Other</option>
+            <option value = ''>Select Category</option> 
+			<option value = 'vehicle'>Vehicles</option>
+            <option value = 'cleaning'>Cleaning appliences</option>
+			<option value = 'Electrical'>Electrical/Electronic</option>
+            <option value = 'catering'>Catering</option>
+            <option value = 'building'>Building and construction</option>
+            <option value = 'other'>Other</option>
         </select>
     </div>
     <div class="file-upload">
