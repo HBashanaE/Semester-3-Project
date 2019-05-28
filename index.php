@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include "dbh.php";
  //Access-Control-Allow-Origin header with wildcard.
 header('Access-Control-Allow-Origin: *');
 //$logged=false;
