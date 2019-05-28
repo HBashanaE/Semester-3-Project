@@ -1,5 +1,18 @@
-<html>
+<?php
+include_once('dbh.php');
+$db = dbh::getDataBase();
+session_start();
+//only if session is created then user has logged in
+if (isset($_SESSION['id'])) {
+$userId = $_SESSION['id'];
+$username = $_SESSION['username'];
+$logged = true;
+} else {
+$logged = false;
+}
+?>
 
+<html>
 <head>
     <meta charset="ISO-8859-1">
     <title>කුළියට: User Account</title>
@@ -33,7 +46,7 @@
         <div class="logged_user" id="div_logged_user" <?php $logged=true; if ($logged === false) { ?>style="display:none" <?php } ?>>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    <?php $username = $_GET['username']; echo htmlentities($username) ?>
+                    <?php echo $username ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" type="button">Another action</a>
@@ -46,23 +59,13 @@
 
 
 <?php
-include_once('dbh.php');
-$db = dbh::getDataBase();
-session_start();
-//only if session is created then user has logged in
-if (isset($_SESSION['id'])) {
-$userId = $_SESSION['id'];
-$username = $_SESSION['username'];
-$logged = true;
-} else {
-$logged = false;
-}
 
-//echo "<div> ";
-echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font>.\"<br>\"";
+echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font>";
+echo "<br>";
 
     $db = dbh::getDataBase();
         $sql= "SELECT * FROM ads WHERE username='$username'";
+        var_dump($sql);
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
@@ -80,7 +83,7 @@ echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
-                echo"</br>"."</br>";
+                echo"</br>";
             }
         }
 ?>
@@ -104,3 +107,4 @@ echo "<font color='blue' size='+100'><center>Welcome $username ! </center></font
 
 </nav>
 </body>
+</html>
