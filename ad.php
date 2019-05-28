@@ -6,7 +6,7 @@
         public function addPost($username,$imagename, $text, $title,$target){
             $c=new dbh();
             $db= $c->connect();
-            $query = "INSERT INTO ads(username,title,description,image,approve) VALUES('$username','$title','$text','$imagename','disapprove')";
+            $query = "INSERT INTO ads(owner,title,description,image,approve) VALUES('$username','$title','$text','$imagename','disapprove')";
             mysqli_query($db,$query);
             
             if (move_uploaded_file($_FILES['myimage']['tmp_name'],$target)){
