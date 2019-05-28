@@ -82,8 +82,10 @@ echo "<br>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
+                echo "<button>Remove ad</button>";
                 echo "</div>";
                 echo"</br>";
+                
             }
         }
 ?>
