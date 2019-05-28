@@ -6,6 +6,11 @@
         private $username;
         private $password;
         private $dbname;
+        private static $instance;
+
+        private function __construct(){
+
+        }
 
         public function connect(){
             $this->servername = "localhost";
@@ -19,11 +24,18 @@
             
         }
 
-        public function saveToDatabase($username,$password,$email,$cpassword){
+        public static function getDataBase(){
+            if(!isset(self::$instance)){
+                self::$instance = mysqli_connect("localhost","root","","login") or die ("Failed to connect");
+            }
+            return self::$instance;
+        }
+        
+
+        public static function saveToDatabase($username,$password,$email,$cpassword){
             
             if (password_verify($cpassword,$password)){
-                $c=new dbh();
-                $db = /*mysqli_connect("localhost", "root", "", "login")*/ $c->connect(); 
+                $db = self::getDataBase(); 
                 $query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
                 $result = mysqli_query($db,$query);
                 if($result) {

@@ -51,7 +51,7 @@ $name = $_GET['username'];
 //echo "<div> ";
 echo "<font color='blue' size='+100'><center>Welcome $name ! </center></font>.\"<br>\"";
 
-    $db=mysqli_connect("localhost" , "root", "", "login");
+    $db = dbh::getDataBase();
         $sql= "SELECT * FROM ads WHERE username='$name'";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){

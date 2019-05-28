@@ -55,8 +55,9 @@ class Search{
     }
 
     public function renderHTML($sqlQuery){
-        $dbh = new dbh();
-        $db_login = $dbh->connect();
+        // $dbh = new dbh();
+        // $db_login = $dbh->connect();
+        $db_login = dbh::getDataBase();
         $raw_results = mysqli_query($db_login, $sqlQuery) or die(mysql_error());
         $htmlString = '';
         if (mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
@@ -74,7 +75,6 @@ class Search{
                 $htmlString .= "</div>";
                 $htmlString .= "</div>";
                 $htmlString .= "</div>";
-                //$htmlString .= "</div>";
 
 
 
