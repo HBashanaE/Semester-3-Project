@@ -1,4 +1,5 @@
 <?php
+
 include "dbh.php";
 if(isset($_POST["username"]))
 {
@@ -10,7 +11,8 @@ if(isset($_POST["username"]))
 	$statement->execute();
 	$statement->bind_result($username);
 	if($statement->fetch()){
-		die('<img src="not-available.png" />');
+		echo "kash";
+		//echo ('<img src="not-available.png" />');
 	}else{
 		die('<img src="available.png" />');
 	}

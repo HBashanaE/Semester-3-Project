@@ -11,7 +11,7 @@
     include 'dbh.php';
     // $users = new dbh();
     // $users->saveToDatabase($username,$hashedpassword,$email,$cpassword);
-    dbh::saveToDatabase($username,$hashedpassword,$email,$cpassword);
+    proxydb::saveToDatabase($username,$hashedpassword,$email,$cpassword);
 }
     }
 ?>
@@ -26,6 +26,7 @@
    
     <!-- Main css -->
     
+    <script src="Resources/jquery/jquery-3.3.1.min.js"></script>
     <link rel="shortcut icon" href="Resources/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -79,7 +80,7 @@
                            <!-- <div class="input-group-prepend">
                                 <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                             </div>-->
-                            <input type="text" class="form-control" id="validationDefaultUsername" name="username"  placeholder="User Name" aria-describedby="inputGroupPrepend2" required>
+                            <input type="text" minlength=4 class="form-control" id="validationDefaultUsername" name="username"  placeholder="User Name" aria-describedby="inputGroupPrepend2" required>
                             <!--<div class="valid-tooltip">
                                 Please choose a unique and valid username.
                             </div>-->
@@ -126,7 +127,7 @@
         </section>
         </div>
 
-        <script type="text/javascript">
+        <script type="text/javascript" >
     $(document).ready(function() {
 	var x_timer; 	
 	$("#validationDefaultUsername").keyup(function (e){
@@ -139,8 +140,9 @@
 
 function check_username_ajax(username){
 	$("#user-result").html('<img src="ajax-loader.gif" />');
-	$.post('username-checker.php', {'username':username}, function(data) {
-	  $("#user-result").html(username);
+	$.post('username-checker.php', {username:username}, function(data) {
+        
+	  $("#user-result").html(data);
 	});
 }
 });
