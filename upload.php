@@ -19,9 +19,16 @@ if (isset($_POST['submit_image'])) {
             echo "<script>alert('Please enter a valid phone')</script>";
             //header('upload.php');
         }else{
-
-        $target = "ads/".basename($_FILES['myimage']['name']);
-        $imagename=$_FILES["myimage"]["name"];
+        // $random_name=generateRandomString();
+        //$target = "ads/".$random_name;
+        //$imagename=$random_name;
+        /* ************************************************************************************** */
+        // $target = "ads/".basename($_FILES['myimage']['name']);
+        //$imagename=$_FILES["myimage"]["name"];
+        $n=$_FILES["myimage"]["name"];
+        $target = "ads/".basename($n);
+        $imagename=$n;
+        
         $discription=$_POST["description"];
         //$title=$_POST["category"];
         $list_category = $_POST['category'];
