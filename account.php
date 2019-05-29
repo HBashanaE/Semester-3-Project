@@ -213,6 +213,7 @@ if (isset($_SESSION['id'])) {
 
     async function confirm() {
 
+      // console.log(clicked);
       let form = new FormData();
       form.append("val", clicked);
 
