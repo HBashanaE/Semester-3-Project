@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])) {
     <meta charset="ISO-8859-1">
     <title>කුළියට</title>
     <link rel="shortcut icon" href="Resources/favicon.ico">
-    <!-- Bootstrap CDN-->
+    <!-- Bootstrap CDN--><!--
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -59,13 +59,19 @@ if (isset($_SESSION['id'])) {
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap Local -->
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-    <script src="//Resources/jquery/jquery-3.3.1.min"></script>
+    <script src="Resources/jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" > </script>
+    <script src="Resources/jquery/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -105,7 +111,7 @@ if (isset($_SESSION['id'])) {
                     <?php echo htmlentities($username) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" type="button" href="account.php?username=<?php echo $_SESSION['username']; ?>">Account</a>
+                    <a class="dropdown-item" type="button" href="account.php">Account</a>
                     <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                     <a <?php if($username=="kashyapaniyarepola" ){?> class="dropdown-item" type="button" href="loadimage.php">Review AD<?php }?></a>
@@ -205,7 +211,7 @@ if (isset($_SESSION['id'])) {
     </div>
     <!-- Floating button fixed-bottom-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
     
     <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
 <nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">

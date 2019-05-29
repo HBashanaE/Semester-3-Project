@@ -3,13 +3,14 @@
     include 'dbh.php';
     class Ad{
         
-        public function addPost($username,$title,$telephone,$imagename, $text,$category, $title,$target){
+        public function addPost($username,$title,$telephone,$imagename, $text,$category, /*$date,$time,*/$target){
             $db= dbh::getDataBase();
-            $query = "INSERT INTO ads(username,title,description,category,telephonr,image,approve) VALUES('$username','$title','$text','$category','$telephone','$imagename','disapprove')";
+            $query = "INSERT INTO ads(username,title,description,category,telephonr,image,/*date,time,*/approve) VALUES('$username','$title','$text','$category','$telephone','$imagename','disapprove')";
             mysqli_query($db,$query);
             
             if (move_uploaded_file($_FILES['myimage']['tmp_name'],$target)){
                 $mgs= "image uploaded successfully";
+                echo"<script>alert('$msg')</script>";
                 header('Location: index.php');
                 
     
