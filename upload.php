@@ -13,11 +13,19 @@ if (isset($_SESSION['id'])) {
 
     if (isset($_POST['submit_image'])) {
 	if($_POST['submit_image']){
+        $telephone=$_POST['form_tel_value'];
+        if (strlen($telephone)!=10){
+            echo"<script>alert('Please enter a valid phone')</script>";
+            //header('upload.php');
+        }else{
+
         $target = "ads/".basename($_FILES['myimage']['name']);
         $imagename=$_FILES["myimage"]["name"];
         $discription=$_POST["description"];
         //$title=$_POST["category"];
         $list = $_POST['category'];
+        $title=$_POST['form_title_val'];
+         die;
         include 'ad.php';
 
         switch($list){
@@ -43,7 +51,8 @@ if (isset($_SESSION['id'])) {
         }
 
         $ad= new Ad();
-        $ad->addPost($username,$imagename,$discription,$list, $title,$target);
+        $ad->addPost($username,$title,$telephone,$imagename,$discription,$list, $title,$target);
+        }
     }
 }
 
