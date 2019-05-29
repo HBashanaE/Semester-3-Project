@@ -10,7 +10,6 @@ $logged = true;
 } else {
 $logged = false;
 }
-var_dump($_POST) ;
 ?>
 
 <html>
