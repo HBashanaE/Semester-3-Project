@@ -71,6 +71,7 @@ if (isset($_SESSION['id'])) {
           <?php echo $username ?>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item"  type="button" data-toggle='modal' data-target='#deleteconfirmationModal'>Deactivate accoount</a>
           <a class="dropdown-item" type="button">Another action</a>
           <a class="dropdown-item" type="button" href="logout.php">Logout</a>
         </div>
@@ -179,6 +180,27 @@ if (isset($_SESSION['id'])) {
     Test
   </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="deleteconfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteconfirmationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteconfirmationModalTitle">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          You want to deactivate account?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" onclick="confirmDel(<?php echo ("'".$username."'") ?>)">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -213,6 +235,7 @@ if (isset($_SESSION['id'])) {
 
     async function confirm() {
 
+      // console.log(clicked);
       let form = new FormData();
       form.append("val", clicked);
 
@@ -224,6 +247,45 @@ if (isset($_SESSION['id'])) {
       let t = await res.text();
       console.log(t);
       location.reload();
+
+
+
+    }
+  </script>
+
+
+<script>
+    var clicked;
+
+    function acc(val) {
+      c = val;
+      console.log(val);
+      // $("#confirmationModal").modal();
+
+    }
+
+    function accdel() {
+      console.log(clicked);
+    }
+
+    async function confirmDel(username) {
+
+      let form = new FormData();
+      form.append("username", username);
+
+      let res = await fetch("deactivate.php", {
+        method: "POST",
+        body: form
+
+      });
+      let t = await res.text();
+      console.log(t);
+      if(t == '1'){
+        window.location = 'index.php';
+      }else{
+        location.reload();
+        alert("error occur");
+      }
 
 
 
