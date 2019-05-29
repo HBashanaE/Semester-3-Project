@@ -112,7 +112,28 @@ if (isset($_SESSION['id'])) {
     }
   } else {
 
-    echo '<h1 class="text-danger text-center"> Access Denied</h1>';
+    echo '<h1 class="text-danger text-center"> Access Denied</h1>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    ';
   }
 
   ?>
