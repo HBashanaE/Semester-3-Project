@@ -49,6 +49,7 @@ if (isset($_POST['submit_image'])) {
             break;
                             
         }
+        date_default_timezone_set("Asia/Kolkata");
         $date=date("Y/m/d");
         $time=date("h:i:sa");
         $ad= new Ad();
@@ -65,7 +66,7 @@ if (isset($_POST['submit_image'])) {
 <head>
     <title>Upload Your කුළියට.lk Avertisement</title>
     <!-- Bootstrap CDN-->
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -74,7 +75,7 @@ if (isset($_POST['submit_image'])) {
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
 
-    <!-- Bootstrap Local -->
+    <!-- Bootstrap Local
     <link href="uploadstyle.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="Resources/favicon.ico">
@@ -185,7 +186,7 @@ if (isset($_POST['submit_image'])) {
     </div>
 
 
-    <nav class="navbar expand-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link active" href="index.php">Home</a>

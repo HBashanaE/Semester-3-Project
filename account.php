@@ -89,8 +89,7 @@ if (isset($_SESSION['id'])) {
     $db = dbh::getDataBase();
     $sql = "SELECT * FROM ads WHERE username='$username'";
     $result = mysqli_query($db, $sql);
-    while ($row = mysqli_fetch_array($result)) {
-      if ($row['approve'] == 'approve') {
+    while ($row = mysqli_fetch_array($result)) 
         echo "<div class= 'container'>";
 
         echo "<div class = 'card mb-3' style='height: auto; width:90%;'>";
@@ -108,7 +107,6 @@ if (isset($_SESSION['id'])) {
         echo "<button class='btn btn-secondary mr-1'>Edit ad</button>";
         echo "</div>";
         echo "</br>";
-      }
     }
   } else {
 
