@@ -71,6 +71,7 @@ if (isset($_SESSION['id'])) {
           <?php echo $username ?>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" onclick="acc($username)" type="button">Deactivate accoount</a>
           <a class="dropdown-item" type="button">Another action</a>
           <a class="dropdown-item" type="button" href="logout.php">Logout</a>
         </div>
@@ -174,6 +175,27 @@ if (isset($_SESSION['id'])) {
     Test
   </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalTitle">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          You want to deactivate account?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" onclick="confirmdel()">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -212,6 +234,40 @@ if (isset($_SESSION['id'])) {
       form.append("val", clicked);
 
       let res = await fetch("deleteRecord.php", {
+        method: "POST",
+        body: form
+
+      });
+      let t = await res.text();
+      console.log(t);
+      location.reload();
+
+
+
+    }
+  </script>
+
+
+<script>
+    var clicked;
+
+    function acc(val) {
+      clicked = val;
+      console.log(val);
+      // $("#confirmationModal").modal();
+
+    }
+
+    function accdel() {
+      console.log(clicked);
+    }
+
+    async function confirmdel() {
+
+      let form = new FormData();
+      form.append("val", clicked);
+
+      let res = await fetch("deactivate.php", {
         method: "POST",
         body: form
 
