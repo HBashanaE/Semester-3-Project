@@ -94,7 +94,7 @@
                            <!-- <div class="input-group-prepend">
                                 <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                             </div>-->
-                            <input type="text" class="form-control" id="validationDefaultUsername" name="username"  placeholder="User Name" aria-describedby="inputGroupPrepend2" required>
+                            <input type="text" class="form-control" id="validationDefaultUsername" name="username"  placeholder="Pick a user Name" aria-describedby="inputGroupPrepend2" required>
                             <!--<div class="valid-tooltip">
                                 Please choose a unique and valid username.
                             </div>-->
