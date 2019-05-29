@@ -34,7 +34,7 @@
 
         public static function saveToDatabase($username,$password,$email){
             
-           // if (password_verify($cpassword,$password)){
+           
                 $db = self::getDataBase(); 
                 $query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
                 $result = mysqli_query($db,$query);
@@ -49,9 +49,6 @@
                         echo "Failed to register";
                     }
                 }
-            //}else{
-            //    echo "passwords do not match";
-            //}
 
 
         }
