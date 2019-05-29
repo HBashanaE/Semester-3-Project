@@ -30,6 +30,10 @@
                     echo "Succesfully registered";
                     header('Location: index.php');
                 }else {
+                    $sql = "SELECT * FROM members WHERE username='$username'";
+                    if(mysqli_query($db,$sql)){
+                        
+                    }
                     echo "Failed to register";
                 }
             }else{

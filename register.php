@@ -2,7 +2,7 @@
     session_start();
     if (isset($_POST['submit'])) {
 	if($_POST['submit']){
-		include_once('connection.php');
+		// include_once('connection.php');
 		$username = strip_tags($_POST['username']);
         $password = strip_tags($_POST['password']);
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
@@ -60,7 +60,22 @@
     </a>
 </nav>
 
-
+<!-- Modal -->
+<div class="modal fade" id="userNameErrorModal" tabindex="-1" role="dialog" aria-labelledby="userNameErrorModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userNameErrorModalTitle">Username Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Username exist. Please try different username.
+      </div>
+    </div>
+  </div>
+</div>
 
 
    <div class="main">
@@ -144,6 +159,10 @@ function check_username_ajax(username){
 	});
 }
 });
+
+function userNameError(){
+    $('#userNameErrorModal').modal('show');
+}
 </script>
  
 
@@ -193,5 +212,6 @@ function check_username_ajax(username){
 <a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
 
 </nav>
+<button onclick="userNameError()">Test</button>
 </body>
 </html>

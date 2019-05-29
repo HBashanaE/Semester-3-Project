@@ -42,7 +42,12 @@
                     echo "Succesfully registered";
                     header('Location: index.php');
                 }else {
-                    echo "Failed to register";
+                    $sql = "SELECT * FROM members WHERE username='$username'";
+                    if(mysqli_query($db,$sql)){
+                        echo '<script> userNameError() </script>';
+                    }else{
+                        echo "Failed to register";
+                    }
                 }
             }else{
                 echo "passwords do not match";
