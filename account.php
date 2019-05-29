@@ -162,7 +162,7 @@ echo "<div class='container'>";
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger">YES</button>
+        <button type="button" class="btn btn-danger" onclick="confirm()">YES</button>
       </div>
     </div>
   </div>
@@ -205,20 +205,23 @@ echo "<div class='container'>";
   }
 
   function asd(){
-    $.post( "account.php", { name: "John", time: "2pm" });
     console.log(clicked);
-    $.post( "account.php", function() {
-  alert( "success" );
-})
-  .done(function() {
-    alert( "second success" );
-  })
-  .fail(function() {
-    alert( "error" );
-  })
-  .always(function() {
-    alert( "finished" );
-  });
+  }
+
+  async function confirm(){
+  
+    let form = new FormData();
+    form.append("val",clicked);
+
+    let res = await fetch("deleteRecord.php",{
+      method:"POST",
+      body: form
+
+    });
+    let t = await res.text();
+    console.log(t);
+    location.reload();
+
     
     
   }
