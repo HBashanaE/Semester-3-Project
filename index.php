@@ -109,7 +109,6 @@ if (isset($_SESSION['id'])) {
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" type="button" href="account.php">Account</a>
-                    <a class="dropdown-item" type="button">Another action</a>
                     <a class="dropdown-item" type="button" href="logout.php">Logout</a>
                     <a <?php if($username=="kashyapaniyarepola" ){?> class="dropdown-item" type="button" href="loadimage.php">Review AD<?php }?></a>
                 </div>
@@ -158,32 +157,20 @@ if (isset($_SESSION['id'])) {
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){
                 echo "<div class= 'container'>"; 
-                
                 echo "<div class = 'card mb-3' style='height: auto; width:90%;'>";
                 echo "<div class='card-body'>";
                 echo '<h2 class="card-head">'.$row['title'].'</h2>';
-                
                 echo"</br>";
-                //echo "</div>";
-                //echo "<img src='ads/".$row['image']."' class ='card-img-top img-responsive' alt = 'Responsive image' style ='width : auto ; height:400px;'>";
-                //echo "<div style='"
                 echo "<img src='ads/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
                 echo "<div class='card-body'>";
-                //echo '<h5 class="card-title">'.$row['title'].'</h5>';
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
-                echo '<h3 class="card-text">Posted By: '.$row['username'].'</h3>';
+                echo '<h3 class="card-text">Posted by: '.$row['username'].'</h3>';
+                echo '<h6 class="card-text">Posted on: '.$row['date'].'</h6>';
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
                 echo"</br>"."</br>";
-
-                //echo "<img src='ads/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
- 
-//                <img class="img-thumbnail" src='myimage/".$row['image'] alt="Thumbnail image">"
-                //echo "<img src='myimage/".$row['image']."' class ='img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
- 
-                //echo "</br>";
 
         }
     }
