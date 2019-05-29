@@ -33,6 +33,15 @@ session_start();
     </a>
     </nav>
 <div>
+<script type=text/javascript>
+async function sendData(id){
+    let form = new FromData();
+    form.append('id',id);
+    let re = await fetch("ad1.php",{
+        method: "POST",
+        body: form
+    });
+}
     <?php
         
         //session_start();
@@ -45,7 +54,7 @@ session_start();
              echo "<form method='POST' action='loadimage.php' enctype ='multipart/form-data'>";
                 echo "<img src='ads/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
                 echo "<p>".$row['description']. "</p>";
-                echo "<input type='submit' name='submit_image' class = 'button' : hover value='Approve'>";
+                echo "<input type='submit' name='submit_image' class = 'button' : hover onclick=sendData(".$row['id'].") value='Approve'>";
             echo "</form>";
             echo "</div>";
             $id=$row['id'];
