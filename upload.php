@@ -73,9 +73,9 @@ if (isset($_POST['submit_image'])) {
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap Local
+    <!-- Bootstrap Local -->
     <link href="uploadstyle.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="Resources/favicon.ico">
@@ -131,13 +131,13 @@ if (isset($_POST['submit_image'])) {
                     <input type="file" class="btn btn-info" name="myimage" required>
                 </div>
                 Title : <input style='width:400' class="form-control mr-sm-2" placeholder="max length 25" maxlength="25" type="text" name="form_title_val" required>
-                </br>
+                <pre></pre>
                 Telephone: <input type="text" class="form-control mr-sm-2" placeholder="0XXXXXXXXX" maxlength="10" name="form_tel_value" required>
-                </br>
+                <br/>
                 <div class="textarea" class="form-group">
                     <textarea class="form-control" id="description " rows="5" name="description" placeholder="Description" maxlength="749" required></textarea>
                 </div>
-                </br>
+                <br/>
                 <input type="submit" name="submit_image" class="btn btn-info" : hover value="Upload">
             </div>
         </form>
