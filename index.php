@@ -152,7 +152,7 @@ if (isset($_SESSION['id'])) {
     <div>
     <?php
         
-        $sql= "SELECT * FROM ads LIMIT 10";
+        $sql= "SELECT TOP 10 * FROM ads";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
             if ($row['approve']=='approve'){

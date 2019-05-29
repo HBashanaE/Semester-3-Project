@@ -71,7 +71,7 @@ if (isset($_SESSION['id'])) {
           <?php echo $username ?>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" onclick="acc($username)" type="button">Deactivate accoount</a>
+        <a class="dropdown-item"  type="button" data-toggle='modal' data-target='#deleteconfirmationModal'>Deactivate accoount</a>
           <a class="dropdown-item" type="button">Another action</a>
           <a class="dropdown-item" type="button" href="logout.php">Logout</a>
         </div>
@@ -181,11 +181,11 @@ if (isset($_SESSION['id'])) {
   </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="deleteconfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteconfirmationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="confirmationModalTitle">Are you sure?</h5>
+          <h5 class="modal-title" id="deleteconfirmationModalTitle">Are you sure?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -195,7 +195,7 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" onclick="confirmdel()">YES</button>
+          <button type="button" class="btn btn-danger" onclick="confirmDel(<?php echo ("'".$username."'") ?>)">YES</button>
         </div>
       </div>
     </div>
@@ -258,7 +258,7 @@ if (isset($_SESSION['id'])) {
     var clicked;
 
     function acc(val) {
-      clicked = val;
+      c = val;
       console.log(val);
       // $("#confirmationModal").modal();
 
@@ -268,10 +268,10 @@ if (isset($_SESSION['id'])) {
       console.log(clicked);
     }
 
-    async function confirmdel() {
+    async function confirmDel(username) {
 
       let form = new FormData();
-      form.append("val", clicked);
+      form.append("username", username);
 
       let res = await fetch("deactivate.php", {
         method: "POST",
@@ -280,7 +280,12 @@ if (isset($_SESSION['id'])) {
       });
       let t = await res.text();
       console.log(t);
-      location.reload();
+      if(t == '1'){
+        window.location = 'index.php';
+      }else{
+        location.reload();
+        alert("error occur");
+      }
 
 
 

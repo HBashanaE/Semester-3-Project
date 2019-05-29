@@ -14,6 +14,7 @@
     proxydb::saveToDatabase($username,$hashedpassword,$email,$cpassword);
 }
     }
+    
 ?>
 
 <!DOCTYPE html>
