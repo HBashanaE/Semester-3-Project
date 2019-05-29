@@ -65,7 +65,8 @@ if (isset($_SESSION['id'])) {
     <!-- Bootstrap Local -->
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-    <script src="Resources/jquery/jquery-3.3.1.min"></script>
+    <script src="Resources/jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" > </script>
+    <script src="Resources/jquery/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -205,7 +206,7 @@ if (isset($_SESSION['id'])) {
     </div>
     <!-- Floating button fixed-bottom-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
     
     <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
 <nav class="navbar standard-bottom navbar-expand-lg navbar-dark bg-dark justify-content-between">

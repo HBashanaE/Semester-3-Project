@@ -6,6 +6,7 @@ if (isset($_SESSION['id'])) {
     $userId = $_SESSION['id'];
     $username = $_SESSION['username'];
     $logged = true;
+    //var_dump($userId);
 } else {
     $logged = false;
 }
@@ -23,12 +24,11 @@ if (isset($_SESSION['id'])) {
         $imagename=$_FILES["myimage"]["name"];
         $discription=$_POST["description"];
         //$title=$_POST["category"];
-        $list = $_POST['category'];
+        $list_category = $_POST['category'];
         $title=$_POST['form_title_val'];
-         die;
         include 'ad.php';
 
-        switch($list){
+        switch($list_category){
             case 'vehicle':
                 $list = '00';
             break;
@@ -49,9 +49,10 @@ if (isset($_SESSION['id'])) {
             break;
                             
         }
-
+        //$date=date("Y/m/d");
+        //$time=date("h:i:sa");
         $ad= new Ad();
-        $ad->addPost($username,$title,$telephone,$imagename,$discription,$list, $title,$target);
+        $ad->addPost($username,$title,$telephone,$imagename,$discription,$list, /*$date,$time,*/$target);
         }
     }
 }
@@ -63,7 +64,7 @@ if (isset($_SESSION['id'])) {
 <head>
 <title>Upload Your කුළියට.lk Avertisement</title>
     <!-- Bootstrap CDN-->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -78,8 +79,14 @@ if (isset($_SESSION['id'])) {
     <link rel="shortcut icon" href="Resources/favicon.ico">
     <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.min.css">
     <script src="Resources/bootstrap/js/bootstrap.min.js"> </script>
-    <script src="//Resources/jquery/jquery-3.3.1.min"></script>
+    <script src="Resources/jquery/jquery-3.3.1.min"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="Resoures/styles.css" rel="stylesheet">
 
 </head>
 <body>
@@ -91,7 +98,7 @@ if (isset($_SESSION['id'])) {
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                     data-display="static" aria-haspopup="true" aria-expanded="false">
-                    <?php echo htmlentities($_SESSION['username']) ?>
+                    <?php echo $username;//htmlentities($_SESSION['username']) ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" type="button" href="account.php">Account</a>
@@ -129,7 +136,7 @@ if (isset($_SESSION['id'])) {
  <div class="textarea" class="form-group" >
  <textarea class="form-control" id="description " rows="5" name ="description"  placeholder = "Description" maxlength="749" required></textarea>
  </div><pre></pre>
- <input type="submit" name="submit_image" class = "button" : hover value="Upload">
+ <input type="submit" name="submit_image" class = "btn btn-info" : hover value="Upload">
  </div>
  </div>
 </form>
