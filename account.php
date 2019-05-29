@@ -90,7 +90,6 @@ if (isset($_SESSION['id'])) {
     $sql = "SELECT * FROM ads WHERE username='$username'";
     $result = mysqli_query($db, $sql);
     while ($row = mysqli_fetch_array($result)) {
-      if ($row['approve'] == 'approve') {
         echo "<div class= 'container'>";
 
         echo "<div class = 'card mb-3' style='height: auto; width:90%;'>";
@@ -101,14 +100,20 @@ if (isset($_SESSION['id'])) {
         echo "<img src='ads/" . $row['image'] . "' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
         echo "<div class='card-body'>";
         echo '<pre class="card-text">' . $row['description'] . '</pre>';
+        if($row['approve'] == 'approve'){
+          echo "<p> Approved <p/>";
+        }else{
+          echo "<p class='text-danger'> Not approved<p/>";
+          echo '<p> If after 3 bussiness days your ad is not approved please check whether you have violated our rules and post your ad again</p>';
+        }
         echo "</div>";
         echo "</div>";
         echo "</div>";
+        
         echo "<button  class='btn btn-danger mr-1' data-toggle='modal' data-target='#confirmationModal' onclick=a(" . $row['id'] . ") >Remove ad</button>";
-        echo "<button class='btn btn-secondary mr-1'>Edit ad</button>";
+        // echo "<button class='btn btn-secondary mr-1'>Edit ad</button>";
         echo "</div>";
         echo "</br>";
-      }
     }
   } else {
 
