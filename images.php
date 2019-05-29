@@ -8,8 +8,30 @@
 		$TNum = $_POST['TNum'];
 		$Price = $_POST['Price'];
 		$list = $_POST['list1'];
-		if ($image!=Null and $text!=NUll and strlen($TNum)==10 and $Price!=Null and $list!=Null){
-			$sql = "INSERT INTO alladds(image,catagory, text,price,pnum) VALUES ('$image','$list','$text','$Price','$TNum');";
+		$title = $_POST['title'];
+		if ($image!=Null and $text!=NUll and strlen($TNum)==10 and $Price!=Null and $list!=Null and $title!=Null){
+			switch($list){
+				case 'vehicle':
+					$list = '00';
+				break;
+				case 'cleaning':
+					$list = '01';
+				break;
+				case 'Electrical':
+					$list = '02';
+				break;
+				case 'catering':
+					$list = '03';
+				break;
+				case 'building':
+					$list = '04';
+				break;
+				case 'other':
+					$list = '99';
+				break;
+								
+			}
+			$sql = "INSERT INTO alladds(image,title,catagory, text,price,pnum) VALUES ('$image','$title','$list','$text','$Price','$TNum');";
 			mysqli_query($db,$sql);
 		}
 		if(move_uploaded_file($_FILES['image']['name'],$target)){
@@ -104,13 +126,18 @@ select{
 	<form method = "post" action = "images.php" enctype = "multipart/form-data">
 		<input type = "hidden" name = "size" value = "1000000">
 		<input type = "file" name = "image">
+		<input type = "text" name = "title" placeholder = "Title">
 		<select name= 'list1' >
 			<option value = ''>Select Your Category</option> 
-            <option value = 'Electrical'>Electrical</option>
-            <option value = 'clean'>Cleaning</option>
-            <option value = 'tent'>Tent</option>
+			<option value = 'vehicle'>Vehicles</option>
+            <option value = 'cleaning'>Cleaning appliences</option>
+			<option value = 'Electrical'>Electrical/Electronic</option>
+            <option value = 'catering'>Catering</option>
+            <option value = 'building'>Building and construction</option>
+            <option value = 'other'>Other</option>
         </select>
 		</br>
+		
 		<textarea name = "text" cols="40" rows = "4" placeholder = "Your Address" ></textarea>
         <input type = "text" name = "TNum" placeholder = "Telephone Number" value = "">
         <input type = "text" name = "Price" placeholder = "Your Price Rs:">

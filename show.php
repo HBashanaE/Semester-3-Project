@@ -25,7 +25,7 @@
 }
 #img_div{
 	width:800px;
-	height:350px;
+	height:400px;
 	display:block;
 	margin:15px auto;
 	border: 1px solid #cbcbcb;
@@ -93,7 +93,7 @@ input[type=text]{
 #valid{
 	width: 100px;
 	height: 100px;
-	background-color:black;
+	background-color:yellow;
 }
 select{
 	width:400px;
@@ -118,6 +118,11 @@ select{
 	margin-right:70px;
 	margin-top:5px;
 }
+#title{
+	height: 40px;
+	border: 1px solid black;
+	text-align: center;
+}
 </style>
 <body>
 <div id = "content">
@@ -139,6 +144,9 @@ select{
 			while ($row = mysqli_fetch_array($result)){
 					echo "<div id='img_div'>";
 						echo "<section id = 'main_section'>";
+							echo "<div id = 'title'>";
+								echo "<p>".$row['title']."</p>";
+							echo "</div>";
 							echo "<div id = 'image'>";
 								echo "<img src = '".$row['image']."'>";
 							echo "</div>";
@@ -187,20 +195,21 @@ select{
 									$price = $row['price'];
 									$tnum = $row['pnum'];
 									$list = $row['catagory'];
-									$sqli = "INSERT INTO showadds(image,catagory, text,price,pnum) VALUES ('$image','$list','$text','$price','$tnum');";
+									$title = $row['title'];
+									$sqli = "INSERT INTO showadds(image,title,catagory, text,price,pnum) VALUES ('$image','$title','$list','$text','$price','$tnum');";
 									mysqli_query($db,$sqli);
-									$sql = "DELETE FROM alladds WHERE id = $id ";
-									mysqli_query($db,$sql);
-									if ($conn->query($sql) == TRUE){
+									//$sql = "DELETE FROM alladds WHERE id = $id ";
+									//mysqli_query($db,$sql);
+									if ($conn->query($sqli) == TRUE){
 										echo "<div id = 'valid'>";
-											echo "record deleted".$row['id'];
+											echo "record added".$row['id'];
 										echo "</div>";
 									}else {
-										echo "error deleting rexcord".$conn->error;
+										echo "error adding rexcord".$conn->error;
 									}
 									$conn->close();
 									}
-									if($row['catagory']==Null){
+									/*if($row['catagory']==Null){
 										$image = $row['image'];
 										$text = $row['text'];
 										$price = $row['price'];
@@ -208,7 +217,7 @@ select{
 										$list = $_GET['list1'];
 										$sqli = "INSERT INTO showadds(image,catagory, text,price,pnum) VALUES ('$image','$list','$text','$price','$tnum');";
 										mysqli_query($db,$sqli);
-									}
+									}*/
 									
 								}	
 							echo "</div>";

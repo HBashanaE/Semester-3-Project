@@ -106,14 +106,19 @@ ul li a{
     border: 1px solid #00FA9A;
     border-radius: 2px;
     text-align: center;
-    height: 25px;
+    height: 35px;
     line-height:25px;
 }
 ul{
     background-color:	#87CEFA;
     width:245px;
-    height:350px;
+    height:450px;
     border:3px solid #00FA9A;
+}
+#title{
+	height: 40px;
+	border: 1px solid blue;
+	text-align: center;
 }
 </style>
 <body>
@@ -123,10 +128,11 @@ ul{
             echo "<ul>";
                 echo "<li><a href = ''>".'Home'."</a></li>";
                 echo "<li><a href = 'electrical.php'>".'Electrical'."</a></li>";
-                echo "<li><a href = 'clean.php'>".'Clean'."</a></li>";
-                echo "<li><a href = 'tent.php'>".'Tent'."</a></li>";
-                echo "<li><a href = ''>".'bla..bla'."</a></li>";
-                echo "<li><a href = ''>".'bla..bla'."</a></li>";
+                echo "<li><a href = 'clean.php'>".'Cleaning appliences'."</a></li>";
+                echo "<li><a href = 'tent.php'>".'Vehicles'."</a></li>";
+                echo "<li><a href = ''>".'Catering'."</a></li>";
+				echo "<li><a href = ''>".'Building and construction'."</a></li>";
+				echo "<li><a href = ''>".'Other'."</a></li>";
             echo "</ul>";
 		?>
 	</div>
@@ -140,6 +146,9 @@ ul{
 			while ($row = mysqli_fetch_array($result)){
 					echo "<div id='img_div'>";
 						echo "<section id = 'main_section'>";
+							echo "<div id = 'title'>";
+								echo "<p>".$row['title']."</p>";
+							echo "</div>";
 							echo "<div id = 'image'>";
 								echo "<img src = '".$row['image']."'>";
 							echo "</div>";
