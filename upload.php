@@ -18,40 +18,41 @@ if (isset($_POST['submit_image'])) {
         if (strlen($telephone) != 10) {
             echo "<script>alert('Please enter a valid phone')</script>";
             //header('upload.php');
-        } else {
+        }else{
 
-            $target = "ads/" . basename($_FILES['myimage']['name']);
-            $imagename = $_FILES["myimage"]["name"];
-            $discription = $_POST["description"];
-            //$title=$_POST["category"];
-            $list_category = $_POST['category'];
-            $title = $_POST['form_title_val'];
-            include 'ad.php';
+        $target = "ads/".basename($_FILES['myimage']['name']);
+        $imagename=$_FILES["myimage"]["name"];
+        $discription=$_POST["description"];
+        //$title=$_POST["category"];
+        $list_category = $_POST['category'];
+        $title=$_POST['form_title_val'];
+        include 'ad.php';
 
-            switch ($list_category) {
-                case 'vehicle':
-                    $list = '00';
-                    break;
-                case 'cleaning':
-                    $list = '01';
-                    break;
-                case 'electrical':
-                    $list = '02';
-                    break;
-                case 'catering':
-                    $list = '03';
-                    break;
-                case 'building':
-                    $list = '04';
-                    break;
-                case 'other':
-                    $list = '99';
-                    break;
-            }
-            //$date=date("Y/m/d");
-            //$time=date("h:i:sa");
-            $ad = new Ad();
-            $ad->addPost($username, $title, $telephone, $imagename, $discription, $list, /*$date,$time,*/$target);
+        switch($list_category){
+            case 'vehicle':
+                $list = '00';
+            break;
+            case 'cleaning':
+                $list = '01';
+            break;
+            case 'electrical':
+                $list = '02';
+            break;
+            case 'catering':
+                $list = '03';
+            break;
+            case 'building':
+                $list = '04';
+            break;
+            case 'other':
+                $list = '99';
+            break;
+                            
+        }
+        $date=date("Y/m/d");
+        $time=date("h:i:sa");
+        $ad= new Ad();
+        $ad->addPost($username,$title,$telephone,$imagename,$discription,$list, $date,$time,$target);
         }
     }
 }
