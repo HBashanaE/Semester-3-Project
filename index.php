@@ -152,10 +152,10 @@ if (isset($_SESSION['id'])) {
     <div>
     <?php
         
-        $sql= "SELECT * FROM ads LIMIT 10";
+        $sql= "SELECT * FROM ads WHERE approve='approve' LIMIT 20 ";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
-            if ($row['approve']=='approve'){
+            //if ($row['approve']=='approve'){
                 echo "<div class= 'container'>"; 
                 echo "<div class = 'card mb-3' style='height: auto; width:90%;'>";
                 echo "<div class='card-body'>";
@@ -172,7 +172,7 @@ if (isset($_SESSION['id'])) {
                 echo "</div>";
                 echo"</br>"."</br>";
 
-        }
+        //}
     }
 
     ?>
