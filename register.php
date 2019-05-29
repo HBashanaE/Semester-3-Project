@@ -11,7 +11,7 @@
     include 'dbh.php';
     // $users = new dbh();
     // $users->saveToDatabase($username,$hashedpassword,$email,$cpassword);
-    dbh::saveToDatabase($username,$hashedpassword,$email,$cpassword);
+    proxydb::saveToDatabase($username,$hashedpassword,$email,$cpassword);
 }
     }
 ?>

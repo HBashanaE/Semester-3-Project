@@ -32,9 +32,9 @@
         }
         
 
-        public static function saveToDatabase($username,$password,$email,$cpassword){
+        public static function saveToDatabase($username,$password,$email){
             
-            if (password_verify($cpassword,$password)){
+           // if (password_verify($cpassword,$password)){
                 $db = self::getDataBase(); 
                 $query = "INSERT INTO members(username,password,activated,mail) VALUES('$username', '$password','1','$email')";
                 $result = mysqli_query($db,$query);
@@ -44,12 +44,30 @@
                 }else {
                     echo "Failed to register";
                 }
-            }else{
-                echo "passwords do not match";
-            }
+            //}else{
+            //    echo "passwords do not match";
+            //}
 
 
         }
+    }
+
+    class proxydb {
+
+        private function __construct(){
+
+        }
+
+        public static function saveToDatabase($username,$password,$email,$cpassword){
+            if (password_verify($cpassword,$password)){
+                dbh::saveToDatabase($username,$password,$email);
+            
+            }
+            else{
+                echo "passwords do not match";
+            }
+        
+        } 
     }
 
 ?>
