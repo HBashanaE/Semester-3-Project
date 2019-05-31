@@ -110,7 +110,8 @@
                         </div>
                         <div class="col-md-5 mb-3">
                         <label for="validationDefault04">Password</label>
-                            <input type="password" class="form-control" name="password" id="validationDefault02" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="validationDefault02" placeholder="Password" 
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                             <small id="passwordHelpInline" class="text-muted">
                                 Must be 8-20 characters long.
@@ -197,7 +198,7 @@ function userNameError(){
 -->
 
     <pre></pre><pre></pre><pre></pre><pre></pre><pre></pre>
-<nav class="navbar  navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar fixed-bottom  navbar-expand-lg navbar-dark bg-dark justify-content-between">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item">
     <a class="nav-link active" href="index.php">Home</a>
@@ -215,6 +216,6 @@ function userNameError(){
 <a class="nav-link" href="index.php"> <img classs="img-responsive" width="" height="75px" src="Resources/Kuliyata_logo_full.png" ></a>
 
 </nav>
-<button onclick="userNameError()">Test</button>
+<!--<button onclick="userNameError()">Test</button>-->
 </body>
 </html>

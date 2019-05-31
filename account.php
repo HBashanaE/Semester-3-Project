@@ -72,7 +72,7 @@ if (isset($_SESSION['id'])) {
         </button>
         <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item"  type="button" data-toggle='modal' data-target='#deleteconfirmationModal'>Deactivate accoount</a>
-          <a class="dropdown-item" type="button">Another action</a>
+          <!-- <a class="dropdown-item" type="button">Another action</a> -->
           <a class="dropdown-item" type="button" href="logout.php">Logout</a>
         </div>
         <button type="button" class="btn btn-warning"><a href="upload.php">Post AD</a></button>
@@ -101,6 +101,7 @@ if (isset($_SESSION['id'])) {
       echo "<img src='ads/" . $row['image'] . "' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
       echo "<div class='card-body'>";
       echo '<pre class="card-text">' . $row['description'] . '</pre>';
+      echo '<h4 class="card-head">Posted on: ' . $row['date'] . '</h4>';
       if ($row['approve'] == 'approve') {
         echo "<p> Approved <p/>";
       } else {
@@ -176,9 +177,9 @@ if (isset($_SESSION['id'])) {
 
   </div>
 
-  <button onclick="asd()">
+  <!-- <button onclick="asd()">
     Test
-  </button>
+  </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="deleteconfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteconfirmationModalTitle" aria-hidden="true">

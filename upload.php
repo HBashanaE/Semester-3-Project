@@ -28,9 +28,7 @@ if (isset($_POST['submit_image'])) {
         $n=$_FILES["myimage"]["name"];
         $target = "ads/".basename($n);
         $imagename=$n;
-        
         $discription=$_POST["description"];
-        //$title=$_POST["category"];
         $list_category = $_POST['category'];
         $title=$_POST['form_title_val'];
         include 'ad.php';

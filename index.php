@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id'] = $userId;
                 header('Location: index.php');
             } else {
-                echo "<b><i>Invalid password</i><b>";
+                echo"<script>alert('Invalid Password or Username')</script>";
+                //echo "<b><i>Invalid password</i><b>";
             }
         } else {
             $show_modal = true;
@@ -165,6 +166,8 @@ if (isset($_SESSION['id'])) {
                 echo "<div class='card-body'>";
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
                 echo '<h3 class="card-text">Posted by: '.$row['username'].'</h3>';
+                echo '<h5 class="card-text">Posted by: '.$row['telephone'].'</h5>';
+                echo "<pre></pre>";
                 echo '<h6 class="card-text">Posted on: '.$row['date'].'</h6>';
                 echo "</div>";
                 echo "</div>";

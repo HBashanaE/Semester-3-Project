@@ -82,7 +82,7 @@ if (isset($_SESSION['id'])) {
         $search = new Search();
     
 
-        $SQLQuery = $search->searchQ($query);
+        $SQLQuery = $search->searchQ($query,$category);
         echo $search->renderHTML($SQLQuery);
         ?>
     </div>

@@ -1,6 +1,7 @@
 <?php
 $mgs="";
 session_start();
+$username = $_SESSION['username']
 
 ?>
 <!DOCTYPE html>
@@ -9,7 +10,7 @@ session_start();
 <head>
 <title>Reviwe images</title>
 <link rel="shortcut icon" href="Resources/favicon.ico">
-<link href="uploadstyle.css" rel="stylesheet">
+<!-- <link href="uploadstyle.css" rel="stylesheet"> -->
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -42,10 +43,26 @@ async function sendData(id){
         body: form
     });
 }
-    <?php
-        
+</script>
+        <!--<div class="container">
+        <h2 class="form-title"> Wellocme Back <?php echo $username ?></h2>
+ -->   <?php
+         include_once('dbh.php');
+         $db = dbh::getDataBase();
+        // $sql= "SELECT * FROM ads";
+        // $result= mysqli_query($db,$sql);
+        // while ($row=mysqli_fetch_array($result)){
+        //     if ($row['approve']!='approve'){
+        //     echo "<div class = 'container'>";
+        //      echo "<form method='POST' action='loadimage.php' enctype ='multipart/form-data'>";
+        //         echo "<img src='ads/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
+        //         echo "<p>".$row['description']. "</p>";
+        //         echo "<input type='submit' name='submit_image' class = 'button' : hover  onclick=confirm(" . $row['id'] . ") value='Approve'>";
+        //     echo "</form>";
+        //     echo "</div>";
         //session_start();
-        $db=mysqli_connect("localhost" , "root", "", "login");
+        
+        //$db=mysqli_connect("localhost" , "root", "", "login");
         $sql= "SELECT * FROM ads";
         $result= mysqli_query($db,$sql);
         while ($row=mysqli_fetch_array($result)){
@@ -53,10 +70,17 @@ async function sendData(id){
             echo "<div class = 'container'>";
              echo "<form method='POST' action='loadimage.php' enctype ='multipart/form-data'>";
                 echo "<img src='ads/".$row['image']."' class ='img-thumbnail' alt = 'Responsive image' style ='width : 500px ; height:500px;'>";
-                echo "<p>".$row['description']. "</p>";
-                echo "<input type='submit' name='submit_image' class = 'button' : hover onclick=sendData(".$row['id'].") value='Approve'>";
-            echo "</form>";
+                echo '<pre class="card-text">'.$row['description'].'</pre>';
+                echo '<h3 class="card-text">Posted by: '.$row['username'].'</h3>';
+                echo '<h5 class="card-text">Posted by: '.$row['telephone'].'</h5>';
+                echo "<pre></pre>";
+                echo '<h6 class="card-text">Posted on: '.$row['date'].'</h6>';
+                echo "<input type='submit' name='submit_image' class = 'btn btn-primary' onclick=confirm(" . $row['id'] . ") value='Approve'>";
+               // echo "<input type='submit' name='submit_image' class = 'button' : hover  onclick=confirm(" . $row['id'] . ") value='Approve'>";
+                echo "</form>";
             echo "</div>";
+            
+            /*
             $id=$row['id'];
             if (isset($_POST['submit_image'])) {
                 if($_POST['submit_image']){
@@ -67,14 +91,40 @@ async function sendData(id){
              
                 }
         
-            }
+            }*/
 
         }
     }
 
     ?>
 </div>
+<script>
+    function a(val) {
+      clicked = val;
+      console.log(val);
+      // $("#confirmationModal").modal();
 
+    }
+
+    async function confirm(id) {
+
+
+let form = new FormData();
+form.append("id", id);
+
+let res = await fetch("ad1.php", {
+  method: "POST",
+  body: form
+
+});
+let t = await res.text();
+console.log(t);
+location.reload();
+
+
+
+}
+</script>
                 
 </body>
 
