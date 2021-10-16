@@ -85,6 +85,7 @@ class Search{
 
             }
         } else { 
+            $htmlString .= "<h1><br></h1>";
             $htmlString .= "<h1 class='text-danger'>No results found</h1>";
             $htmlString .= "<p class='text-danger'>Please try different category</p>";
         }
