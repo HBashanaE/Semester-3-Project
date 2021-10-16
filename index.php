@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         $query = mysqli_query($db, $sql);
         if ($query) {
             $row = mysqli_fetch_row($query);
-            $userId = $row[2];
+            $userId = $row[1];
             $dbUserName = $row[1];
             $dbPassword = $row[2];
         }
@@ -132,7 +132,7 @@ if (isset($_SESSION['id'])) {
                                 <select class="form-control search-slt" name="category" id="selectCategory" placeholder="Select Category">
                                     <option>All</option>
                                     <option>Vehicles</option> <!-- 00 -->
-                                    <option>Cleaning appliences</option> <!-- 01 -->
+                                    <option>Cleaning appliances</option> <!-- 01 -->
                                     <option>Electrical/Electronic</option> <!-- 02 -->
                                     <option>Catering</option> <!-- 03 -->
                                     <option>Building and construction</option> <!-- 04 -->
@@ -162,7 +162,7 @@ if (isset($_SESSION['id'])) {
                 echo "<div class='card-body'>";
                 echo '<h2 class="card-head">'.$row['title'].'</h2>';
                 echo"</br>";
-                echo "<img src='ads/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
+                echo "<img src='myimage/".$row['image']."' class ='card-img-top img-thumbnail' alt = 'Thumbnail image' style ='width : auto ; height:400px;'>";
                 echo "<div class='card-body'>";
                 echo '<pre class="card-text">'.$row['description'].'</pre>';
                 echo '<h3 class="card-text">Posted by: '.$row['username'].'</h3>';
